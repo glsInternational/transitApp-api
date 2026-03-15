@@ -1,0 +1,14 @@
+# Ignore les modules Node.js
+/node_modules/
+
+# Ignore le répertoire des fichiers téléchargés (uploads)
+/uploads/
+
+# Ignore les fichiers générés par l'éditeur (ex. VSCode)
+.vscode/
+
+# Ignore les fichiers de log
+*.log
+
+# Ignore les fichiers d'environnement
+# .env

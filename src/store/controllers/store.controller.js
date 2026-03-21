@@ -71,12 +71,23 @@ exports.registerDynamique = async (req, res) => {
 // Mise A JOUR DU NOTE
 exports.updateDynamqique = async (req, res) => {
   try {
-    const { tableName, menu, ...formData } = req.body;
+    const { code_dynamique } = req.params; // On s'attend à ce que le code soit dans l'URL
+    const { menu, ...formData } = req.body;
 
-    if (!tableName || typeof tableName !== "string" || !menu) {
+    if (!menu || !code_dynamique) {
       return res.status(400).json({
         status: false,
-        message: "Les champs 'tableName' et 'menu' sont requis.",
+        message: "Le 'menu' dans le body et le 'code_dynamique' dans l'URL sont requis.",
+        data: {},
+      });
+    }
+
+    const tableName = await fetchOneValue({ code_menu: menu }, "tbl_name", "acl_menus");
+
+    if (!tableName) {
+      return res.status(400).json({
+        status: false,
+        message: "Table de destination introuvable pour ce menu.",
         data: {},
       });
     }
@@ -92,40 +103,56 @@ exports.updateDynamqique = async (req, res) => {
       });
     }
 
-    // Vérifier si l'utilisateur existe
-    const champ = await Champ.findOne({ code_champ: code_champ });
-    if (!champ) {
-      return res.status(404).json({
+    // Construction de l'objet de mise à jour uniquement avec les champs autorisés
+    const dataToUpdate = {};
+    for (let champ of champs) {
+      const key = champ.id_champ;
+      if (formData.hasOwnProperty(key)) {
+        dataToUpdate[key] = formData[key];
+      }
+    }
+
+    if (Object.keys(dataToUpdate).length === 0) {
+      return res.status(400).json({
         status: false,
-        message: "Champ non trouvée.",
+        message: "Aucune donnée valide fournie pour la mise à jour.",
         data: {},
       });
     }
 
-    // Mettre à jour les champs modifiables
-    if (menu) champ.menu = menu;
-    if (visible_par) champ.visible_par = visible_par;
-    if (libelle) champ.libelle = libelle;
-    if (id_champ) champ.id_champ = id_champ;
-    if (type_champ) champ.type_champ = type_champ;
-    if (ordre) champ.ordre = ordre;
-    if (commentaire) champ.commentaire = commentaire;
-    if (obligatoire) champ.obligatoire = obligatoire;
+    // Accéder directement à la collection MongoDB (comme tu l'as fait pour delete)
+    const Collection = mongoose.connection.collection(tableName);
 
-    // Enregistrer les modifications
-    await champ.save();
+    // Vérifier si l'enregistrement dynamique existe
+    const existingDoc = await Collection.findOne({ code_dynamique: code_dynamique });
+    if (!existingDoc) {
+      return res.status(404).json({
+        status: false,
+        message: "Enregistrement non trouvé.",
+        data: {},
+      });
+    }
 
-    // Supprimer le mot de passe des données de la réponse
-    const champReponse = champ.formatResponse(champ);
+    // Mettre à jour l'enregistrement
+    await Collection.updateOne(
+      { code_dynamique: code_dynamique },
+      { $set: dataToUpdate }
+    );
+
+    // Récupérer le document mis à jour pour le renvoyer proprement
+    const updatedDoc = await Collection.findOne({ code_dynamique: code_dynamique });
+    if (updatedDoc) {
+      delete updatedDoc._id; // On retire l'ObjectId natif de Mongo pour la réponse
+    }
 
     res.status(200).json({
       status: true,
-      message: "Champ mise à jour avec succès.",
-      data: champReponse,
+      message: "Enregistrement mis à jour avec succès.",
+      data: updatedDoc,
     });
   } catch (error) {
-    res.status(400).json({
-      status: true,
+    res.status(500).json({ // Correction: 500 et status false
+      status: false,
       message: error.message || "Une erreur interne est survenue.",
       data: {},
     });

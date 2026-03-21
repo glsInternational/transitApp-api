@@ -12,17 +12,18 @@ const privilegeRoute = require('./privilege/routes/privilege.route');
 
 const app = express();
 
-// Middlewares
-app.use(verifyApiKey);
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use(cors({
   origin: '*',
-  methods: ['GET', 'POST', 'OPTIONS'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'X-Api-Key'] // Autorise ton header personnalisé
 }));
+
+// Middlewares
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(verifyApiKey);
+
+
 
 // Routes
 app.use('/api/admin', adminRoute); // ROUTES ADMINISTRATEUR

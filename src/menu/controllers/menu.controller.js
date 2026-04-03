@@ -86,49 +86,64 @@ exports.getMenuByProfile = async (req, res) => {
         // 1. Récupérer la liste des menus (brute)
         const rawMenu = await fetchOneValue({ profil: profil }, "menuList", "acl_privilege_profiles");
 
+        const defaultDashboard = {
+            designation: "Tableau de bord",
+            type: "enfant",
+            route: "/",
+            svg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>',
+            ordre: "0",
+            code_menu: "default_dashboard",
+            status: "1",
+            corbeille: "0"
+        };
+
         if (!rawMenu || (Array.isArray(rawMenu) && rawMenu.length === 0)) {
-            // Retourner un menu par défaut au lieu d'une erreur 404
-            const defaultMenu = {
-                designation: "Tableau de bord",
-                type: "enfant",
-                route: "/",
-                svg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>',
-                ordre: "1",
-                code_menu: "default_dashboard",
-                status: "1",
-                corbeille: "0"
-            };
             return res.status(200).json({
                 status: true,
                 message: "Menu par défaut (Tableau de bord).",
-                data: [defaultMenu]
+                data: [defaultDashboard]
             });
         }
 
-        // 2. NETTOYAGE : Transforme ['code1, code2'] en ['code1', 'code2']
-        // Le flatMap split chaque élément par la virgule et trim les espaces
-        const cleanMenuCodes = Array.isArray(rawMenu) 
-            ? rawMenu.flatMap(item => item.split(',').map(s => s.trim()))
-            : rawMenu.split(',').map(s => s.trim());
+        // 2. NETTOYAGE : Transforme [{code, actions}, ...] ou ['code1, code2'] en ['code1', 'code2']
+        let cleanMenuCodes = [];
+        if (Array.isArray(rawMenu)) {
+            cleanMenuCodes = rawMenu.flatMap(item => {
+                if (typeof item === 'object' && item.code) return item.code;
+                if (typeof item === 'string') return item.split(',').map(s => s.trim());
+                return [];
+            });
+        } else if (typeof rawMenu === 'string') {
+            cleanMenuCodes = rawMenu.split(',').map(s => s.trim());
+        }
 
-        // 3. OPTIMISATION : Une seule requête pour tous les menus au lieu d'une boucle
-        const menusFound = await Menu.find({ 
+        // 3. Récupérer les menus
+        let menusFound = await Menu.find({ 
             code_menu: { $in: cleanMenuCodes } 
         });
 
-        if (menusFound.length === 0) {
-            return res.status(404).json({
-                status: false,
-                message: "Les détails des menus sont introuvables.",
-                data: []
+        // 4. SÉCURITÉ : Ajouter les parents manquants pour assurer l'affichage dans la sidebar
+        const parentCodes = [...new Set(menusFound.map(m => m.parent).filter(p => p && p !== ""))];
+        if (parentCodes.length > 0) {
+            const missingParents = await Menu.find({
+                code_menu: { $in: parentCodes },
+                code_menu: { $nin: menusFound.map(m => m.code_menu) }
             });
+            menusFound = [...menusFound, ...missingParents];
         }
 
-        // 4. Formatage de la réponse
-        const menuResponse = menusFound.map((menuItem, index) => ({
+        // 5. Formatage et ajout systématique du Tableau de bord s'il n'y est pas
+        let menuResponse = menusFound.map((menuItem, index) => ({
             ...menuItem.formatResponse(),
             position: index + 1
         }));
+
+        // Vérifier si un menu avec route "/" existe déjà
+        const hasDashboard = menuResponse.some(m => m.route === "/" || m.code_menu === "default_dashboard");
+        
+        if (!hasDashboard) {
+            menuResponse = [ { ...defaultDashboard, position: 0 }, ...menuResponse ];
+        }
 
         res.status(200).json({
             status: true,

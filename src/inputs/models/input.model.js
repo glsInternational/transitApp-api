@@ -50,9 +50,12 @@ const champSchema = new mongoose.Schema(
     // ─── Type du champ (HTML/UI) ─────────────────────────────────────────────
     type_champ: {
       type: String,
-      required: true,
+      required: [true, "Le type de champ est obligatoire."],
       trim: true,
-      enum: ["text", "number", "password", "textarea", "select", "multi-select", "date", "file"],
+      enum: {
+        values: ["text", "number", "password", "textarea", "select", "multi-select", "date", "file"],
+        message: "`{VALUE}` n'est pas un type de champ valide.",
+      }
     },
 
     // Extensions acceptées — uniquement pertinent si type_champ === "file"
@@ -75,23 +78,43 @@ const champSchema = new mongoose.Schema(
     is_unique: {
       type: String,
       required: [true, "Le champ 'is_unique' est obligatoire."],
-      enum: ["oui", "non"],
+      enum: {
+        values: ["oui", "non"],
+        message: "La valeur doit être 'oui' ou 'non'."
+      },
       default: "non",
     },
 
     // Indique si ce champ est affiché dans le tableau côté front-end
     afficher_tableau: {
       type: String,
-      required: true,
-      enum: ["oui", "non"], // "oui" = visible dans le tableau, "non" = masqué
+      required: [true, "Le champ 'afficher_tableau' est obligatoire."],
+      enum: {
+        values: ["oui", "non"],
+        message: "La valeur doit être 'oui' ou 'non'."
+      },
       default: "oui",
     },
 
     // Validation de format appliquée à la valeur saisie
     type_validation: {
       type: String,
-      enum: ["email", "phone", "number", ""],
+      enum: {
+        values: ["email", "phone", "number", "date", ""],
+        message: "`{VALUE}` n'est pas une option de validation valide.",
+      },
       default: "",
+    },
+
+    // Options pour les champs de type select ou multi-select
+    options: {
+      type: [
+        {
+          label: { type: String, required: true },
+          value: { type: String, required: true },
+        },
+      ],
+      default: [],
     },
 
     // Ordre d'affichage du champ — unique par menu (index composé)
@@ -101,8 +124,11 @@ const champSchema = new mongoose.Schema(
 
     obligatoire: {
       type: String,
-      required: true,
-      enum: ["oui", "non"],
+      required: [true, "Le choix du caractère obligatoire est requis."],
+      enum: {
+        values: ["oui", "non"],
+        message: "La valeur doit être 'oui' ou 'non'."
+      },
     },
 
     // ─── Identifiant technique interne ───────────────────────────────────────

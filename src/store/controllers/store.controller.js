@@ -34,8 +34,35 @@ const buildAndValidateData = async (champs, formData, tableName, excludeCode = n
       continue;
     }
 
-    if (value !== undefined) {
-      // Vérification d'unicité dans la table dynamique
+    if (value !== undefined && value !== null && value !== "") {
+      // ─── VALIDATION MÉTIER (Email, Phone, Number) ──────────────────────────────
+      if (champ.type_validation === "email") {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(String(value).trim())) {
+          errors.push(`Le champ '${champ.libelle}' doit être une adresse email valide.`);
+          continue;
+        }
+      } else if (champ.type_validation === "phone") {
+        const phoneRegex = /^\+?[0-9]{1,4}?\s?[0-9]{6,15}$/;
+        const cleanedPhone = String(value).replace(/\s+/g, "");
+        if (!/^\+?[0-9]{7,15}$/.test(cleanedPhone)) {
+          errors.push(`Le champ '${champ.libelle}' doit être un numéro de téléphone valide.`);
+          continue;
+        }
+      } else if (champ.type_validation === "number") {
+        if (isNaN(Number(value))) {
+          errors.push(`Le champ '${champ.libelle}' doit être une valeur numérique.`);
+          continue;
+        }
+      } else if (champ.type_validation === "date") {
+        const dateValue = new Date(value);
+        if (isNaN(dateValue.getTime())) {
+          errors.push(`Le champ '${champ.libelle}' doit être une date valide.`);
+          continue;
+        }
+      }
+
+      // ─── VÉRIFICATION D'UNICITÉ ────────────────────────────────────────────────
       if (champ.is_unique === "oui") {
         const query = { [key]: value };
         if (excludeCode) query.code_dynamique = { $ne: excludeCode };
@@ -283,9 +310,9 @@ exports.getDynamiqueInfoByMenu = async (req, res) => {
     const docs = await fetchAll(menuInfo.tableName);
 
     if (!docs || docs.length === 0) {
-      return res.status(404).json({
-        status: false,
-        message: "Aucune donnée trouvée pour ce menu.",
+      return res.status(200).json({
+        status: true,
+        message: "Succès (Aucune donnée trouvée).",
         data: [],
       });
     }

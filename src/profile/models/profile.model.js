@@ -4,7 +4,6 @@ const {generateToken} = require('../../../utils/utils')
 // #### GESTION DES PROFILS ####
 const profileSchema = new mongoose.Schema({
     designation: { type: String, required: true, trim: true, lowercase: true, unique: true },
-    actions: { type: Array, required: true },
     visibilite: { type: Array, required: true },
     type_accueil: { type: String, trim: true, default: "*" },
     bloc_visible: { type: Array, default: [] },

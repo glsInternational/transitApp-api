@@ -27,17 +27,16 @@ droitSchema.methods.formatResponse = async function () {
 
     // Récupérer les noms des menus en parallèle
     if (profileData.menuList && profileData.menuList.length > 0) {
-        const menuPromises = profileData.menuList.map(async (menu, index) => {
+        const menuPromises = profileData.menuList.map(async (item, index) => {
             try {
-                const menuData = await fetchOneValue({ code_menu: menu }, 'designation', 'acl_menus');
+                const menuCode = typeof item === 'string' ? item : item.code;
+                const menuData = await fetchOneValue({ code_menu: menuCode }, 'designation', 'acl_menus');
                 if (menuData) {
-                    // Assurez-vous que le tableau menuListName existe
                     profileData.menuListName = profileData.menuListName || [];
-                    profileData.menuListName[index] = menuData;  // Associer chaque nom de menu à son index
+                    profileData.menuListName[index] = menuData;
                 }
             } catch (error) {
-                console.error(`Erreur lors de la récupération du menu ${menu}:`, error);
-                // Vous pouvez gérer l'erreur ici si nécessaire, ou laisser empty
+                console.error(`Erreur lors de la récupération du menu :`, error);
             }
         });
 

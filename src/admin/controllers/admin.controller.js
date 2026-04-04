@@ -1,7 +1,9 @@
 const bcrypt = require('bcrypt');
 const path = require('path');
 const fs = require('fs');
+const jwt = require('jsonwebtoken');
 const { Administrateur } = require('../models/admin.model');
+const { logAction } = require('../../audit/services/audit.service');
 
 
 // Inscription
@@ -19,6 +21,9 @@ exports.registerUser = async (req, res) => {
 
         await user.save();
         
+        // --- AUDIT ---
+        await logAction(req, 'CREATE', 'ADMIN', { admin_nom: nom, user_email: email });
+
         // Conversion de l'utilisateur en objet et suppression du mot de passe
         const userResponse = await user.formatResponse();
 
@@ -83,10 +88,32 @@ exports.loginUser = async (req, res) => {
         // Récupération des données formatées
         const userResponse = await user.formatResponse();
 
+        // --- GÉNÉRATION DU JWT ---
+        const secret = process.env.JWT_SECRET || 'votre_cle_secrete_ultra_securisee_2026';
+        const tokenJWT = jwt.sign(
+            { 
+                nom: user.nom, 
+                email: user.email, 
+                profile: user.profile,
+                profileName: userResponse.profileName,
+                token: user.token 
+            }, 
+            secret, 
+            { expiresIn: '24h' }
+        );
+
+        // --- AUDIT LOG ---
+        // On passe un req factice car req.user n'est pas encore dispo au login
+        req.user = { nom: user.nom, email: user.email };
+        await logAction(req, 'LOGIN', 'AUTH', { status: 'success' });
+
         res.status(200).json({ 
             status: true,
             message: 'Connexion réussie.',
-            data: userResponse
+            data: {
+                ...userResponse,
+                token: tokenJWT // On remplace le token statique par le JWT
+            }
         });
 
     } catch (error) {
@@ -131,7 +158,8 @@ exports.getAdminList = async (req, res) => {
 
 exports.getUserInfo = async (req, res) => {
     try {
-        const token = req.params.token;
+        // Si on appelle /me, ou si token est manquant dans l'URL, on utilise celui du JWT
+        const token = (req.params.token && req.params.token !== 'me') ? req.params.token : req.user.token;
 
         const user = await Administrateur.findOne({ token: token, corbeille: "0" });
         if (!user) {
@@ -204,6 +232,12 @@ exports.updateAccompteUser = async (req, res) => {
 
         // Enregistrer les modifications
         await user.save();
+
+        // --- AUDIT ---
+        await logAction(req, 'UPDATE', 'ADMIN', { 
+            admin_nom: user.nom, 
+            champs_modifies: { nom, email, telephone, genre, type_compte, profile, status } 
+        });
 
         // Supprimer le mot de passe des données de la réponse
         const userResponse = await user.formatResponse();
@@ -326,6 +360,9 @@ exports.deleteAdmin = async (req, res) => {
 
         await user.save();
 
+        // --- AUDIT ---
+        await logAction(req, 'DELETE', 'ADMIN', { admin_nom: user.nom, status: 'archive' });
+
         res.status(200).json({
             status: true,
             message: 'Succès.',
@@ -336,6 +373,34 @@ exports.deleteAdmin = async (req, res) => {
             status: false,
             message: error.message || 'Une erreur interne est survenue.',
             data: {}
+        });
+    }
+};
+
+exports.getAuditLogs = async (req, res) => {
+    try {
+        // Vérification stricte du rôle super-admin
+        if (req.user.profileName !== 'super-admin') {
+            return res.status(403).json({
+                status: false,
+                message: "Accès refusé : Seul le super-admin peut consulter l'audit.",
+                data: []
+            });
+        }
+
+        const { Audit } = require('../../audit/models/audit.model');
+        const logs = await Audit.find().sort({ createdAt: -1 }).limit(100);
+
+        res.status(200).json({
+            status: true,
+            message: 'Audit récupéré avec succès.',
+            data: logs
+        });
+    } catch (error) {
+        res.status(500).json({ 
+            status: false,
+            message: error.message || 'Une erreur interne est survenue.',
+            data: []
         });
     }
 };

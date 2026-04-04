@@ -2,6 +2,7 @@ const { Dossier } = require('../models/dossier.model');
 const { RegimeDouanier } = require('../models/regime.model');
 const { createNotificationInternal } = require('../../notification/controllers/notification.controller');
 const { Administrateur } = require('../../admin/models/admin.model');
+const { logAction } = require('../../audit/services/audit.service');
 
 // ADD DOSSIER
 exports.registerDossier = async (req, res) => {
@@ -20,6 +21,9 @@ exports.registerDossier = async (req, res) => {
 
         const dossier = new Dossier(dossierData);
         await dossier.save();
+
+        // --- AUDIT ---
+        await logAction(req, 'CREATE', 'DOSSIER', { num_dossier: dossier.num_dossier, client: dossier.client });
 
         // --- NOTIFICATION ---
         try {
@@ -137,6 +141,12 @@ exports.updateDossier = async (req, res) => {
 
         await dossier.save();
 
+        // --- AUDIT ---
+        await logAction(req, 'UPDATE', 'DOSSIER', { 
+            num_dossier: dossier.num_dossier, 
+            champs_modifies: req.body 
+        });
+
         // --- NOTIFICATION ---
         try {
             const admins = await Administrateur.find({ status: '1', corbeille: '0' });
@@ -184,6 +194,9 @@ exports.deleteDossier = async (req, res) => {
 
         dossier.corbeille = '1';
         await dossier.save();
+
+        // --- AUDIT ---
+        await logAction(req, 'DELETE', 'DOSSIER', { num_dossier: dossier.num_dossier, status: 'archive' });
 
         res.status(200).json({
             status: true,
@@ -245,6 +258,13 @@ exports.updateOperation = async (req, res) => {
         }
 
         await dossier.save();
+
+        // --- AUDIT ---
+        await logAction(req, 'UPDATE', 'OPERATION', { 
+            num_dossier: dossier.num_dossier, 
+            type: 'fiche_operatrice',
+            details: 'Mise à jour des articles et calculs financiers'
+        });
 
         res.status(200).json({
             status: true,

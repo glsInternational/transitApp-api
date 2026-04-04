@@ -1,5 +1,6 @@
 const {Menu} = require('../models/menu.model');
 const { fetchOneValue } = require('../../../services/requetes');
+const { logAction } = require('../../audit/services/audit.service');
 
 
 // ADD Menu
@@ -10,6 +11,9 @@ exports.registerMenu = async (req, res) => {
         const menu = new Menu({  designation, type, route, svg, ordre, commentaire, parent, tbl_name });
 
         await menu.save();
+
+        // --- AUDIT ---
+        await logAction(req, 'CREATE', 'MENU', { designation, route, parent });
         
         // On réordonne pour s'assurer que l'ordre est propre (au cas où on insère au milieu)
         await reorderMenusByParent(menu.parent);
@@ -234,6 +238,9 @@ exports.updateMenu = async (req, res) => {
         menu.__v = menu.__v + 1;
         await menu.save();
 
+        // --- AUDIT ---
+        await logAction(req, 'UPDATE', 'MENU', { code_menu, designation, route, parent, old_parent: oldParent });
+
         // Réordonner les anciens et nouveaux parents si nécessaire
         await reorderMenusByParent(menu.parent);
         if (parentChanged) {
@@ -272,6 +279,9 @@ exports.deleteMenu = async (req, res) => {
 
         const parentOfDeleted = menu.parent || "";
         await Menu.deleteOne({ code_menu: code_menu });
+
+        // --- AUDIT ---
+        await logAction(req, 'DELETE', 'MENU', { code_menu: code_menu, designation: menu.designation });
 
         // Compacter l'ordre du parent après suppression
         await reorderMenusByParent(parentOfDeleted);

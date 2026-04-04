@@ -19,7 +19,7 @@ const app = express();
 app.use(cors({
   origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'X-Api-Key'] // Autorise ton header personnalisé
+  allowedHeaders: ['Content-Type', 'X-Api-Key', 'Authorization'] // Autorise ton header personnalisé et le JWT
 }));
 
 // Middlewares

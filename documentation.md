@@ -44,10 +44,25 @@ Pour les régimes suspensifs, le modèle de données inclut des champs d'automat
 
 ---
 
-## 5. Perspectives d'Evolution (Roadmap)
+## 6. Gestion Dynamique des Accès (Menus & Sidebar)
+Le système de navigation (Sidebar) est entièrement piloté par la base de données et filtré selon les privilèges de l'utilisateur.
+
+- **Automatisations des Ordres (`reorderMenusByParent`)** : 
+    - Le système garantit une séquence d'affichage propre (1, 2, 3...) pour chaque groupe de menus.
+    - Lors de l'ajout, suppression ou modification d'un menu (changement de parent), les ordres sont recalculés automatiquement pour éviter les trous ou les doublons.
+    - **Trigger** : `src/menu/controllers/menu.controller.js` -> `reorderMenusByParent()`
+- **Filtrage par Profil (RBAC)** :
+    - L'endpoint `GET /menu/v1/menuByProfil/:profil` extrait uniquement les menus autorisés définis dans `acl_privilege_profiles`.
+    - **Récupération Automatique des Parents** : Si un utilisateur a accès à un menu "enfant" mais que son "parent" n'est pas explicitement listé, le système récupère automatiquement le parent pour assurer l'affichage correct dans la Sidebar. (Correction d'un bug de sur-récupération effectué le 04/04/2026).
+- **Calcul d'Ordre Intelligent** :
+    - L'assistant de création de menu propose automatiquement le prochain numéro d'ordre disponible (`getNextOrder`) dès qu'un parent est sélectionné.
+
+---
+
+## 7. Perspectives d'Evolution (Roadmap)
 - [ ] **Automatisation de la caution** : Calculer un montant de garantie provisoire basé sur un % des taxes suspendues selon le régime (CI).
 - [ ] **Alerte Echéance** : Envoi de SMS/Email automatique 7 jours avant l'expiration d'un régime suspensif (D56/D18).
 - [ ] **Mapping Excel Direct** : Possibilité d'importer directement la "Fiche Opératrice" d'un Excel XLSM vers le dossier.
 
 ---
-*Dernière mise à jour : 03 Avril 2026*
+*Dernière mise à jour : 04 Avril 2026*

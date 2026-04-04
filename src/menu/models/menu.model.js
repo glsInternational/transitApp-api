@@ -23,10 +23,10 @@ const menuSchema = new mongoose.Schema({
     timestamps: true // Ajoute createdAt et updatedAt automatiquement
 });
 
-// Index composé : l'ordre est unique uniquement pour le même parent.
-// Les enfants du parent A auront leurs ordres (1, 2...), ceux du parent B aussi.
-// Les menus principaux (parent = "") auront aussi leurs propres ordres uniques.
-menuSchema.index({ ordre: 1, parent: 1 }, { unique: true });
+// Index composé : l'ordre est géré par le contrôleur pour être séquentiel.
+// On retire la contrainte unique car la logique logicielle de réorganisation s'en charge.
+menuSchema.index({ ordre: 1, parent: 1 });
+
 
 // Méthode d'instance pour formater la réponse menu
 menuSchema.methods.formatResponse = function () {
@@ -37,4 +37,10 @@ menuSchema.methods.formatResponse = function () {
 };
 
 const Menu = mongoose.model('acl_menus', menuSchema);
-module.exports.Menu = Menu;
+
+// On s'assure que les anciens index uniques sont supprimés pour permettre la réorganisation automatique
+Menu.collection.dropIndex("ordre_1").catch(() => {});
+Menu.collection.dropIndex("ordre_1_parent_1").catch(() => {});
+
+
+module.exports.Menu = Menu;

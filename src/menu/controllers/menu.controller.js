@@ -11,16 +11,17 @@ exports.registerMenu = async (req, res) => {
 
         await menu.save();
         
-        // Récupérer tous les profils
+        // On réordonne pour s'assurer que l'ordre est propre (au cas où on insère au milieu)
+        await reorderMenusByParent(menu.parent);
+
+        // Récupérer tous les menus
         const menus = await Menu.find();
 
-        // Supprimer les informations sensibles pour chaque profil
         const menuResponse = menus.map((menu, index) => ({
-        ...menu.formatResponse(),
-        position: index + 1, // Ajoute la position en commençant par 1
+            ...menu.formatResponse(),
+            position: index + 1, 
         }));
 
-        // Réponse avec l'utilisateur sans le mot de passe
         res.status(201).json({
             status: true,
             message: 'Menu enregistré avec succès.',
@@ -30,7 +31,7 @@ exports.registerMenu = async (req, res) => {
         if (error.code === 11000) {
             let errorMessage = "Un élément avec cet identifiant ou cet ordre existe déjà.";
             if (error.keyPattern && error.keyPattern.ordre) {
-                errorMessage = "Cet ordre d'affichage est déjà utilisé pour ce parent. Veuillez en choisir un autre.";
+                errorMessage = "Cet ordre d'affichage est déjà utilisé pour ce parent.";
             } else if (error.keyPattern && error.keyPattern.designation) {
                 errorMessage = "Cette désignation de menu existe déjà.";
             }
@@ -62,7 +63,6 @@ exports.getMenuInfo = async (req, res) => {
             });
         }
 
-        // Supprimer les informations sensibles
         const menuResponse = menu.formatResponse(menu);
 
         res.status(200).json({
@@ -105,7 +105,6 @@ exports.getMenuByProfile = async (req, res) => {
             });
         }
 
-        // 2. NETTOYAGE : Transforme [{code, actions}, ...] ou ['code1, code2'] en ['code1', 'code2']
         let cleanMenuCodes = [];
         if (Array.isArray(rawMenu)) {
             cleanMenuCodes = rawMenu.flatMap(item => {
@@ -117,12 +116,10 @@ exports.getMenuByProfile = async (req, res) => {
             cleanMenuCodes = rawMenu.split(',').map(s => s.trim());
         }
 
-        // 3. Récupérer les menus
         let menusFound = await Menu.find({ 
             code_menu: { $in: cleanMenuCodes } 
-        });
+        }).sort({ ordre: 1 });
 
-        // 4. SÉCURITÉ : Ajouter les parents manquants pour assurer l'affichage dans la sidebar
         const parentCodes = [...new Set(menusFound.map(m => m.parent).filter(p => p && p !== ""))];
         if (parentCodes.length > 0) {
             const missingParents = await Menu.find({
@@ -132,13 +129,11 @@ exports.getMenuByProfile = async (req, res) => {
             menusFound = [...menusFound, ...missingParents];
         }
 
-        // 5. Formatage et ajout systématique du Tableau de bord s'il n'y est pas
         let menuResponse = menusFound.map((menuItem, index) => ({
             ...menuItem.formatResponse(),
             position: index + 1
         }));
 
-        // Vérifier si un menu avec route "/" existe déjà
         const hasDashboard = menuResponse.some(m => m.route === "/" || m.code_menu === "default_dashboard");
         
         if (!hasDashboard) {
@@ -163,14 +158,12 @@ exports.getMenuByProfile = async (req, res) => {
 //GET ALL MENU
 exports.getMenuListe = async (req, res) => {
     try {
-        // Récupérer tous les profils
-        const menus = await Menu.find();
+        const menus = await Menu.find().sort({ parent: 1, ordre: 1 });
 
-        // Supprimer les informations sensibles pour chaque profil
-            const menuResponse = menus.map((menu, index) => ({
+        const menuResponse = menus.map((menu, index) => ({
             ...menu.formatResponse(),
-            position: index + 1, // Ajoute la position en commençant par 1
-            }));
+            position: index + 1,
+        }));
         res.status(200).json({
             status: true,
             message: 'Succès.',
@@ -185,23 +178,48 @@ exports.getMenuListe = async (req, res) => {
     }
 };
 
+// Helper pour réordonner les menus d'un parent (1, 2, 3...) de manière propre et séquentielle
+const reorderMenusByParent = async (parent) => {
+    const parentFilter = parent || "";
+    
+    // On récupère tous les menus actifs pour ce parent
+    const menus = await Menu.find({ parent: parentFilter, corbeille: "0" });
+    
+    // On trie numériquement en JavaScript pour éviter les problèmes de tri alphabetique de chaîne ("10" < "2")
+    menus.sort((a, b) => {
+        const orderA = parseInt(a.ordre) || 999;
+        const orderB = parseInt(b.ordre) || 999;
+        
+        if (orderA !== orderB) return orderA - orderB;
+        
+        // En cas d'ordre identique (ex: pendant une modification), on se base sur la date de création
+        return new Date(a.createdAt) - new Date(b.createdAt);
+    });
+    
+    // On réaffecte l'ordre de 1 à N de manière séquentielle
+    for (let i = 0; i < menus.length; i++) {
+        const newOrder = (i + 1).toString();
+        // Si l'ordre en base est déjà correct, on ne fait rien
+        if (menus[i].ordre !== newOrder) {
+            await Menu.updateOne({ _id: menus[i]._id }, { $set: { ordre: newOrder } });
+        }
+    }
+};
+
+
 // Mise A JOUR DU Menu
 exports.updateMenu = async (req, res) => {
     try {
-        const {  designation, type, route, svg, ordre, commentaire, code_menu, parent, tbl_name } = req.body;
+        const { designation, type, route, svg, ordre, commentaire, code_menu, parent, tbl_name } = req.body;
 
-        // Vérifier si le Menu existe
-        const menu = await Menu.findOne({code_menu:code_menu});
+        const menu = await Menu.findOne({ code_menu: code_menu });
         if (!menu) {
-            return res.status(404).json({ 
-                status: false,
-                message: 'Menu non trouvé.',
-                data: {}
-            });
+            return res.status(404).json({ status: false, message: 'Menu non trouvé.', data: {} });
         }
 
-        // Mettre à jour les champs modifiables de manière stricte (!== undefined)
-        // Cela permet de recevoir une chaîne vide "" pour supprimer un parent par exemple
+        const oldParent = menu.parent || "";
+        const parentChanged = parent !== undefined && parent !== oldParent;
+
         if (designation !== undefined) menu.designation = designation;
         if (type !== undefined) menu.type = type;
         if (route !== undefined) menu.route = route;
@@ -211,69 +229,84 @@ exports.updateMenu = async (req, res) => {
         if (parent !== undefined) menu.parent = parent; 
         if (tbl_name !== undefined) menu.tbl_name = tbl_name;
 
-        menu.__v = menu.__v+1; // met a jour le nombre de modification d'un element
-
-        // Enregistrer les modifications
+        menu.__v = menu.__v + 1;
         await menu.save();
 
-        // Supprimer le mot de passe des données de la réponse
+        // Réordonner les anciens et nouveaux parents si nécessaire
+        await reorderMenusByParent(menu.parent);
+        if (parentChanged) {
+            await reorderMenusByParent(oldParent);
+        }
+
         const menuResponse = menu.formatResponse(menu);
 
         res.status(200).json({
             status: true,
-            message: 'Menu mis à jour avec succès.',
+            message: 'Menu mis à jour et ordres synchronisés.',
             data: menuResponse
         });
     } catch (error) {
         if (error.code === 11000) {
             let errorMessage = "Un élément avec cet identifiant ou cet ordre existe déjà.";
             if (error.keyPattern && error.keyPattern.ordre) {
-                errorMessage = "Cet ordre d'affichage est déjà utilisé pour ce parent. Veuillez en choisir un autre.";
+                errorMessage = "Cet ordre d'affichage est déjà utilisé pour ce parent.";
             } else if (error.keyPattern && error.keyPattern.designation) {
                 errorMessage = "Cette désignation de menu existe déjà.";
             }
-            return res.status(409).json({
-                status: false,
-                message: errorMessage,
-                data: {}
-            });
+            return res.status(409).json({ status: false, message: errorMessage, data: {} });
         }
-        res.status(400).json({ 
-            status: false,
-            message: error.message || 'Une erreur interne est survenue.',
-            data: {}
-        });
+        res.status(400).json({ status: false, message: error.message || 'Une erreur interne est survenue.', data: {} });
     }
 };
 
 exports.deleteMenu = async (req, res) => {
     try {
         const code_menu = req.params.code_menu;
-
-        // Vérifier si le menu existe
         const menu = await Menu.findOne({ code_menu: code_menu });
+        
         if (!menu) {
-            return res.status(404).json({ 
-                status: false,
-                message: 'Menu non trouvé.',
-                data: {}
-            });
+            return res.status(404).json({ status: false, message: 'Menu non trouvé.', data: {} });
         }
 
-        // Supprimer le menu
+        const parentOfDeleted = menu.parent || "";
         await Menu.deleteOne({ code_menu: code_menu });
+
+        // Compacter l'ordre du parent après suppression
+        await reorderMenusByParent(parentOfDeleted);
 
         return res.status(200).json({
             status: true,
-            message: 'Menu supprimé avec succès.',
+            message: 'Menu supprimé et ordres compactés.',
             data: menu
         });
     } catch (error) {
-        return res.status(500).json({ 
-            status: false,
-            message: error.message || 'Une erreur interne est survenue.',
-            data: {}
-        });
+        return res.status(500).json({ status: false, message: error.message || 'Une erreur interne est survenue.', data: {} });
     }
 };
 
+// GET NEXT ORDRE
+exports.getNextOrder = async (req, res) => {
+    try {
+        const { parent } = req.query;
+        const parentFilter = parent ? parent : "";
+        
+        const menus = await Menu.find({ parent: parentFilter, corbeille: "0" });
+        
+        let nextOrder = 1;
+        if (menus.length > 0) {
+            const orders = menus.map(m => parseInt(m.ordre) || 0);
+            nextOrder = Math.max(...orders) + 1;
+        }
+
+        res.status(200).json({
+            status: true,
+            data: nextOrder.toString()
+        });
+    } catch (error) {
+        res.status(500).json({ 
+            status: false, 
+            message: error.message || 'Erreur lors du calcul de l\'ordre.',
+            data: "1"
+        });
+    }
+};

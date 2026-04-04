@@ -132,12 +132,20 @@ const dossierSchema = new mongoose.Schema({
         pcs: { type: Number, default: 0 },
         pcc: { type: Number, default: 0 },
         tva: { type: Number, default: 0 },
+        airsi: { type: Number, default: 0 },
         autres_taxes: { type: Number, default: 0 },
         total_taxes: { type: Number, default: 0 }
     }],
 
-    // --- RÉSULTATS CONSOLIDÉS (Calculés automatiquement côté Front) ---
+    // --- RÉSULTATS CONSOLIDÉS (Calculés automatiquement côté Front/Back) ---
+    regime_fiscal: { type: String, enum: ['Reel', 'Informel'], default: 'Reel' },
     total_valeur_caf: { type: Number, default: 0 },
+    total_dd: { type: Number, default: 0 },
+    total_rsta: { type: Number, default: 0 },
+    total_pcs: { type: Number, default: 0 },
+    total_pcc: { type: Number, default: 0 },
+    total_tva: { type: Number, default: 0 },
+    total_airsi: { type: Number, default: 0 },
     total_taxes_dossier: { type: Number, default: 0 },
     redevance_caution: { type: Number, default: 0 },
     taux_caution: { type: Number, default: 0.0025 },

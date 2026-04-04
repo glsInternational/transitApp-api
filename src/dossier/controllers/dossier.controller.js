@@ -214,7 +214,7 @@ exports.deleteDossier = async (req, res) => {
 // UPDATE OPERATION (FICHE OPÉRATRICE / ÉTAT DE CODAGE)
 exports.updateOperation = async (req, res) => {
     try {
-        const { code_dossier, etat_codage, articles } = req.body;
+        const { code_dossier, etat_codage, articles, regime_fiscal } = req.body;
 
         const dossier = await Dossier.findOne({ code_dossier: code_dossier });
         if (!dossier) {
@@ -225,22 +225,42 @@ exports.updateOperation = async (req, res) => {
             });
         }
 
-        // Mettre à jour l'état de codage
+        // Mettre à jour l'état de codage et le régime fiscal
         if (etat_codage) {
             dossier.etat_codage = { ...dossier.etat_codage, ...etat_codage };
+        }
+        if (regime_fiscal) {
+            dossier.regime_fiscal = regime_fiscal;
         }
 
         // Mettre à jour les articles et recalculer les totaux par article
         if (articles && Array.isArray(articles)) {
             let consolidatedValeurCaf = 0;
             let consolidatedTotalTaxes = 0;
+            let total_dd = 0, total_rsta = 0, total_pcs = 0, total_pcc = 0, total_tva = 0, total_airsi = 0;
 
             const updatedArticles = articles.map(art => {
                 const valeur_caf = (Number(art.valeur_fob) || 0) + (Number(art.fret) || 0) + (Number(art.assurance) || 0);
-                const total_taxes = (Number(art.dd) || 0) + (Number(art.rsta) || 0) + (Number(art.pcs) || 0) + (Number(art.pcc) || 0) + (Number(art.tva) || 0) + (Number(art.autres_taxes) || 0);
+                
+                const art_dd = Number(art.dd) || 0;
+                const art_rsta = Number(art.rsta) || 0;
+                const art_pcs = Number(art.pcs) || 0;
+                const art_pcc = Number(art.pcc) || 0;
+                const art_tva = Number(art.tva) || 0;
+                const art_airsi = Number(art.airsi) || 0;
+                const art_autres = Number(art.autres_taxes) || 0;
+
+                const total_taxes = art_dd + art_rsta + art_pcs + art_pcc + art_tva + art_airsi + art_autres;
                 
                 consolidatedValeurCaf += valeur_caf;
                 consolidatedTotalTaxes += total_taxes;
+                
+                total_dd += art_dd;
+                total_rsta += art_rsta;
+                total_pcs += art_pcs;
+                total_pcc += art_pcc;
+                total_tva += art_tva;
+                total_airsi += art_airsi;
 
                 return {
                     ...art,
@@ -251,14 +271,19 @@ exports.updateOperation = async (req, res) => {
             dossier.articles = updatedArticles;
             dossier.total_valeur_caf = consolidatedValeurCaf;
             dossier.total_taxes_dossier = consolidatedTotalTaxes;
+            
+            dossier.total_dd = total_dd;
+            dossier.total_rsta = total_rsta;
+            dossier.total_pcs = total_pcs;
+            dossier.total_pcc = total_pcc;
+            dossier.total_tva = total_tva;
+            dossier.total_airsi = total_airsi;
 
             // --- CALCUL AUTOMATIQUE DE LA CAUTION ---
-            // On vérifie le type de régime douanier du dossier
             const { RegimeDouanier } = require('../models/regime.model');
             const findRegime = await RegimeDouanier.findOne({ code: dossier.regime_douanier });
             
             if (findRegime && findRegime.type === 'suspensif') {
-                // Règle : Redevance = Total Taxes Suspendues * Taux (0.25% par défaut)
                 const taux = dossier.taux_caution || 0.0025;
                 dossier.redevance_caution = Math.round(consolidatedTotalTaxes * taux);
             } else {

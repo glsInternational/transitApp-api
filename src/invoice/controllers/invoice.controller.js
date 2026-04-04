@@ -49,8 +49,10 @@ exports.createFromDossier = async (req, res) => {
                 agio: 0, 
                 gestion_credit: 0, 
                 passage_douane: 0,
-                // Automatisme : Ajouter une caution par défaut pour les régimes suspensifs
-                caution: ['D56', 'D18', '3000', '5000', '7000', 'S106'].includes(dossier.regime_douanier) ? 25000 : 0
+                // Automatisme : Caution 0.25% du total des taxes pour les régimes spéciaux
+                caution: ['D56', 'D18', '3000', '5000', '7000', 'S106'].includes(dossier.regime_douanier) 
+                    ? Math.round((dossier.total_taxes_dossier || 0) * 0.0025) 
+                    : 0
             },
             prestations: { 
                 frais_fixes: 15000, 

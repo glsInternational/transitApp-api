@@ -134,7 +134,13 @@ const dossierSchema = new mongoose.Schema({
         tva: { type: Number, default: 0 },
         airsi: { type: Number, default: 0 },
         autres_taxes: { type: Number, default: 0 },
-        total_taxes: { type: Number, default: 0 }
+        total_taxes: { type: Number, default: 0 },
+        // Taux mémorisés pour l'audit
+        rate_dd: { type: Number, default: 0 },
+        rate_rsta: { type: Number, default: 0 },
+        rate_pcs: { type: Number, default: 0 },
+        rate_pcc: { type: Number, default: 0 },
+        rate_tva: { type: Number, default: 0 }
     }],
 
     // --- RÉSULTATS CONSOLIDÉS (Calculés automatiquement côté Front/Back) ---

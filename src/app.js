@@ -13,6 +13,7 @@ const dossierRoute = require('./dossier/routes/dossier.routes');
 const statsRoute = require('./stats/stats.routes');
 const notificationRoute = require('./notification/routes/notification.routes');
 const invoiceRoute = require('./invoice/routes/invoice.routes');
+const nomenclatureRoute = require('./nomenclature/routes/nomenclature.routes');
 
 const app = express();
 
@@ -40,6 +41,7 @@ app.use('/api/dossier/v1', dossierRoute); // ROUTES DOSSIER
 app.use('/api/stats', statsRoute); // ROUTES STATS GLOBALES
 app.use('/api/notification', notificationRoute); // ROUTES NOTIFICATIONS
 app.use('/api/invoice', invoiceRoute); // ROUTES FACTURES
+app.use('/api/nomenclature', nomenclatureRoute); // ROUTES NOMENCLATURE / TEC CEDEAO
 
 // Route par défaut
 app.get('/', (req, res) => {

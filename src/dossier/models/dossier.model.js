@@ -47,7 +47,10 @@ const dossierSchema = new mongoose.Schema({
     volume: { type: Number, default: 0 },
     description_marchandise: { type: String, trim: true },
     station_depart: { type: String, trim: true },
-    expediteur: { type: String, trim: true },
+    expediteur: { 
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'acl_expediteurs'
+    },
     lta: { type: String, trim: true },
     date_arrivee: { type: Date },
     num_vol: { type: String, trim: true },

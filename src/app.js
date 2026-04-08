@@ -17,6 +17,7 @@ const notificationRoute = require('./notification/routes/notification.routes');
 const invoiceRoute = require('./invoice/routes/invoice.routes');
 const nomenclatureRoute = require('./nomenclature/routes/nomenclature.routes');
 const deviseRoute = require('./devise/routes/devise.route');
+const expediteurRoute = require('./expediteur/routes/expediteur.route');
 
 const app = express();
 
@@ -48,6 +49,7 @@ app.use('/api/notification', notificationRoute); // ROUTES NOTIFICATIONS
 app.use('/api/invoice', invoiceRoute); // ROUTES FACTURES
 app.use('/api/nomenclature', nomenclatureRoute); // ROUTES NOMENCLATURE / TEC CEDEAO
 app.use('/api/devise', deviseRoute); // ROUTES DEVISES
+app.use('/api/expediteur', expediteurRoute); // ROUTES EXPEDITEURS
 
 // Route par défaut
 app.get('/', (req, res) => {

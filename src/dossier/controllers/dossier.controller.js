@@ -21,7 +21,7 @@ exports.registerDossier = async (req, res) => {
 
         const dossier = new Dossier(dossierData);
         await dossier.save();
-        await dossier.populate('client');
+        await dossier.populate(['client', 'expediteur']);
 
         // --- AUDIT ---
         await logAction(req, 'CREATE', 'DOSSIER', { 
@@ -65,7 +65,7 @@ exports.getDossierInfo = async (req, res) => {
     try {
         const code_dossier = req.params.code_dossier;
 
-        const dossier = await Dossier.findOne({ code_dossier: code_dossier }).populate('client');
+        const dossier = await Dossier.findOne({ code_dossier: code_dossier }).populate(['client', 'expediteur']);
         if (!dossier) {
             return res.status(404).json({ 
                 status: false,
@@ -92,7 +92,7 @@ exports.getDossierInfo = async (req, res) => {
 exports.getDossierListe = async (req, res) => {
     try {
         // Optionnel : ajouter des filtres (corbeille, status, etc.)
-        const dossiers = await Dossier.find({ corbeille: '0' }).populate('client').sort({ createdAt: -1 });
+        const dossiers = await Dossier.find({ corbeille: '0' }).populate(['client', 'expediteur']).sort({ createdAt: -1 });
 
         const formattedDossiers = dossiers.map((d, index) => ({
             ...d.formatResponse(),
@@ -144,7 +144,7 @@ exports.updateDossier = async (req, res) => {
         }
 
         await dossier.save();
-        await dossier.populate('client');
+        await dossier.populate(['client', 'expediteur']);
 
         // --- AUDIT ---
         await logAction(req, 'UPDATE', 'DOSSIER', { 

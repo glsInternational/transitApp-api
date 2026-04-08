@@ -340,7 +340,7 @@ const maritimeInvoiceTemplate = (invoice) => {
         </div>
 
         <div class="footer-text">
-            Arrêté la présente facture maritime à la somme de : ${formatCurrency(invoice.totals?.net_a_payer)} XOF.
+            Arrêté la présente facture ${isProforma ? 'proforma' : 'définitive'} maritime à la somme de : ${formatCurrency(invoice.totals?.net_a_payer)} XOF.
         </div>
 
         <div class="company-footer">

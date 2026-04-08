@@ -1,7 +1,6 @@
 const { Invoice } = require('../models/invoice.model');
 const { Dossier } = require('../../dossier/models/dossier.model');
-const { airInvoiceTemplate } = require('../templates/air-invoice');
-const { maritimeInvoiceTemplate } = require('../templates/maritime-invoice');
+const InvoiceGenerator = require('../services/invoice-generator');
 
 // GENERATE NEXT INVOICE NUMBER
 const generateInvoiceNumber = async (type = 'F') => {
@@ -14,6 +13,7 @@ const generateInvoiceNumber = async (type = 'F') => {
 exports.createFromDossier = async (req, res) => {
     try {
         const { dossierCode } = req.params;
+        const { type } = req.body; // 'proforma' ou 'final'
         const dossier = await Dossier.findOne({ code_dossier: dossierCode }).populate('client');
 
         if (!dossier) {
@@ -25,6 +25,7 @@ exports.createFromDossier = async (req, res) => {
         const invoiceData = {
             invoiceNumber,
             dossierId: dossierCode,
+            type: type === 'final' ? 'final' : 'proforma',
             dossierInfo: {
                 num_dossier: dossier.num_dossier,
                 client: dossier.client?.importateur || dossier.client,
@@ -162,19 +163,7 @@ exports.renderInvoice = async (req, res) => {
             return res.status(404).send("Facture non trouvée");
         }
 
-        // Déterminer le template selon le mode de transport
-        let html;
-        const typeVoie = invoice.dossierInfo?.type_voie?.toLowerCase();
-        
-        if (typeVoie === 'aerienne' || typeVoie === 'air') {
-            html = airInvoiceTemplate(invoice);
-        } else if (typeVoie === 'maritime' || typeVoie === 'mer') {
-            html = maritimeInvoiceTemplate(invoice);
-        } else {
-            // Par défaut on utilise le template Air qui est le plus complet
-            html = airInvoiceTemplate(invoice); 
-        }
-
+        const html = InvoiceGenerator.generateHTML(invoice);
         res.setHeader('Content-Type', 'text/html');
         res.send(html);
     } catch (error) {

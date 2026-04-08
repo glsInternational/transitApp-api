@@ -26,6 +26,7 @@ const invoiceSchema = new mongoose.Schema({
         valeur_caf_xof: Number,
         regime_douanier: String,
         bureau_douane: String,
+        type_voie: String,
         type_voie: String
     },
 

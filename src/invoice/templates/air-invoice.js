@@ -273,7 +273,7 @@ const airInvoiceTemplate = (invoice) => {
 
                 <div class="sidebar-box">
                     <div class="sidebar-header">AWB</div>
-                    <div class="sidebar-content">${invoice.dossierInfo?.awb_bl || 'XXXDXXX'}</div>
+                    <div class="sidebar-content">${invoice.dossierInfo?.awb_bl || '---'}</div>
                 </div>
 
                 <div class="sidebar-box">
@@ -282,8 +282,8 @@ const airInvoiceTemplate = (invoice) => {
                         <div class="sidebar-header">PB</div>
                     </div>
                     <div class="sidebar-grid-2">
-                        <div class="sidebar-content">${invoice.dossierInfo?.colis || 'XX'}</div>
-                        <div class="sidebar-content">${invoice.dossierInfo?.poids || 'X'}</div>
+                        <div class="sidebar-content">${invoice.dossierInfo?.nb_colis || invoice.dossierInfo?.colis || '0'}</div>
+                        <div class="sidebar-content">${invoice.dossierInfo?.poids_brut || invoice.dossierInfo?.poids || '0'}</div>
                     </div>
                 </div>
 
@@ -298,14 +298,14 @@ const airInvoiceTemplate = (invoice) => {
                         <div class="sidebar-header">Origine</div>
                     </div>
                     <div class="sidebar-grid-2">
-                        <div class="sidebar-content">XXXXX</div>
-                        <div class="sidebar-content">${invoice.dossierInfo?.provenance || 'XXX'}</div>
+                        <div class="sidebar-content">${invoice.dossierInfo?.date_arrivee ? new Date(invoice.dossierInfo.date_arrivee).toLocaleDateString('fr-FR') : '---'}</div>
+                        <div class="sidebar-content">${invoice.dossierInfo?.provenance || '---'}</div>
                     </div>
                 </div>
 
                 <div class="sidebar-box">
                     <div class="sidebar-header">Expéditeur</div>
-                    <div class="sidebar-content" style="font-size: 9px;">${invoice.dossierInfo?.expediteur || 'XXXXXXX'}</div>
+                    <div class="sidebar-content" style="font-size: 9px;">${invoice.dossierInfo?.expediteur?.nomEtPrenoms || invoice.dossierInfo?.expediteur || '---'}</div>
                 </div>
 
                 <div class="sidebar-box">
@@ -325,7 +325,7 @@ const airInvoiceTemplate = (invoice) => {
                         <div class="sidebar-header">Cours</div>
                     </div>
                     <div class="sidebar-grid-2">
-                        <div class="sidebar-content">${formatCurrencyWithDecimals(invoice.dossierInfo?.valeur_fob_xof)}</div>
+                        <div class="sidebar-content">${formatCurrency(invoice.dossierInfo?.valeur_cfa || invoice.dossierInfo?.valeur_fob_xof || invoice.dossierInfo?.valeur)}</div>
                         <div class="sidebar-content">1,00</div>
                     </div>
                 </div>

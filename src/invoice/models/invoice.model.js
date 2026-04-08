@@ -18,6 +18,8 @@ const invoiceSchema = new mongoose.Schema({
         expediteur: String,
         incoterm: String,
         devise: String,
+        valeur: Number,
+        valeur_cfa: Number,
         valeur_fob_eur: Number,
         valeur_fob_xof: Number,
         valeur_fret_xof: Number,
@@ -27,7 +29,10 @@ const invoiceSchema = new mongoose.Schema({
         regime_douanier: String,
         bureau_douane: String,
         type_voie: String,
-        type_voie: String
+        date_arrivee: Date,
+        poids_brut: Number,
+        nb_colis: Number,
+        volume: Number
     },
 
     // 1. DROITS & TAXES DE DOUANE (Calculated)

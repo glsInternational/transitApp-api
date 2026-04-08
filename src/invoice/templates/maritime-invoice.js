@@ -251,8 +251,8 @@ const maritimeInvoiceTemplate = (invoice) => {
                         <div class="sidebar-header">Poids</div>
                     </div>
                     <div class="sidebar-grid-2">
-                        <div class="sidebar-content">${invoice.dossierInfo?.colis || '0'}</div>
-                        <div class="sidebar-content">${invoice.dossierInfo?.poids || '0'}</div>
+                        <div class="sidebar-content">${invoice.dossierInfo?.nb_colis || invoice.dossierInfo?.colis || '0'}</div>
+                        <div class="sidebar-content">${invoice.dossierInfo?.poids_brut || invoice.dossierInfo?.poids || '0'}</div>
                     </div>
                 </div>
 
@@ -267,8 +267,8 @@ const maritimeInvoiceTemplate = (invoice) => {
                         <div class="sidebar-header">Provenance</div>
                     </div>
                     <div class="sidebar-grid-2">
-                        <div class="sidebar-content">XXXXX</div>
-                        <div class="sidebar-content">${invoice.dossierInfo?.provenance || 'XXX'}</div>
+                        <div class="sidebar-content">${invoice.dossierInfo?.date_arrivee ? new Date(invoice.dossierInfo.date_arrivee).toLocaleDateString('fr-FR') : '---'}</div>
+                        <div class="sidebar-content">${invoice.dossierInfo?.provenance || '---'}</div>
                     </div>
                 </div>
 

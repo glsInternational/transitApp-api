@@ -14,7 +14,9 @@ exports.createFromDossier = async (req, res) => {
     try {
         const { dossierCode } = req.params;
         const { type } = req.body; // 'proforma' ou 'final'
-        const dossier = await Dossier.findOne({ code_dossier: dossierCode }).populate('client');
+        const dossier = await Dossier.findOne({ code_dossier: dossierCode })
+            .populate('client')
+            .populate('expediteur');
 
         if (!dossier) {
             return res.status(404).json({ status: false, message: "Dossier non trouvé" });
@@ -31,19 +33,26 @@ exports.createFromDossier = async (req, res) => {
                 client: dossier.client?.importateur || dossier.client,
                 awb_bl: dossier.awb_bl,
                 colis: dossier.nb_colis,
+                nb_colis: dossier.nb_colis,
                 poids: dossier.poids_brut,
+                poids_brut: dossier.poids_brut,
+                volume: dossier.volume,
                 description: dossier.description_marchandise,
                 provenance: dossier.station_depart,
                 valeur_fob_xof: dossier.valeur_fob_xof,
                 valeur_fret_xof: dossier.valeur_fret_xof,
                 valeur_assurance_xof: dossier.valeur_assurance_xof,
                 assurance_totale: dossier.assurance_totale,
-                valeur_caf_xof: dossier.valeur_caf_xof,
-                expediteur: dossier.expediteur,
+                valeur_caf_xof: dossier.valeur_caf_xof || dossier.total_valeur_caf,
+                valeur_cfa: dossier.valeur_cfa,
+                valeur: dossier.valeur,
+                expediteur: dossier.expediteur?.nom_expediteur || dossier.expediteur?.nomEtPrenoms || dossier.expediteur,
                 incoterm: dossier.incoterm,
                 regime_douanier: dossier.regime_douanier,
                 bureau_douane: dossier.etat_codage?.bureau_douane,
-                type_voie: dossier.type_voie
+                type_voie: dossier.type_voie,
+                date_arrivee: dossier.date_arrivee,
+                devise: dossier.devise
             },
             // Initialiser les sections avec les données du dossier (Fiche Opératrice)
             douaneTaxes: { 

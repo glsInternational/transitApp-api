@@ -8,6 +8,12 @@ const { logAction } = require('../../audit/services/audit.service');
 exports.registerDossier = async (req, res) => {
     try {
         const dossierData = req.body;
+        const mongoose = require('mongoose');
+
+        // Valider l'expéditeur (ignorer les strings invalides s'ils sont envoyés par l'ancienne interface)
+        if (dossierData.expediteur && !mongoose.Types.ObjectId.isValid(dossierData.expediteur)) {
+            delete dossierData.expediteur;
+        }
 
         // On peut faire des vérifications spécifiques ici, ex: num_dossier unique
         const existingDossier = await Dossier.findOne({ num_dossier: dossierData.num_dossier });
@@ -128,9 +134,16 @@ exports.updateDossier = async (req, res) => {
         }
 
         // Mettre à jour tous les champs fournis dans req.body
+        const mongoose = require('mongoose');
         const updates = Object.keys(req.body);
         updates.forEach(update => {
             if (update !== 'code_dossier' && update !== '_id') {
+                if (update === 'expediteur' && !mongoose.Types.ObjectId.isValid(req.body[update])) {
+                    if (req.body[update] === "") {
+                        dossier.expediteur = undefined;
+                    }
+                    return; // Skip setting invalid expediteur
+                }
                 dossier[update] = req.body[update];
             }
         });

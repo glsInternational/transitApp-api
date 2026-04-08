@@ -10,6 +10,7 @@ const invoiceSchema = new mongoose.Schema({
     dossierInfo: {
         num_dossier: String,
         client: String,
+        client_email: String,
         awb_bl: String,
         colis: Number,
         poids: Number,

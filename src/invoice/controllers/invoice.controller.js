@@ -1,5 +1,7 @@
 const { Invoice } = require('../models/invoice.model');
 const { Dossier } = require('../../dossier/models/dossier.model');
+const { airInvoiceTemplate } = require('../templates/air-invoice');
+const { maritimeInvoiceTemplate } = require('../templates/maritime-invoice');
 
 // GENERATE NEXT INVOICE NUMBER
 const generateInvoiceNumber = async (type = 'F') => {
@@ -31,10 +33,16 @@ exports.createFromDossier = async (req, res) => {
                 poids: dossier.poids_brut,
                 description: dossier.description_marchandise,
                 provenance: dossier.station_depart,
+                valeur_fob_xof: dossier.valeur_fob_xof,
+                valeur_fret_xof: dossier.valeur_fret_xof,
+                valeur_assurance_xof: dossier.valeur_assurance_xof,
+                assurance_totale: dossier.assurance_totale,
+                valeur_caf_xof: dossier.valeur_caf_xof,
                 expediteur: dossier.expediteur,
                 incoterm: dossier.incoterm,
                 regime_douanier: dossier.regime_douanier,
-                bureau_douane: dossier.etat_codage?.bureau_douane
+                bureau_douane: dossier.etat_codage?.bureau_douane,
+                type_voie: dossier.type_voie
             },
             // Initialiser les sections avec les données du dossier (Fiche Opératrice)
             douaneTaxes: { 
@@ -43,6 +51,8 @@ exports.createFromDossier = async (req, res) => {
                 pcs: dossier.articles?.reduce((acc, a) => acc + (a.pcs || 0), 0) || 0,
                 pcc: dossier.articles?.reduce((acc, a) => acc + (a.pcc || 0), 0) || 0,
                 pua: 0, 
+                ts_douane: dossier.articles?.reduce((acc, a) => acc + (a.ts_douane || 0), 0) || 0,
+                rpi: dossier.etat_codage?.rpi || 0,
                 tva_douane: dossier.articles?.reduce((acc, a) => acc + (a.tva || 0), 0) || 0 
             },
             debours: { 
@@ -83,13 +93,12 @@ exports.updateInvoice = async (req, res) => {
         // --- CALCULS ---
         // 1. Douane HT & Total
         const dt = data.douaneTaxes || {};
-        const ht_douane = (dt.dd || 0) + (dt.rsta || 0) + (dt.pcs || 0) + (dt.pcc || 0) + (dt.pua || 0) + (dt.autres_taxes_tva || 0) + (dt.autres_taxes_non_tva || 0);
+        const ht_douane = (dt.dd || 0) + (dt.rsta || 0) + (dt.pcs || 0) + (dt.pcc || 0) + (dt.pua || 0) + (dt.ts_douane || 0) + (dt.rpi || 0) + (dt.autres_taxes_tva || 0) + (dt.autres_taxes_non_tva || 0);
         dt.subtotal_ht = ht_douane;
         dt.total_douane = ht_douane + (dt.tva_douane || 0);
 
-        // 2. Declaration
-        const decl = data.declarationTaxes || {};
-        decl.subtotal = (decl.ts_douane || 0) + (decl.rpi || 0);
+        // 2. Declaration section removed (fields moved to douaneTaxes)
+        // ... handled in step 1 above
 
         // 3. Debours
         const db = data.debours || {};
@@ -100,7 +109,7 @@ exports.updateInvoice = async (req, res) => {
         pr.total_prestations = (pr.frais_fixes || 0) + (pr.edition_decl || 0) + (pr.had || 0) + (pr.commission_gestion || 0) + (pr.livraison || 0) + (pr.frais_magasinage_comm || 0) + (pr.comm_avance_fonds || 0);
 
         // 5. Grand Totals
-        const total_ht = (dt.total_douane || 0) + (decl.subtotal || 0) + (db.total_debours || 0) + (pr.total_prestations || 0);
+        const total_ht = (dt.total_douane || 0) + (db.total_debours || 0) + (pr.total_prestations || 0);
         const tva_prestation = data.totals?.tva_prestation || 0; // Usuellement 18% sur prestations ?
         const total_ttc = total_ht + tva_prestation;
         const net_a_payer = total_ttc - (data.totals?.avance || 0);
@@ -142,5 +151,33 @@ exports.getInvoiceById = async (req, res) => {
         res.status(200).json({ status: true, data: invoice });
     } catch (error) {
         res.status(500).json({ status: false, message: error.message });
+    }
+};
+
+// RENDER INVOICE AS HTML
+exports.renderInvoice = async (req, res) => {
+    try {
+        const invoice = await Invoice.findById(req.params.id);
+        if (!invoice) {
+            return res.status(404).send("Facture non trouvée");
+        }
+
+        // Déterminer le template selon le mode de transport
+        let html;
+        const typeVoie = invoice.dossierInfo?.type_voie?.toLowerCase();
+        
+        if (typeVoie === 'aerienne' || typeVoie === 'air') {
+            html = airInvoiceTemplate(invoice);
+        } else if (typeVoie === 'maritime' || typeVoie === 'mer') {
+            html = maritimeInvoiceTemplate(invoice);
+        } else {
+            // Par défaut on utilise le template Air qui est le plus complet
+            html = airInvoiceTemplate(invoice); 
+        }
+
+        res.setHeader('Content-Type', 'text/html');
+        res.send(html);
+    } catch (error) {
+        res.status(500).send(error.message);
     }
 };

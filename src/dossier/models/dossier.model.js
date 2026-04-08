@@ -56,8 +56,9 @@ const dossierSchema = new mongoose.Schema({
     num_vol: { type: String, trim: true },
     aeroport: { type: String, trim: true },
     declarant_agent: { type: String, trim: true },
-    conseiller: { type: String, trim: true },
+    commercial: { type: String, trim: true },
     operatrice: { type: String, trim: true },
+    entreprise_sous_traitante: { type: String, trim: true },
     code_douane: { type: String, trim: true },
     ncc: { type: String, trim: true },
     type_client: { type: String, trim: true },
@@ -130,7 +131,8 @@ const dossierSchema = new mongoose.Schema({
         relation_acheteur_vendeur: { type: String, trim: true },
         code_additionnel: { type: String, trim: true },
         transfert: { type: String, trim: true },
-        bureau_douane: { type: String, trim: true }
+        bureau_douane: { type: String, trim: true },
+        rpi: { type: Number, default: 0 }
     },
     articles: [{
         nomenclature: { type: String, trim: true },
@@ -146,6 +148,7 @@ const dossierSchema = new mongoose.Schema({
         pcc: { type: Number, default: 0 },
         tva: { type: Number, default: 0 },
         airsi: { type: Number, default: 0 },
+        ts_douane: { type: Number, default: 20000 },
         autres_taxes: { type: Number, default: 0 },
         total_taxes: { type: Number, default: 0 },
         // Taux mémorisés pour l'audit

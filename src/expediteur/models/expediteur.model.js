@@ -6,6 +6,10 @@ const expediteurSchema = new mongoose.Schema({
         required: true, 
         trim: true 
     },
+    ncc: { 
+        type: String, 
+        trim: true 
+    },
     adresse: { 
         type: String, 
         trim: true 

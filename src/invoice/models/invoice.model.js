@@ -20,9 +20,13 @@ const invoiceSchema = new mongoose.Schema({
         devise: String,
         valeur_fob_eur: Number,
         valeur_fob_xof: Number,
+        valeur_fret_xof: Number,
+        valeur_assurance_xof: Number,
+        assurance_totale: Number,
         valeur_caf_xof: Number,
         regime_douanier: String,
-        bureau_douane: String
+        bureau_douane: String,
+        type_voie: String
     },
 
     // 1. DROITS & TAXES DE DOUANE (Calculated)
@@ -32,18 +36,13 @@ const invoiceSchema = new mongoose.Schema({
         pcs: { type: Number, default: 0 },
         pcc: { type: Number, default: 0 },
         pua: { type: Number, default: 0 },
+        ts_douane: { type: Number, default: 0 },
+        rpi: { type: Number, default: 0 },
         autres_taxes_tva: { type: Number, default: 0 },
         autres_taxes_non_tva: { type: Number, default: 0 },
         subtotal_ht: { type: Number, default: 0 },
         tva_douane: { type: Number, default: 0 },
         total_douane: { type: Number, default: 0 }
-    },
-
-    // 2. TOTAL DECLARATION
-    declarationTaxes: {
-        ts_douane: { type: Number, default: 0 },
-        rpi: { type: Number, default: 0 },
-        subtotal: { type: Number, default: 0 }
     },
 
     // 3. DEBOURS DIVERS

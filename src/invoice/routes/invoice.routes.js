@@ -12,6 +12,7 @@ router.post('/from-dossier/:dossierCode', invoiceController.createFromDossier);
 router.put('/:id', invoiceController.updateInvoice);
 router.get('/', invoiceController.getInvoices);
 router.get('/:id', invoiceController.getInvoiceById);
+router.get('/:id/render', invoiceController.renderInvoice);
 
 module.exports = router;
 

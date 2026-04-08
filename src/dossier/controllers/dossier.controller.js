@@ -270,9 +270,10 @@ exports.updateOperation = async (req, res) => {
                 const art_pcc = Number(art.pcc) || 0;
                 const art_tva = Number(art.tva) || 0;
                 const art_airsi = Number(art.airsi) || 0;
+                const art_ts_douane = Number(art.ts_douane) !== undefined && !isNaN(Number(art.ts_douane)) ? Number(art.ts_douane) : 20000;
                 const art_autres = Number(art.autres_taxes) || 0;
 
-                const total_taxes = art_dd + art_rsta + art_pcs + art_pcc + art_tva + art_airsi + art_autres;
+                const total_taxes = art_dd + art_rsta + art_pcs + art_pcc + art_tva + art_airsi + art_ts_douane + art_autres;
                 
                 consolidatedValeurCaf += valeur_caf;
                 consolidatedTotalTaxes += total_taxes;
@@ -300,6 +301,11 @@ exports.updateOperation = async (req, res) => {
             dossier.total_pcc = total_pcc;
             dossier.total_tva = total_tva;
             dossier.total_airsi = total_airsi;
+            
+            if (dossier.etat_codage?.rpi) {
+                dossier.total_taxes_dossier += Number(dossier.etat_codage.rpi) || 0;
+                consolidatedTotalTaxes += Number(dossier.etat_codage.rpi) || 0;
+            }
 
             // --- CALCUL AUTOMATIQUE DE LA CAUTION ---
             const { RegimeDouanier } = require('../models/regime.model');

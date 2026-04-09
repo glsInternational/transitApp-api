@@ -2,10 +2,10 @@ const { TypeDepense } = require('../models/type_depense.model');
 
 exports.createTypeDepense = async (req, res) => {
     try {
-        const { libelle } = req.body;
+        const { libelle, montant, observation, date } = req.body;
         if (!libelle) return res.status(400).json({ status: false, message: "Le libellé est requis" });
         
-        const newType = new TypeDepense({ libelle });
+        const newType = new TypeDepense({ libelle, montant, observation, date });
         await newType.save();
         res.status(201).json({ status: true, message: "Type de dépense ajouté avec succès", data: newType });
     } catch (error) {

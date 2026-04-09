@@ -8,7 +8,7 @@ const expediteurSchema = new mongoose.Schema({
     },
     ncc: { 
         type: String, 
-        trim: true 
+        trim: true
     },
     adresse: { 
         type: String, 

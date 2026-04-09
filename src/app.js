@@ -28,6 +28,12 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'X-Api-Key', 'Authorization'] // Autorise ton header personnalisé et le JWT
 }));
 
+//POUR MONITORER LE BON FONCTIONNEMENT DE L'API
+
+app.get('/health-check', (req, res) => {
+    res.status(200).send("System Active");
+});
+
 // Route par défaut
 app.get('/', (req, res) => {
     res.status(200).json({

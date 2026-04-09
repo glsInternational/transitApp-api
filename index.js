@@ -1,8 +1,9 @@
-const app = require('./src/app');
 const dotenv = require('dotenv');
-const {connectDB} = require('./src/config/db');
-
+// Charger les variables le plus tôt possible !
 dotenv.config();
+
+const app = require('./src/app');
+const {connectDB} = require('./src/config/db');
 
 //connection de la bd
 connectDB();

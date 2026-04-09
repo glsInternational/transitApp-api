@@ -12,8 +12,16 @@ const countries = [
         "fuseau_horaire": "UTC+04:30"
     },
     {
+        "code": "ZA",
+        "nom": "Afrique du Sud",
+        "capitale": "Pretoria",
+        "continent": "Africa",
+        "devise": "ZAR",
+        "fuseau_horaire": "UTC+02:00"
+    },
+    {
         "code": "AX",
-        "nom": "Åland Islands",
+        "nom": "Ahvenanmaa",
         "capitale": "Mariehamn",
         "continent": "Europe",
         "devise": "EUR",
@@ -21,7 +29,7 @@ const countries = [
     },
     {
         "code": "AL",
-        "nom": "Albania",
+        "nom": "Albanie",
         "capitale": "Tirana",
         "continent": "Europe",
         "devise": "ALL",
@@ -29,23 +37,23 @@ const countries = [
     },
     {
         "code": "DZ",
-        "nom": "Algeria",
+        "nom": "Algérie",
         "capitale": "Algiers",
         "continent": "Africa",
         "devise": "DZD",
         "fuseau_horaire": "UTC+01:00"
     },
     {
-        "code": "AS",
-        "nom": "American Samoa",
-        "capitale": "Pago Pago",
-        "continent": "Oceania",
-        "devise": "USD",
-        "fuseau_horaire": "UTC-11:00"
+        "code": "DE",
+        "nom": "Allemagne",
+        "capitale": "Berlin",
+        "continent": "Europe",
+        "devise": "EUR",
+        "fuseau_horaire": "UTC+01:00"
     },
     {
         "code": "AD",
-        "nom": "Andorra",
+        "nom": "Andorre",
         "capitale": "Andorra la Vella",
         "continent": "Europe",
         "devise": "EUR",
@@ -69,7 +77,7 @@ const countries = [
     },
     {
         "code": "AQ",
-        "nom": "Antarctica",
+        "nom": "Antarctique",
         "capitale": "",
         "continent": "Antarctic",
         "devise": "",
@@ -77,15 +85,23 @@ const countries = [
     },
     {
         "code": "AG",
-        "nom": "Antigua and Barbuda",
+        "nom": "Antigua-et-Barbuda",
         "capitale": "Saint John's",
         "continent": "Americas",
         "devise": "XCD",
         "fuseau_horaire": "UTC-04:00"
     },
     {
+        "code": "SA",
+        "nom": "Arabie Saoudite",
+        "capitale": "Riyadh",
+        "continent": "Asia",
+        "devise": "SAR",
+        "fuseau_horaire": "UTC+03:00"
+    },
+    {
         "code": "AR",
-        "nom": "Argentina",
+        "nom": "Argentine",
         "capitale": "Buenos Aires",
         "continent": "Americas",
         "devise": "ARS",
@@ -93,7 +109,7 @@ const countries = [
     },
     {
         "code": "AM",
-        "nom": "Armenia",
+        "nom": "Arménie",
         "capitale": "Yerevan",
         "continent": "Asia",
         "devise": "AMD",
@@ -109,7 +125,7 @@ const countries = [
     },
     {
         "code": "AU",
-        "nom": "Australia",
+        "nom": "Australie",
         "capitale": "Canberra",
         "continent": "Oceania",
         "devise": "AUD",
@@ -117,7 +133,7 @@ const countries = [
     },
     {
         "code": "AT",
-        "nom": "Austria",
+        "nom": "Autriche",
         "capitale": "Vienna",
         "continent": "Europe",
         "devise": "EUR",
@@ -125,7 +141,7 @@ const countries = [
     },
     {
         "code": "AZ",
-        "nom": "Azerbaijan",
+        "nom": "Azerbaïdjan",
         "capitale": "Baku",
         "continent": "Asia",
         "devise": "AZN",
@@ -141,7 +157,7 @@ const countries = [
     },
     {
         "code": "BH",
-        "nom": "Bahrain",
+        "nom": "Bahreïn",
         "capitale": "Manama",
         "continent": "Asia",
         "devise": "BHD",
@@ -157,23 +173,15 @@ const countries = [
     },
     {
         "code": "BB",
-        "nom": "Barbados",
+        "nom": "Barbade",
         "capitale": "Bridgetown",
         "continent": "Americas",
         "devise": "BBD",
         "fuseau_horaire": "UTC-04:00"
     },
     {
-        "code": "BY",
-        "nom": "Belarus",
-        "capitale": "Minsk",
-        "continent": "Europe",
-        "devise": "BYN",
-        "fuseau_horaire": "UTC+03:00"
-    },
-    {
         "code": "BE",
-        "nom": "Belgium",
+        "nom": "Belgique",
         "capitale": "Brussels",
         "continent": "Europe",
         "devise": "EUR",
@@ -189,7 +197,7 @@ const countries = [
     },
     {
         "code": "BJ",
-        "nom": "Benin",
+        "nom": "Bénin",
         "capitale": "Porto-Novo",
         "continent": "Africa",
         "devise": "XOF",
@@ -197,7 +205,7 @@ const countries = [
     },
     {
         "code": "BM",
-        "nom": "Bermuda",
+        "nom": "Bermudes",
         "capitale": "Hamilton",
         "continent": "Americas",
         "devise": "BMD",
@@ -205,15 +213,31 @@ const countries = [
     },
     {
         "code": "BT",
-        "nom": "Bhutan",
+        "nom": "Bhoutan",
         "capitale": "Thimphu",
         "continent": "Asia",
         "devise": "BTN",
         "fuseau_horaire": "UTC+06:00"
     },
     {
+        "code": "BY",
+        "nom": "Biélorussie",
+        "capitale": "Minsk",
+        "continent": "Europe",
+        "devise": "BYN",
+        "fuseau_horaire": "UTC+03:00"
+    },
+    {
+        "code": "MM",
+        "nom": "Birmanie",
+        "capitale": "Naypyidaw",
+        "continent": "Asia",
+        "devise": "MMK",
+        "fuseau_horaire": "UTC+06:30"
+    },
+    {
         "code": "BO",
-        "nom": "Bolivia",
+        "nom": "Bolivie",
         "capitale": "Sucre",
         "continent": "Americas",
         "devise": "BOB",
@@ -221,7 +245,7 @@ const countries = [
     },
     {
         "code": "BA",
-        "nom": "Bosnia and Herzegovina",
+        "nom": "Bosnie-Herzégovine",
         "capitale": "Sarajevo",
         "continent": "Europe",
         "devise": "BAM",
@@ -236,36 +260,12 @@ const countries = [
         "fuseau_horaire": "UTC+02:00"
     },
     {
-        "code": "BV",
-        "nom": "Bouvet Island",
-        "capitale": "",
-        "continent": "Antarctic",
-        "devise": "",
-        "fuseau_horaire": "UTC+01:00"
-    },
-    {
         "code": "BR",
-        "nom": "Brazil",
+        "nom": "Brésil",
         "capitale": "Brasília",
         "continent": "Americas",
         "devise": "BRL",
         "fuseau_horaire": "UTC-05:00"
-    },
-    {
-        "code": "IO",
-        "nom": "British Indian Ocean Territory",
-        "capitale": "Diego Garcia",
-        "continent": "Africa",
-        "devise": "USD",
-        "fuseau_horaire": "UTC+06:00"
-    },
-    {
-        "code": "VG",
-        "nom": "British Virgin Islands",
-        "capitale": "Road Town",
-        "continent": "Americas",
-        "devise": "USD",
-        "fuseau_horaire": "UTC-04:00"
     },
     {
         "code": "BN",
@@ -277,7 +277,7 @@ const countries = [
     },
     {
         "code": "BG",
-        "nom": "Bulgaria",
+        "nom": "Bulgarie",
         "capitale": "Sofia",
         "continent": "Europe",
         "devise": "BGN",
@@ -301,7 +301,7 @@ const countries = [
     },
     {
         "code": "KH",
-        "nom": "Cambodia",
+        "nom": "Cambodge",
         "capitale": "Phnom Penh",
         "continent": "Asia",
         "devise": "KHR",
@@ -309,7 +309,7 @@ const countries = [
     },
     {
         "code": "CM",
-        "nom": "Cameroon",
+        "nom": "Cameroun",
         "capitale": "Yaoundé",
         "continent": "Africa",
         "devise": "XAF",
@@ -324,48 +324,8 @@ const countries = [
         "fuseau_horaire": "UTC-08:00"
     },
     {
-        "code": "CV",
-        "nom": "Cape Verde",
-        "capitale": "Praia",
-        "continent": "Africa",
-        "devise": "CVE",
-        "fuseau_horaire": "UTC-01:00"
-    },
-    {
-        "code": "BQ",
-        "nom": "Caribbean Netherlands",
-        "capitale": "Kralendijk",
-        "continent": "Americas",
-        "devise": "USD",
-        "fuseau_horaire": "UTC-04:00"
-    },
-    {
-        "code": "KY",
-        "nom": "Cayman Islands",
-        "capitale": "George Town",
-        "continent": "Americas",
-        "devise": "KYD",
-        "fuseau_horaire": "UTC-05:00"
-    },
-    {
-        "code": "CF",
-        "nom": "Central African Republic",
-        "capitale": "Bangui",
-        "continent": "Africa",
-        "devise": "XAF",
-        "fuseau_horaire": "UTC+01:00"
-    },
-    {
-        "code": "TD",
-        "nom": "Chad",
-        "capitale": "N'Djamena",
-        "continent": "Africa",
-        "devise": "XAF",
-        "fuseau_horaire": "UTC+01:00"
-    },
-    {
         "code": "CL",
-        "nom": "Chile",
+        "nom": "Chili",
         "capitale": "Santiago",
         "continent": "Americas",
         "devise": "CLP",
@@ -373,31 +333,31 @@ const countries = [
     },
     {
         "code": "CN",
-        "nom": "China",
+        "nom": "Chine",
         "capitale": "Beijing",
         "continent": "Asia",
         "devise": "CNY",
         "fuseau_horaire": "UTC+08:00"
     },
     {
-        "code": "CX",
-        "nom": "Christmas Island",
-        "capitale": "Flying Fish Cove",
-        "continent": "Oceania",
-        "devise": "AUD",
-        "fuseau_horaire": "UTC+07:00"
+        "code": "CY",
+        "nom": "Chypre",
+        "capitale": "Nicosia",
+        "continent": "Europe",
+        "devise": "EUR",
+        "fuseau_horaire": "UTC+02:00"
     },
     {
-        "code": "CC",
-        "nom": "Cocos (Keeling) Islands",
-        "capitale": "West Island",
-        "continent": "Oceania",
-        "devise": "AUD",
-        "fuseau_horaire": "UTC+06:30"
+        "code": "VA",
+        "nom": "Cité du Vatican",
+        "capitale": "Vatican City",
+        "continent": "Europe",
+        "devise": "EUR",
+        "fuseau_horaire": "UTC+01:00"
     },
     {
         "code": "CO",
-        "nom": "Colombia",
+        "nom": "Colombie",
         "capitale": "Bogotá",
         "continent": "Americas",
         "devise": "COP",
@@ -405,19 +365,43 @@ const countries = [
     },
     {
         "code": "KM",
-        "nom": "Comoros",
+        "nom": "Comores",
         "capitale": "Moroni",
         "continent": "Africa",
         "devise": "KMF",
         "fuseau_horaire": "UTC+03:00"
     },
     {
-        "code": "CK",
-        "nom": "Cook Islands",
-        "capitale": "Avarua",
-        "continent": "Oceania",
-        "devise": "CKD",
-        "fuseau_horaire": "UTC-10:00"
+        "code": "CG",
+        "nom": "Congo",
+        "capitale": "Brazzaville",
+        "continent": "Africa",
+        "devise": "XAF",
+        "fuseau_horaire": "UTC+01:00"
+    },
+    {
+        "code": "CD",
+        "nom": "Congo (Rép. dém.)",
+        "capitale": "Kinshasa",
+        "continent": "Africa",
+        "devise": "CDF",
+        "fuseau_horaire": "UTC+01:00"
+    },
+    {
+        "code": "KP",
+        "nom": "Corée du Nord",
+        "capitale": "Pyongyang",
+        "continent": "Asia",
+        "devise": "KPW",
+        "fuseau_horaire": "UTC+09:00"
+    },
+    {
+        "code": "KR",
+        "nom": "Corée du Sud",
+        "capitale": "Seoul",
+        "continent": "Asia",
+        "devise": "KRW",
+        "fuseau_horaire": "UTC+09:00"
     },
     {
         "code": "CR",
@@ -428,8 +412,16 @@ const countries = [
         "fuseau_horaire": "UTC-06:00"
     },
     {
+        "code": "CI",
+        "nom": "Côte d'Ivoire",
+        "capitale": "Yamoussoukro",
+        "continent": "Africa",
+        "devise": "XOF",
+        "fuseau_horaire": "UTC"
+    },
+    {
         "code": "HR",
-        "nom": "Croatia",
+        "nom": "Croatie",
         "capitale": "Zagreb",
         "continent": "Europe",
         "devise": "EUR",
@@ -452,24 +444,8 @@ const countries = [
         "fuseau_horaire": "UTC-04:00"
     },
     {
-        "code": "CY",
-        "nom": "Cyprus",
-        "capitale": "Nicosia",
-        "continent": "Europe",
-        "devise": "EUR",
-        "fuseau_horaire": "UTC+02:00"
-    },
-    {
-        "code": "CZ",
-        "nom": "Czechia",
-        "capitale": "Prague",
-        "continent": "Europe",
-        "devise": "CZK",
-        "fuseau_horaire": "UTC+01:00"
-    },
-    {
         "code": "DK",
-        "nom": "Denmark",
+        "nom": "Danemark",
         "capitale": "Copenhagen",
         "continent": "Europe",
         "devise": "DKK",
@@ -485,111 +461,79 @@ const countries = [
     },
     {
         "code": "DM",
-        "nom": "Dominica",
+        "nom": "Dominique",
         "capitale": "Roseau",
         "continent": "Americas",
         "devise": "XCD",
         "fuseau_horaire": "UTC-04:00"
     },
     {
-        "code": "DO",
-        "nom": "Dominican Republic",
-        "capitale": "Santo Domingo",
-        "continent": "Americas",
-        "devise": "DOP",
-        "fuseau_horaire": "UTC-04:00"
-    },
-    {
-        "code": "CD",
-        "nom": "DR Congo",
-        "capitale": "Kinshasa",
-        "continent": "Africa",
-        "devise": "CDF",
-        "fuseau_horaire": "UTC+01:00"
-    },
-    {
-        "code": "EC",
-        "nom": "Ecuador",
-        "capitale": "Quito",
-        "continent": "Americas",
-        "devise": "USD",
-        "fuseau_horaire": "UTC-06:00"
-    },
-    {
         "code": "EG",
-        "nom": "Egypt",
+        "nom": "Égypte",
         "capitale": "Cairo",
         "continent": "Africa",
         "devise": "EGP",
         "fuseau_horaire": "UTC+02:00"
     },
     {
-        "code": "SV",
-        "nom": "El Salvador",
-        "capitale": "San Salvador",
+        "code": "AE",
+        "nom": "Émirats arabes unis",
+        "capitale": "Abu Dhabi",
+        "continent": "Asia",
+        "devise": "AED",
+        "fuseau_horaire": "UTC+04:00"
+    },
+    {
+        "code": "EC",
+        "nom": "Équateur",
+        "capitale": "Quito",
         "continent": "Americas",
         "devise": "USD",
         "fuseau_horaire": "UTC-06:00"
     },
     {
-        "code": "GQ",
-        "nom": "Equatorial Guinea",
-        "capitale": "Ciudad de la Paz",
-        "continent": "Africa",
-        "devise": "XAF",
-        "fuseau_horaire": "UTC+01:00"
-    },
-    {
         "code": "ER",
-        "nom": "Eritrea",
+        "nom": "Érythrée",
         "capitale": "Asmara",
         "continent": "Africa",
         "devise": "ERN",
         "fuseau_horaire": "UTC+03:00"
     },
     {
+        "code": "ES",
+        "nom": "Espagne",
+        "capitale": "Madrid",
+        "continent": "Europe",
+        "devise": "EUR",
+        "fuseau_horaire": "UTC"
+    },
+    {
         "code": "EE",
-        "nom": "Estonia",
+        "nom": "Estonie",
         "capitale": "Tallinn",
         "continent": "Europe",
         "devise": "EUR",
         "fuseau_horaire": "UTC+02:00"
     },
     {
-        "code": "SZ",
-        "nom": "Eswatini",
-        "capitale": "Mbabane",
-        "continent": "Africa",
-        "devise": "SZL",
-        "fuseau_horaire": "UTC+02:00"
+        "code": "US",
+        "nom": "États-Unis",
+        "capitale": "Washington, D.C.",
+        "continent": "Americas",
+        "devise": "USD",
+        "fuseau_horaire": "UTC-12:00"
     },
     {
         "code": "ET",
-        "nom": "Ethiopia",
+        "nom": "Éthiopie",
         "capitale": "Addis Ababa",
         "continent": "Africa",
         "devise": "ETB",
         "fuseau_horaire": "UTC+03:00"
     },
     {
-        "code": "FK",
-        "nom": "Falkland Islands",
-        "capitale": "Stanley",
-        "continent": "Americas",
-        "devise": "FKP",
-        "fuseau_horaire": "UTC-04:00"
-    },
-    {
-        "code": "FO",
-        "nom": "Faroe Islands",
-        "capitale": "Tórshavn",
-        "continent": "Europe",
-        "devise": "DKK",
-        "fuseau_horaire": "UTC+00:00"
-    },
-    {
         "code": "FJ",
-        "nom": "Fiji",
+        "nom": "Fidji",
         "capitale": "Suva",
         "continent": "Oceania",
         "devise": "FJD",
@@ -597,7 +541,7 @@ const countries = [
     },
     {
         "code": "FI",
-        "nom": "Finland",
+        "nom": "Finlande",
         "capitale": "Helsinki",
         "continent": "Europe",
         "devise": "EUR",
@@ -612,30 +556,6 @@ const countries = [
         "fuseau_horaire": "UTC-10:00"
     },
     {
-        "code": "GF",
-        "nom": "French Guiana",
-        "capitale": "Cayenne",
-        "continent": "Americas",
-        "devise": "EUR",
-        "fuseau_horaire": "UTC-03:00"
-    },
-    {
-        "code": "PF",
-        "nom": "French Polynesia",
-        "capitale": "Papeetē",
-        "continent": "Oceania",
-        "devise": "XPF",
-        "fuseau_horaire": "UTC-10:00"
-    },
-    {
-        "code": "TF",
-        "nom": "French Southern and Antarctic Lands",
-        "capitale": "Port-aux-Français",
-        "continent": "Antarctic",
-        "devise": "EUR",
-        "fuseau_horaire": "UTC+05:00"
-    },
-    {
         "code": "GA",
         "nom": "Gabon",
         "capitale": "Libreville",
@@ -645,7 +565,7 @@ const countries = [
     },
     {
         "code": "GM",
-        "nom": "Gambia",
+        "nom": "Gambie",
         "capitale": "Banjul",
         "continent": "Africa",
         "devise": "GMD",
@@ -653,19 +573,19 @@ const countries = [
     },
     {
         "code": "GE",
-        "nom": "Georgia",
+        "nom": "Géorgie",
         "capitale": "Tbilisi",
         "continent": "Asia",
         "devise": "GEL",
         "fuseau_horaire": "UTC+04:00"
     },
     {
-        "code": "DE",
-        "nom": "Germany",
-        "capitale": "Berlin",
-        "continent": "Europe",
-        "devise": "EUR",
-        "fuseau_horaire": "UTC+01:00"
+        "code": "GS",
+        "nom": "Géorgie du Sud-et-les Îles Sandwich du Sud",
+        "capitale": "King Edward Point",
+        "continent": "Antarctic",
+        "devise": "GBP",
+        "fuseau_horaire": "UTC-02:00"
     },
     {
         "code": "GH",
@@ -685,26 +605,26 @@ const countries = [
     },
     {
         "code": "GR",
-        "nom": "Greece",
+        "nom": "Grèce",
         "capitale": "Athens",
         "continent": "Europe",
         "devise": "EUR",
         "fuseau_horaire": "UTC+02:00"
     },
     {
-        "code": "GL",
-        "nom": "Greenland",
-        "capitale": "Nuuk",
-        "continent": "Americas",
-        "devise": "DKK",
-        "fuseau_horaire": "UTC-04:00"
-    },
-    {
         "code": "GD",
-        "nom": "Grenada",
+        "nom": "Grenade",
         "capitale": "St. George's",
         "continent": "Americas",
         "devise": "XCD",
+        "fuseau_horaire": "UTC-04:00"
+    },
+    {
+        "code": "GL",
+        "nom": "Groenland",
+        "capitale": "Nuuk",
+        "continent": "Americas",
+        "devise": "DKK",
         "fuseau_horaire": "UTC-04:00"
     },
     {
@@ -733,7 +653,7 @@ const countries = [
     },
     {
         "code": "GG",
-        "nom": "Guernsey",
+        "nom": "Guernesey",
         "capitale": "St. Peter Port",
         "continent": "Europe",
         "devise": "GBP",
@@ -741,15 +661,23 @@ const countries = [
     },
     {
         "code": "GN",
-        "nom": "Guinea",
+        "nom": "Guinée",
         "capitale": "Conakry",
         "continent": "Africa",
         "devise": "GNF",
         "fuseau_horaire": "UTC"
     },
     {
+        "code": "GQ",
+        "nom": "Guinée équatoriale",
+        "capitale": "Ciudad de la Paz",
+        "continent": "Africa",
+        "devise": "XAF",
+        "fuseau_horaire": "UTC+01:00"
+    },
+    {
         "code": "GW",
-        "nom": "Guinea-Bissau",
+        "nom": "Guinée-Bissau",
         "capitale": "Bissau",
         "continent": "Africa",
         "devise": "XOF",
@@ -764,20 +692,20 @@ const countries = [
         "fuseau_horaire": "UTC-04:00"
     },
     {
+        "code": "GF",
+        "nom": "Guyane",
+        "capitale": "Cayenne",
+        "continent": "Americas",
+        "devise": "EUR",
+        "fuseau_horaire": "UTC-03:00"
+    },
+    {
         "code": "HT",
-        "nom": "Haiti",
+        "nom": "Haïti",
         "capitale": "Port-au-Prince",
         "continent": "Americas",
         "devise": "HTG",
         "fuseau_horaire": "UTC-05:00"
-    },
-    {
-        "code": "HM",
-        "nom": "Heard Island and McDonald Islands",
-        "capitale": "",
-        "continent": "Antarctic",
-        "devise": "",
-        "fuseau_horaire": "UTC+05:00"
     },
     {
         "code": "HN",
@@ -797,23 +725,175 @@ const countries = [
     },
     {
         "code": "HU",
-        "nom": "Hungary",
+        "nom": "Hongrie",
         "capitale": "Budapest",
         "continent": "Europe",
         "devise": "HUF",
         "fuseau_horaire": "UTC+01:00"
     },
     {
-        "code": "IS",
-        "nom": "Iceland",
-        "capitale": "Reykjavik",
+        "code": "BV",
+        "nom": "Île Bouvet",
+        "capitale": "",
+        "continent": "Antarctic",
+        "devise": "",
+        "fuseau_horaire": "UTC+01:00"
+    },
+    {
+        "code": "CX",
+        "nom": "Île Christmas",
+        "capitale": "Flying Fish Cove",
+        "continent": "Oceania",
+        "devise": "AUD",
+        "fuseau_horaire": "UTC+07:00"
+    },
+    {
+        "code": "IM",
+        "nom": "Île de Man",
+        "capitale": "Douglas",
         "continent": "Europe",
-        "devise": "ISK",
-        "fuseau_horaire": "UTC"
+        "devise": "GBP",
+        "fuseau_horaire": "UTC+00:00"
+    },
+    {
+        "code": "MU",
+        "nom": "Île Maurice",
+        "capitale": "Port Louis",
+        "continent": "Africa",
+        "devise": "MUR",
+        "fuseau_horaire": "UTC+04:00"
+    },
+    {
+        "code": "NF",
+        "nom": "Île Norfolk",
+        "capitale": "Kingston",
+        "continent": "Oceania",
+        "devise": "AUD",
+        "fuseau_horaire": "UTC+11:30"
+    },
+    {
+        "code": "KY",
+        "nom": "Îles Caïmans",
+        "capitale": "George Town",
+        "continent": "Americas",
+        "devise": "KYD",
+        "fuseau_horaire": "UTC-05:00"
+    },
+    {
+        "code": "CC",
+        "nom": "Îles Cocos",
+        "capitale": "West Island",
+        "continent": "Oceania",
+        "devise": "AUD",
+        "fuseau_horaire": "UTC+06:30"
+    },
+    {
+        "code": "CK",
+        "nom": "Îles Cook",
+        "capitale": "Avarua",
+        "continent": "Oceania",
+        "devise": "CKD",
+        "fuseau_horaire": "UTC-10:00"
+    },
+    {
+        "code": "CV",
+        "nom": "Îles du Cap-Vert",
+        "capitale": "Praia",
+        "continent": "Africa",
+        "devise": "CVE",
+        "fuseau_horaire": "UTC-01:00"
+    },
+    {
+        "code": "FO",
+        "nom": "Îles Féroé",
+        "capitale": "Tórshavn",
+        "continent": "Europe",
+        "devise": "DKK",
+        "fuseau_horaire": "UTC+00:00"
+    },
+    {
+        "code": "HM",
+        "nom": "Îles Heard-et-MacDonald",
+        "capitale": "",
+        "continent": "Antarctic",
+        "devise": "",
+        "fuseau_horaire": "UTC+05:00"
+    },
+    {
+        "code": "FK",
+        "nom": "Îles Malouines",
+        "capitale": "Stanley",
+        "continent": "Americas",
+        "devise": "FKP",
+        "fuseau_horaire": "UTC-04:00"
+    },
+    {
+        "code": "MP",
+        "nom": "Îles Mariannes du Nord",
+        "capitale": "Saipan",
+        "continent": "Oceania",
+        "devise": "USD",
+        "fuseau_horaire": "UTC+10:00"
+    },
+    {
+        "code": "MH",
+        "nom": "Îles Marshall",
+        "capitale": "Majuro",
+        "continent": "Oceania",
+        "devise": "USD",
+        "fuseau_horaire": "UTC+12:00"
+    },
+    {
+        "code": "UM",
+        "nom": "Îles mineures éloignées des États-Unis",
+        "capitale": "Washington DC",
+        "continent": "Americas",
+        "devise": "USD",
+        "fuseau_horaire": "UTC-11:00"
+    },
+    {
+        "code": "PN",
+        "nom": "Îles Pitcairn",
+        "capitale": "Adamstown",
+        "continent": "Oceania",
+        "devise": "NZD",
+        "fuseau_horaire": "UTC-08:00"
+    },
+    {
+        "code": "SB",
+        "nom": "Îles Salomon",
+        "capitale": "Honiara",
+        "continent": "Oceania",
+        "devise": "SBD",
+        "fuseau_horaire": "UTC+11:00"
+    },
+    {
+        "code": "TC",
+        "nom": "Îles Turques-et-Caïques",
+        "capitale": "Cockburn Town",
+        "continent": "Americas",
+        "devise": "USD",
+        "fuseau_horaire": "UTC-04:00"
+    },
+    {
+        "code": "VG",
+        "nom": "Îles Vierges britanniques",
+        "capitale": "Road Town",
+        "continent": "Americas",
+        "devise": "USD",
+        "fuseau_horaire": "UTC-04:00"
+    },
+    {
+        "code": "VI",
+        "nom": "Îles Vierges des États-Unis",
+        "capitale": "Charlotte Amalie",
+        "continent": "Americas",
+        "devise": "USD",
+        "fuseau_horaire": "UTC-04:00"
     },
     {
         "code": "IN",
-        "nom": "India",
+        "nom": "Inde",
         "capitale": "New Delhi",
         "continent": "Asia",
         "devise": "INR",
@@ -821,11 +901,19 @@ const countries = [
     },
     {
         "code": "ID",
-        "nom": "Indonesia",
+        "nom": "Indonésie",
         "capitale": "Jakarta",
         "continent": "Asia",
         "devise": "IDR",
         "fuseau_horaire": "UTC+07:00"
+    },
+    {
+        "code": "IQ",
+        "nom": "Irak",
+        "capitale": "Baghdad",
+        "continent": "Asia",
+        "devise": "IQD",
+        "fuseau_horaire": "UTC+03:00"
     },
     {
         "code": "IR",
@@ -836,32 +924,24 @@ const countries = [
         "fuseau_horaire": "UTC+03:30"
     },
     {
-        "code": "IQ",
-        "nom": "Iraq",
-        "capitale": "Baghdad",
-        "continent": "Asia",
-        "devise": "IQD",
-        "fuseau_horaire": "UTC+03:00"
-    },
-    {
         "code": "IE",
-        "nom": "Ireland",
+        "nom": "Irlande",
         "capitale": "Dublin",
         "continent": "Europe",
         "devise": "EUR",
         "fuseau_horaire": "UTC"
     },
     {
-        "code": "IM",
-        "nom": "Isle of Man",
-        "capitale": "Douglas",
+        "code": "IS",
+        "nom": "Islande",
+        "capitale": "Reykjavik",
         "continent": "Europe",
-        "devise": "GBP",
-        "fuseau_horaire": "UTC+00:00"
+        "devise": "ISK",
+        "fuseau_horaire": "UTC"
     },
     {
         "code": "IL",
-        "nom": "Israel",
+        "nom": "Israël",
         "capitale": "Jerusalem",
         "continent": "Asia",
         "devise": "ILS",
@@ -869,23 +949,15 @@ const countries = [
     },
     {
         "code": "IT",
-        "nom": "Italy",
+        "nom": "Italie",
         "capitale": "Rome",
         "continent": "Europe",
         "devise": "EUR",
         "fuseau_horaire": "UTC+01:00"
     },
     {
-        "code": "CI",
-        "nom": "Ivory Coast",
-        "capitale": "Yamoussoukro",
-        "continent": "Africa",
-        "devise": "XOF",
-        "fuseau_horaire": "UTC"
-    },
-    {
         "code": "JM",
-        "nom": "Jamaica",
+        "nom": "Jamaïque",
         "capitale": "Kingston",
         "continent": "Americas",
         "devise": "JMD",
@@ -893,7 +965,7 @@ const countries = [
     },
     {
         "code": "JP",
-        "nom": "Japan",
+        "nom": "Japon",
         "capitale": "Tokyo",
         "continent": "Asia",
         "devise": "JPY",
@@ -909,7 +981,7 @@ const countries = [
     },
     {
         "code": "JO",
-        "nom": "Jordan",
+        "nom": "Jordanie",
         "capitale": "Amman",
         "continent": "Asia",
         "devise": "JOD",
@@ -932,6 +1004,14 @@ const countries = [
         "fuseau_horaire": "UTC+03:00"
     },
     {
+        "code": "KG",
+        "nom": "Kirghizistan",
+        "capitale": "Bishkek",
+        "continent": "Asia",
+        "devise": "KGS",
+        "fuseau_horaire": "UTC+06:00"
+    },
+    {
         "code": "KI",
         "nom": "Kiribati",
         "capitale": "South Tarawa",
@@ -949,19 +1029,11 @@ const countries = [
     },
     {
         "code": "KW",
-        "nom": "Kuwait",
+        "nom": "Koweït",
         "capitale": "Kuwait City",
         "continent": "Asia",
         "devise": "KWD",
         "fuseau_horaire": "UTC+03:00"
-    },
-    {
-        "code": "KG",
-        "nom": "Kyrgyzstan",
-        "capitale": "Bishkek",
-        "continent": "Asia",
-        "devise": "KGS",
-        "fuseau_horaire": "UTC+06:00"
     },
     {
         "code": "LA",
@@ -972,8 +1044,16 @@ const countries = [
         "fuseau_horaire": "UTC+07:00"
     },
     {
+        "code": "LS",
+        "nom": "Lesotho",
+        "capitale": "Maseru",
+        "continent": "Africa",
+        "devise": "LSL",
+        "fuseau_horaire": "UTC+02:00"
+    },
+    {
         "code": "LV",
-        "nom": "Latvia",
+        "nom": "Lettonie",
         "capitale": "Riga",
         "continent": "Europe",
         "devise": "EUR",
@@ -981,18 +1061,10 @@ const countries = [
     },
     {
         "code": "LB",
-        "nom": "Lebanon",
+        "nom": "Liban",
         "capitale": "Beirut",
         "continent": "Asia",
         "devise": "LBP",
-        "fuseau_horaire": "UTC+02:00"
-    },
-    {
-        "code": "LS",
-        "nom": "Lesotho",
-        "capitale": "Maseru",
-        "continent": "Africa",
-        "devise": "LSL",
         "fuseau_horaire": "UTC+02:00"
     },
     {
@@ -1005,7 +1077,7 @@ const countries = [
     },
     {
         "code": "LY",
-        "nom": "Libya",
+        "nom": "Libye",
         "capitale": "Tripoli",
         "continent": "Africa",
         "devise": "LYD",
@@ -1021,7 +1093,7 @@ const countries = [
     },
     {
         "code": "LT",
-        "nom": "Lithuania",
+        "nom": "Lituanie",
         "capitale": "Vilnius",
         "continent": "Europe",
         "devise": "EUR",
@@ -1037,11 +1109,19 @@ const countries = [
     },
     {
         "code": "MO",
-        "nom": "Macau",
+        "nom": "Macao",
         "capitale": "",
         "continent": "Asia",
         "devise": "MOP",
         "fuseau_horaire": "UTC+08:00"
+    },
+    {
+        "code": "MK",
+        "nom": "Macédoine du Nord",
+        "capitale": "Skopje",
+        "continent": "Europe",
+        "devise": "MKD",
+        "fuseau_horaire": "UTC+01:00"
     },
     {
         "code": "MG",
@@ -1052,20 +1132,20 @@ const countries = [
         "fuseau_horaire": "UTC+03:00"
     },
     {
+        "code": "MY",
+        "nom": "Malaisie",
+        "capitale": "Kuala Lumpur",
+        "continent": "Asia",
+        "devise": "MYR",
+        "fuseau_horaire": "UTC+08:00"
+    },
+    {
         "code": "MW",
         "nom": "Malawi",
         "capitale": "Lilongwe",
         "continent": "Africa",
         "devise": "MWK",
         "fuseau_horaire": "UTC+02:00"
-    },
-    {
-        "code": "MY",
-        "nom": "Malaysia",
-        "capitale": "Kuala Lumpur",
-        "continent": "Asia",
-        "devise": "MYR",
-        "fuseau_horaire": "UTC+08:00"
     },
     {
         "code": "MV",
@@ -1085,19 +1165,19 @@ const countries = [
     },
     {
         "code": "MT",
-        "nom": "Malta",
+        "nom": "Malte",
         "capitale": "Valletta",
         "continent": "Europe",
         "devise": "EUR",
         "fuseau_horaire": "UTC+01:00"
     },
     {
-        "code": "MH",
-        "nom": "Marshall Islands",
-        "capitale": "Majuro",
-        "continent": "Oceania",
-        "devise": "USD",
-        "fuseau_horaire": "UTC+12:00"
+        "code": "MA",
+        "nom": "Maroc",
+        "capitale": "Rabat",
+        "continent": "Africa",
+        "devise": "MAD",
+        "fuseau_horaire": "UTC"
     },
     {
         "code": "MQ",
@@ -1109,19 +1189,11 @@ const countries = [
     },
     {
         "code": "MR",
-        "nom": "Mauritania",
+        "nom": "Mauritanie",
         "capitale": "Nouakchott",
         "continent": "Africa",
         "devise": "MRU",
         "fuseau_horaire": "UTC"
-    },
-    {
-        "code": "MU",
-        "nom": "Mauritius",
-        "capitale": "Port Louis",
-        "continent": "Africa",
-        "devise": "MUR",
-        "fuseau_horaire": "UTC+04:00"
     },
     {
         "code": "YT",
@@ -1133,7 +1205,7 @@ const countries = [
     },
     {
         "code": "MX",
-        "nom": "Mexico",
+        "nom": "Mexique",
         "capitale": "Mexico City",
         "continent": "Americas",
         "devise": "MXN",
@@ -1141,7 +1213,7 @@ const countries = [
     },
     {
         "code": "FM",
-        "nom": "Micronesia",
+        "nom": "Micronésie",
         "capitale": "Palikir",
         "continent": "Oceania",
         "devise": "USD",
@@ -1149,7 +1221,7 @@ const countries = [
     },
     {
         "code": "MD",
-        "nom": "Moldova",
+        "nom": "Moldavie",
         "capitale": "Chișinău",
         "continent": "Europe",
         "devise": "MDL",
@@ -1165,7 +1237,7 @@ const countries = [
     },
     {
         "code": "MN",
-        "nom": "Mongolia",
+        "nom": "Mongolie",
         "capitale": "Ulan Bator",
         "continent": "Asia",
         "devise": "MNT",
@@ -1173,7 +1245,7 @@ const countries = [
     },
     {
         "code": "ME",
-        "nom": "Montenegro",
+        "nom": "Monténégro",
         "capitale": "Podgorica",
         "continent": "Europe",
         "devise": "EUR",
@@ -1188,14 +1260,6 @@ const countries = [
         "fuseau_horaire": "UTC-04:00"
     },
     {
-        "code": "MA",
-        "nom": "Morocco",
-        "capitale": "Rabat",
-        "continent": "Africa",
-        "devise": "MAD",
-        "fuseau_horaire": "UTC"
-    },
-    {
         "code": "MZ",
         "nom": "Mozambique",
         "capitale": "Maputo",
@@ -1204,16 +1268,8 @@ const countries = [
         "fuseau_horaire": "UTC+02:00"
     },
     {
-        "code": "MM",
-        "nom": "Myanmar",
-        "capitale": "Naypyidaw",
-        "continent": "Asia",
-        "devise": "MMK",
-        "fuseau_horaire": "UTC+06:30"
-    },
-    {
         "code": "NA",
-        "nom": "Namibia",
+        "nom": "Namibie",
         "capitale": "Windhoek",
         "continent": "Africa",
         "devise": "NAD",
@@ -1229,35 +1285,11 @@ const countries = [
     },
     {
         "code": "NP",
-        "nom": "Nepal",
+        "nom": "Népal",
         "capitale": "Kathmandu",
         "continent": "Asia",
         "devise": "NPR",
         "fuseau_horaire": "UTC+05:45"
-    },
-    {
-        "code": "NL",
-        "nom": "Netherlands",
-        "capitale": "Amsterdam",
-        "continent": "Europe",
-        "devise": "EUR",
-        "fuseau_horaire": "UTC+01:00"
-    },
-    {
-        "code": "NC",
-        "nom": "New Caledonia",
-        "capitale": "Nouméa",
-        "continent": "Oceania",
-        "devise": "XPF",
-        "fuseau_horaire": "UTC+11:00"
-    },
-    {
-        "code": "NZ",
-        "nom": "New Zealand",
-        "capitale": "Wellington",
-        "continent": "Oceania",
-        "devise": "NZD",
-        "fuseau_horaire": "UTC-11:00"
     },
     {
         "code": "NI",
@@ -1277,7 +1309,7 @@ const countries = [
     },
     {
         "code": "NG",
-        "nom": "Nigeria",
+        "nom": "Nigéria",
         "capitale": "Abuja",
         "continent": "Africa",
         "devise": "NGN",
@@ -1292,44 +1324,28 @@ const countries = [
         "fuseau_horaire": "UTC-11:00"
     },
     {
-        "code": "NF",
-        "nom": "Norfolk Island",
-        "capitale": "Kingston",
-        "continent": "Oceania",
-        "devise": "AUD",
-        "fuseau_horaire": "UTC+11:30"
-    },
-    {
-        "code": "KP",
-        "nom": "North Korea",
-        "capitale": "Pyongyang",
-        "continent": "Asia",
-        "devise": "KPW",
-        "fuseau_horaire": "UTC+09:00"
-    },
-    {
-        "code": "MK",
-        "nom": "North Macedonia",
-        "capitale": "Skopje",
-        "continent": "Europe",
-        "devise": "MKD",
-        "fuseau_horaire": "UTC+01:00"
-    },
-    {
-        "code": "MP",
-        "nom": "Northern Mariana Islands",
-        "capitale": "Saipan",
-        "continent": "Oceania",
-        "devise": "USD",
-        "fuseau_horaire": "UTC+10:00"
-    },
-    {
         "code": "NO",
-        "nom": "Norway",
+        "nom": "Norvège",
         "capitale": "Oslo",
         "continent": "Europe",
         "devise": "NOK",
         "fuseau_horaire": "UTC+01:00"
+    },
+    {
+        "code": "NC",
+        "nom": "Nouvelle-Calédonie",
+        "capitale": "Nouméa",
+        "continent": "Oceania",
+        "devise": "XPF",
+        "fuseau_horaire": "UTC+11:00"
+    },
+    {
+        "code": "NZ",
+        "nom": "Nouvelle-Zélande",
+        "capitale": "Wellington",
+        "continent": "Oceania",
+        "devise": "NZD",
+        "fuseau_horaire": "UTC-11:00"
     },
     {
         "code": "OM",
@@ -1338,6 +1354,22 @@ const countries = [
         "continent": "Asia",
         "devise": "OMR",
         "fuseau_horaire": "UTC+04:00"
+    },
+    {
+        "code": "UG",
+        "nom": "Ouganda",
+        "capitale": "Kampala",
+        "continent": "Africa",
+        "devise": "UGX",
+        "fuseau_horaire": "UTC+03:00"
+    },
+    {
+        "code": "UZ",
+        "nom": "Ouzbékistan",
+        "capitale": "Tashkent",
+        "continent": "Asia",
+        "devise": "UZS",
+        "fuseau_horaire": "UTC+05:00"
     },
     {
         "code": "PK",
@@ -1349,7 +1381,7 @@ const countries = [
     },
     {
         "code": "PW",
-        "nom": "Palau",
+        "nom": "Palaos (Palau)",
         "capitale": "Ngerulmud",
         "continent": "Oceania",
         "devise": "USD",
@@ -1373,7 +1405,7 @@ const countries = [
     },
     {
         "code": "PG",
-        "nom": "Papua New Guinea",
+        "nom": "Papouasie-Nouvelle-Guinée",
         "capitale": "Port Moresby",
         "continent": "Oceania",
         "devise": "PGK",
@@ -1388,8 +1420,24 @@ const countries = [
         "fuseau_horaire": "UTC-04:00"
     },
     {
+        "code": "NL",
+        "nom": "Pays-Bas",
+        "capitale": "Amsterdam",
+        "continent": "Europe",
+        "devise": "EUR",
+        "fuseau_horaire": "UTC+01:00"
+    },
+    {
+        "code": "BQ",
+        "nom": "Pays-Bas caribéens",
+        "capitale": "Kralendijk",
+        "continent": "Americas",
+        "devise": "USD",
+        "fuseau_horaire": "UTC-04:00"
+    },
+    {
         "code": "PE",
-        "nom": "Peru",
+        "nom": "Pérou",
         "capitale": "Lima",
         "continent": "Americas",
         "devise": "PEN",
@@ -1404,20 +1452,28 @@ const countries = [
         "fuseau_horaire": "UTC+08:00"
     },
     {
-        "code": "PN",
-        "nom": "Pitcairn Islands",
-        "capitale": "Adamstown",
-        "continent": "Oceania",
-        "devise": "NZD",
-        "fuseau_horaire": "UTC-08:00"
-    },
-    {
         "code": "PL",
-        "nom": "Poland",
+        "nom": "Pologne",
         "capitale": "Warsaw",
         "continent": "Europe",
         "devise": "PLN",
         "fuseau_horaire": "UTC+01:00"
+    },
+    {
+        "code": "PF",
+        "nom": "Polynésie française",
+        "capitale": "Papeetē",
+        "continent": "Oceania",
+        "devise": "XPF",
+        "fuseau_horaire": "UTC-10:00"
+    },
+    {
+        "code": "PR",
+        "nom": "Porto Rico",
+        "capitale": "San Juan",
+        "continent": "Americas",
+        "devise": "USD",
+        "fuseau_horaire": "UTC-04:00"
     },
     {
         "code": "PT",
@@ -1428,14 +1484,6 @@ const countries = [
         "fuseau_horaire": "UTC-01:00"
     },
     {
-        "code": "PR",
-        "nom": "Puerto Rico",
-        "capitale": "San Juan",
-        "continent": "Americas",
-        "devise": "USD",
-        "fuseau_horaire": "UTC-04:00"
-    },
-    {
         "code": "QA",
         "nom": "Qatar",
         "capitale": "Doha",
@@ -1444,12 +1492,20 @@ const countries = [
         "fuseau_horaire": "UTC+03:00"
     },
     {
-        "code": "CG",
-        "nom": "Republic of the Congo",
-        "capitale": "Brazzaville",
+        "code": "CF",
+        "nom": "République centrafricaine",
+        "capitale": "Bangui",
         "continent": "Africa",
         "devise": "XAF",
         "fuseau_horaire": "UTC+01:00"
+    },
+    {
+        "code": "DO",
+        "nom": "République dominicaine",
+        "capitale": "Santo Domingo",
+        "continent": "Americas",
+        "devise": "DOP",
+        "fuseau_horaire": "UTC-04:00"
     },
     {
         "code": "RE",
@@ -1461,15 +1517,23 @@ const countries = [
     },
     {
         "code": "RO",
-        "nom": "Romania",
+        "nom": "Roumanie",
         "capitale": "Bucharest",
         "continent": "Europe",
         "devise": "RON",
         "fuseau_horaire": "UTC+02:00"
     },
     {
+        "code": "GB",
+        "nom": "Royaume-Uni",
+        "capitale": "London",
+        "continent": "Europe",
+        "devise": "GBP",
+        "fuseau_horaire": "UTC-08:00"
+    },
+    {
         "code": "RU",
-        "nom": "Russia",
+        "nom": "Russie",
         "capitale": "Moscow",
         "continent": "Europe",
         "devise": "RUB",
@@ -1484,48 +1548,56 @@ const countries = [
         "fuseau_horaire": "UTC+02:00"
     },
     {
+        "code": "EH",
+        "nom": "Sahara Occidental",
+        "capitale": "El Aaiún",
+        "continent": "Africa",
+        "devise": "DZD",
+        "fuseau_horaire": "UTC+00:00"
+    },
+    {
         "code": "BL",
-        "nom": "Saint Barthélemy",
+        "nom": "Saint-Barthélemy",
         "capitale": "Gustavia",
         "continent": "Americas",
         "devise": "EUR",
         "fuseau_horaire": "UTC-04:00"
     },
     {
-        "code": "SH",
-        "nom": "Saint Helena, Ascension and Tristan da Cunha",
-        "capitale": "Jamestown",
-        "continent": "Africa",
-        "devise": "GBP",
-        "fuseau_horaire": "UTC+00:00"
-    },
-    {
         "code": "KN",
-        "nom": "Saint Kitts and Nevis",
+        "nom": "Saint-Christophe-et-Niévès",
         "capitale": "Basseterre",
         "continent": "Americas",
         "devise": "XCD",
         "fuseau_horaire": "UTC-04:00"
     },
     {
-        "code": "LC",
-        "nom": "Saint Lucia",
-        "capitale": "Castries",
-        "continent": "Americas",
-        "devise": "XCD",
-        "fuseau_horaire": "UTC-04:00"
+        "code": "SM",
+        "nom": "Saint-Marin",
+        "capitale": "City of San Marino",
+        "continent": "Europe",
+        "devise": "EUR",
+        "fuseau_horaire": "UTC+01:00"
     },
     {
         "code": "MF",
-        "nom": "Saint Martin",
+        "nom": "Saint-Martin",
         "capitale": "Marigot",
         "continent": "Americas",
         "devise": "EUR",
         "fuseau_horaire": "UTC-04:00"
     },
     {
+        "code": "SX",
+        "nom": "Saint-Martin",
+        "capitale": "Philipsburg",
+        "continent": "Americas",
+        "devise": "ANG",
+        "fuseau_horaire": "UTC-04:00"
+    },
+    {
         "code": "PM",
-        "nom": "Saint Pierre and Miquelon",
+        "nom": "Saint-Pierre-et-Miquelon",
         "capitale": "Saint-Pierre",
         "continent": "Americas",
         "devise": "EUR",
@@ -1533,11 +1605,35 @@ const countries = [
     },
     {
         "code": "VC",
-        "nom": "Saint Vincent and the Grenadines",
+        "nom": "Saint-Vincent-et-les-Grenadines",
         "capitale": "Kingstown",
         "continent": "Americas",
         "devise": "XCD",
         "fuseau_horaire": "UTC-04:00"
+    },
+    {
+        "code": "SH",
+        "nom": "Sainte-Hélène, Ascension et Tristan da Cunha",
+        "capitale": "Jamestown",
+        "continent": "Africa",
+        "devise": "GBP",
+        "fuseau_horaire": "UTC+00:00"
+    },
+    {
+        "code": "LC",
+        "nom": "Sainte-Lucie",
+        "capitale": "Castries",
+        "continent": "Americas",
+        "devise": "XCD",
+        "fuseau_horaire": "UTC-04:00"
+    },
+    {
+        "code": "SV",
+        "nom": "Salvador",
+        "capitale": "San Salvador",
+        "continent": "Americas",
+        "devise": "USD",
+        "fuseau_horaire": "UTC-06:00"
     },
     {
         "code": "WS",
@@ -1548,32 +1644,24 @@ const countries = [
         "fuseau_horaire": "UTC+13:00"
     },
     {
-        "code": "SM",
-        "nom": "San Marino",
-        "capitale": "City of San Marino",
-        "continent": "Europe",
-        "devise": "EUR",
-        "fuseau_horaire": "UTC+01:00"
+        "code": "AS",
+        "nom": "Samoa américaines",
+        "capitale": "Pago Pago",
+        "continent": "Oceania",
+        "devise": "USD",
+        "fuseau_horaire": "UTC-11:00"
     },
     {
         "code": "ST",
-        "nom": "São Tomé and Príncipe",
+        "nom": "São Tomé et Príncipe",
         "capitale": "São Tomé",
         "continent": "Africa",
         "devise": "STN",
         "fuseau_horaire": "UTC"
     },
     {
-        "code": "SA",
-        "nom": "Saudi Arabia",
-        "capitale": "Riyadh",
-        "continent": "Asia",
-        "devise": "SAR",
-        "fuseau_horaire": "UTC+03:00"
-    },
-    {
         "code": "SN",
-        "nom": "Senegal",
+        "nom": "Sénégal",
         "capitale": "Dakar",
         "continent": "Africa",
         "devise": "XOF",
@@ -1581,7 +1669,7 @@ const countries = [
     },
     {
         "code": "RS",
-        "nom": "Serbia",
+        "nom": "Serbie",
         "capitale": "Belgrade",
         "continent": "Europe",
         "devise": "RSD",
@@ -1605,23 +1693,15 @@ const countries = [
     },
     {
         "code": "SG",
-        "nom": "Singapore",
+        "nom": "Singapour",
         "capitale": "Singapore",
         "continent": "Asia",
         "devise": "SGD",
         "fuseau_horaire": "UTC+08:00"
     },
     {
-        "code": "SX",
-        "nom": "Sint Maarten",
-        "capitale": "Philipsburg",
-        "continent": "Americas",
-        "devise": "ANG",
-        "fuseau_horaire": "UTC-04:00"
-    },
-    {
         "code": "SK",
-        "nom": "Slovakia",
+        "nom": "Slovaquie",
         "capitale": "Bratislava",
         "continent": "Europe",
         "devise": "EUR",
@@ -1629,67 +1709,35 @@ const countries = [
     },
     {
         "code": "SI",
-        "nom": "Slovenia",
+        "nom": "Slovénie",
         "capitale": "Ljubljana",
         "continent": "Europe",
         "devise": "EUR",
         "fuseau_horaire": "UTC+01:00"
     },
     {
-        "code": "SB",
-        "nom": "Solomon Islands",
-        "capitale": "Honiara",
-        "continent": "Oceania",
-        "devise": "SBD",
-        "fuseau_horaire": "UTC+11:00"
-    },
-    {
         "code": "SO",
-        "nom": "Somalia",
+        "nom": "Somalie",
         "capitale": "Mogadishu",
         "continent": "Africa",
         "devise": "SOS",
         "fuseau_horaire": "UTC+03:00"
     },
     {
-        "code": "ZA",
-        "nom": "South Africa",
-        "capitale": "Pretoria",
+        "code": "SD",
+        "nom": "Soudan",
+        "capitale": "Khartoum",
         "continent": "Africa",
-        "devise": "ZAR",
-        "fuseau_horaire": "UTC+02:00"
-    },
-    {
-        "code": "GS",
-        "nom": "South Georgia",
-        "capitale": "King Edward Point",
-        "continent": "Antarctic",
-        "devise": "GBP",
-        "fuseau_horaire": "UTC-02:00"
-    },
-    {
-        "code": "KR",
-        "nom": "South Korea",
-        "capitale": "Seoul",
-        "continent": "Asia",
-        "devise": "KRW",
-        "fuseau_horaire": "UTC+09:00"
+        "devise": "SDG",
+        "fuseau_horaire": "UTC+03:00"
     },
     {
         "code": "SS",
-        "nom": "South Sudan",
+        "nom": "Soudan du Sud",
         "capitale": "Juba",
         "continent": "Africa",
         "devise": "SSP",
         "fuseau_horaire": "UTC+03:00"
-    },
-    {
-        "code": "ES",
-        "nom": "Spain",
-        "capitale": "Madrid",
-        "continent": "Europe",
-        "devise": "EUR",
-        "fuseau_horaire": "UTC"
     },
     {
         "code": "LK",
@@ -1700,32 +1748,8 @@ const countries = [
         "fuseau_horaire": "UTC+05:30"
     },
     {
-        "code": "SD",
-        "nom": "Sudan",
-        "capitale": "Khartoum",
-        "continent": "Africa",
-        "devise": "SDG",
-        "fuseau_horaire": "UTC+03:00"
-    },
-    {
-        "code": "SR",
-        "nom": "Suriname",
-        "capitale": "Paramaribo",
-        "continent": "Americas",
-        "devise": "SRD",
-        "fuseau_horaire": "UTC-03:00"
-    },
-    {
-        "code": "SJ",
-        "nom": "Svalbard and Jan Mayen",
-        "capitale": "Longyearbyen",
-        "continent": "Europe",
-        "devise": "NOK",
-        "fuseau_horaire": "UTC+01:00"
-    },
-    {
         "code": "SE",
-        "nom": "Sweden",
+        "nom": "Suède",
         "capitale": "Stockholm",
         "continent": "Europe",
         "devise": "SEK",
@@ -1733,47 +1757,103 @@ const countries = [
     },
     {
         "code": "CH",
-        "nom": "Switzerland",
+        "nom": "Suisse",
         "capitale": "Bern",
         "continent": "Europe",
         "devise": "CHF",
         "fuseau_horaire": "UTC+01:00"
     },
     {
+        "code": "SR",
+        "nom": "Surinam",
+        "capitale": "Paramaribo",
+        "continent": "Americas",
+        "devise": "SRD",
+        "fuseau_horaire": "UTC-03:00"
+    },
+    {
+        "code": "SJ",
+        "nom": "Svalbard et Jan Mayen",
+        "capitale": "Longyearbyen",
+        "continent": "Europe",
+        "devise": "NOK",
+        "fuseau_horaire": "UTC+01:00"
+    },
+    {
+        "code": "SZ",
+        "nom": "Swaziland",
+        "capitale": "Mbabane",
+        "continent": "Africa",
+        "devise": "SZL",
+        "fuseau_horaire": "UTC+02:00"
+    },
+    {
         "code": "SY",
-        "nom": "Syria",
+        "nom": "Syrie",
         "capitale": "Damascus",
         "continent": "Asia",
         "devise": "SYP",
         "fuseau_horaire": "UTC+02:00"
     },
     {
-        "code": "TW",
-        "nom": "Taiwan",
-        "capitale": "Taipei",
-        "continent": "Asia",
-        "devise": "TWD",
-        "fuseau_horaire": "UTC+08:00"
-    },
-    {
         "code": "TJ",
-        "nom": "Tajikistan",
+        "nom": "Tadjikistan",
         "capitale": "Dushanbe",
         "continent": "Asia",
         "devise": "TJS",
         "fuseau_horaire": "UTC+05:00"
     },
     {
+        "code": "TW",
+        "nom": "Taïwan",
+        "capitale": "Taipei",
+        "continent": "Asia",
+        "devise": "TWD",
+        "fuseau_horaire": "UTC+08:00"
+    },
+    {
         "code": "TZ",
-        "nom": "Tanzania",
+        "nom": "Tanzanie",
         "capitale": "Dodoma",
         "continent": "Africa",
         "devise": "TZS",
         "fuseau_horaire": "UTC+03:00"
     },
     {
+        "code": "TD",
+        "nom": "Tchad",
+        "capitale": "N'Djamena",
+        "continent": "Africa",
+        "devise": "XAF",
+        "fuseau_horaire": "UTC+01:00"
+    },
+    {
+        "code": "CZ",
+        "nom": "Tchéquie",
+        "capitale": "Prague",
+        "continent": "Europe",
+        "devise": "CZK",
+        "fuseau_horaire": "UTC+01:00"
+    },
+    {
+        "code": "TF",
+        "nom": "Terres australes et antarctiques françaises",
+        "capitale": "Port-aux-Français",
+        "continent": "Antarctic",
+        "devise": "EUR",
+        "fuseau_horaire": "UTC+05:00"
+    },
+    {
+        "code": "IO",
+        "nom": "Territoire britannique de l'océan Indien",
+        "capitale": "Diego Garcia",
+        "continent": "Africa",
+        "devise": "USD",
+        "fuseau_horaire": "UTC+06:00"
+    },
+    {
         "code": "TH",
-        "nom": "Thailand",
+        "nom": "Thaïlande",
         "capitale": "Bangkok",
         "continent": "Asia",
         "devise": "THB",
@@ -1781,7 +1861,7 @@ const countries = [
     },
     {
         "code": "TL",
-        "nom": "Timor-Leste",
+        "nom": "Timor oriental",
         "capitale": "Dili",
         "continent": "Asia",
         "devise": "USD",
@@ -1813,7 +1893,7 @@ const countries = [
     },
     {
         "code": "TT",
-        "nom": "Trinidad and Tobago",
+        "nom": "Trinité-et-Tobago",
         "capitale": "Port of Spain",
         "continent": "Americas",
         "devise": "TTD",
@@ -1821,35 +1901,27 @@ const countries = [
     },
     {
         "code": "TN",
-        "nom": "Tunisia",
+        "nom": "Tunisie",
         "capitale": "Tunis",
         "continent": "Africa",
         "devise": "TND",
         "fuseau_horaire": "UTC+01:00"
     },
     {
-        "code": "TR",
-        "nom": "Turkey",
-        "capitale": "Ankara",
-        "continent": "Asia",
-        "devise": "TRY",
-        "fuseau_horaire": "UTC+03:00"
-    },
-    {
         "code": "TM",
-        "nom": "Turkmenistan",
+        "nom": "Turkménistan",
         "capitale": "Ashgabat",
         "continent": "Asia",
         "devise": "TMT",
         "fuseau_horaire": "UTC+05:00"
     },
     {
-        "code": "TC",
-        "nom": "Turks and Caicos Islands",
-        "capitale": "Cockburn Town",
-        "continent": "Americas",
-        "devise": "USD",
-        "fuseau_horaire": "UTC-04:00"
+        "code": "TR",
+        "nom": "Turquie",
+        "capitale": "Ankara",
+        "continent": "Asia",
+        "devise": "TRY",
+        "fuseau_horaire": "UTC+03:00"
     },
     {
         "code": "TV",
@@ -1860,60 +1932,12 @@ const countries = [
         "fuseau_horaire": "UTC+12:00"
     },
     {
-        "code": "UG",
-        "nom": "Uganda",
-        "capitale": "Kampala",
-        "continent": "Africa",
-        "devise": "UGX",
-        "fuseau_horaire": "UTC+03:00"
-    },
-    {
         "code": "UA",
         "nom": "Ukraine",
         "capitale": "Kyiv",
         "continent": "Europe",
         "devise": "UAH",
         "fuseau_horaire": "UTC+02:00"
-    },
-    {
-        "code": "AE",
-        "nom": "United Arab Emirates",
-        "capitale": "Abu Dhabi",
-        "continent": "Asia",
-        "devise": "AED",
-        "fuseau_horaire": "UTC+04:00"
-    },
-    {
-        "code": "GB",
-        "nom": "United Kingdom",
-        "capitale": "London",
-        "continent": "Europe",
-        "devise": "GBP",
-        "fuseau_horaire": "UTC-08:00"
-    },
-    {
-        "code": "US",
-        "nom": "United States",
-        "capitale": "Washington, D.C.",
-        "continent": "Americas",
-        "devise": "USD",
-        "fuseau_horaire": "UTC-12:00"
-    },
-    {
-        "code": "UM",
-        "nom": "United States Minor Outlying Islands",
-        "capitale": "Washington DC",
-        "continent": "Americas",
-        "devise": "USD",
-        "fuseau_horaire": "UTC-11:00"
-    },
-    {
-        "code": "VI",
-        "nom": "United States Virgin Islands",
-        "capitale": "Charlotte Amalie",
-        "continent": "Americas",
-        "devise": "USD",
-        "fuseau_horaire": "UTC-04:00"
     },
     {
         "code": "UY",
@@ -1924,28 +1948,12 @@ const countries = [
         "fuseau_horaire": "UTC-03:00"
     },
     {
-        "code": "UZ",
-        "nom": "Uzbekistan",
-        "capitale": "Tashkent",
-        "continent": "Asia",
-        "devise": "UZS",
-        "fuseau_horaire": "UTC+05:00"
-    },
-    {
         "code": "VU",
         "nom": "Vanuatu",
         "capitale": "Port Vila",
         "continent": "Oceania",
         "devise": "VUV",
         "fuseau_horaire": "UTC+11:00"
-    },
-    {
-        "code": "VA",
-        "nom": "Vatican City",
-        "capitale": "Vatican City",
-        "continent": "Europe",
-        "devise": "EUR",
-        "fuseau_horaire": "UTC+01:00"
     },
     {
         "code": "VE",
@@ -1957,7 +1965,7 @@ const countries = [
     },
     {
         "code": "VN",
-        "nom": "Vietnam",
+        "nom": "Viêt Nam",
         "capitale": "Hanoi",
         "continent": "Asia",
         "devise": "VND",
@@ -1965,23 +1973,15 @@ const countries = [
     },
     {
         "code": "WF",
-        "nom": "Wallis and Futuna",
+        "nom": "Wallis-et-Futuna",
         "capitale": "Mata-Utu",
         "continent": "Oceania",
         "devise": "XPF",
         "fuseau_horaire": "UTC+12:00"
     },
     {
-        "code": "EH",
-        "nom": "Western Sahara",
-        "capitale": "El Aaiún",
-        "continent": "Africa",
-        "devise": "DZD",
-        "fuseau_horaire": "UTC+00:00"
-    },
-    {
         "code": "YE",
-        "nom": "Yemen",
+        "nom": "Yémen",
         "capitale": "Sana'a",
         "continent": "Asia",
         "devise": "YER",
@@ -1989,7 +1989,7 @@ const countries = [
     },
     {
         "code": "ZM",
-        "nom": "Zambia",
+        "nom": "Zambie",
         "capitale": "Lusaka",
         "continent": "Africa",
         "devise": "ZMW",
@@ -2007,15 +2007,17 @@ const countries = [
 
 async function seedPays() {
     try {
-        let dbUrl;
-        if (DB_MONGO_USER && DB_MONGO_PASSWORD) {
-            dbUrl = `mongodb://${DB_MONGO_USER}:${DB_MONGO_PASSWORD}@${DB_MONGO_HOST}:${DB_MONGO_PORT}/${MONGO_DATABASE}?authSource=admin`;
-        } else {
-            dbUrl = `mongodb://${DB_MONGO_HOST}:${DB_MONGO_PORT}/${MONGO_DATABASE}`;
+        let dbUrl = process.env.MONGO_URI;
+        if (!dbUrl) {
+            if (DB_MONGO_USER && DB_MONGO_PASSWORD) {
+                dbUrl = `mongodb://${DB_MONGO_USER}:${DB_MONGO_PASSWORD}@${DB_MONGO_HOST}:${DB_MONGO_PORT}/${MONGO_DATABASE}?authSource=admin`;
+            } else {
+                dbUrl = `mongodb://${DB_MONGO_HOST}:${DB_MONGO_PORT}/${MONGO_DATABASE}`;
+            }
         }
 
         console.log(`Connexion à MongoDB pour le seeding des pays...`);
-        await mongoose.connect(dbUrl);
+        await mongoose.connect(dbUrl, { family: 4 });
 
         console.log("Nettoyage de la collection acl_pays...");
         await Pays.deleteMany({});

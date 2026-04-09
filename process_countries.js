@@ -14,9 +14,10 @@ try {
 
     const formatted = data.map(c => {
         const currencies = c.currencies ? Object.keys(c.currencies) : [];
+        const nom = (c.translations && c.translations.fra && c.translations.fra.common) ? c.translations.fra.common : c.name.common;
         return {
             code: c.cca2,
-            nom: c.name.common,
+            nom: nom,
             capitale: c.capital && c.capital.length > 0 ? c.capital[0] : "",
             continent: c.region,
             devise: currencies.length > 0 ? currencies[0] : "",
@@ -38,15 +39,17 @@ const countries = ${JSON.stringify(countries, null, 4)};
 
 async function seedPays() {
     try {
-        let dbUrl;
-        if (DB_MONGO_USER && DB_MONGO_PASSWORD) {
-            dbUrl = \`mongodb://\${DB_MONGO_USER}:\${DB_MONGO_PASSWORD}@\${DB_MONGO_HOST}:\${DB_MONGO_PORT}/\${MONGO_DATABASE}?authSource=admin\`;
-        } else {
-            dbUrl = \`mongodb://\${DB_MONGO_HOST}:\${DB_MONGO_PORT}/\${MONGO_DATABASE}\`;
+        let dbUrl = process.env.MONGO_URI;
+        if (!dbUrl) {
+            if (DB_MONGO_USER && DB_MONGO_PASSWORD) {
+                dbUrl = \`mongodb://\${DB_MONGO_USER}:\${DB_MONGO_PASSWORD}@\${DB_MONGO_HOST}:\${DB_MONGO_PORT}/\${MONGO_DATABASE}?authSource=admin\`;
+            } else {
+                dbUrl = \`mongodb://\${DB_MONGO_HOST}:\${DB_MONGO_PORT}/\${MONGO_DATABASE}\`;
+            }
         }
 
         console.log(\`Connexion à MongoDB pour le seeding des pays...\`);
-        await mongoose.connect(dbUrl);
+        await mongoose.connect(dbUrl, { family: 4 });
 
         console.log("Nettoyage de la collection acl_pays...");
         await Pays.deleteMany({});

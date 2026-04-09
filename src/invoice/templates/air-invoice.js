@@ -1,3 +1,5 @@
+const { numberToFrenchWords } = require('../../../utils/utils');
+
 const formatCurrency = (amount) => {
     return new Intl.NumberFormat('fr-CI', { minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(amount || 0);
 };
@@ -577,7 +579,7 @@ const airInvoiceTemplate = (invoice) => {
         </div>
 
         <div class="footer-text">
-            Arrêté la présente facture ${isProforma ? 'proforma' : 'définitive'} à la somme de : ${formatCurrency(invoice.totals?.net_a_payer)} XOF (Somme en toutes lettres). ${isProforma ? 'La facture définitive pourrait connaître des variations à la hausse ou à la baisse, indépendants de GLS. Facture proforma valable 5 jours ; au-delà du ' + new Date(Date.now() + 5*24*60*60*1000).toLocaleDateString('fr-FR') + ', prière recontacter le Service Transit pour une facture proforma actualisée.' : ''}
+            Arrêté la présente facture ${isProforma ? 'proforma' : 'définitive'} à la somme de : <b>${formatCurrency(invoice.totals?.net_a_payer)} XOF</b> (${numberToFrenchWords(invoice.totals?.net_a_payer)} Francs CFA). ${isProforma ? 'La facture définitive pourrait connaître des variations à la hausse ou à la baisse, indépendants de GLS. Facture proforma valable 5 jours ; au-delà du ' + new Date(Date.now() + 5*24*60*60*1000).toLocaleDateString('fr-FR') + ', prière recontacter le Service Transit pour une facture proforma actualisée.' : ''}
         </div>
 
         <div class="company-footer">

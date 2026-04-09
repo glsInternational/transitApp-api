@@ -1,3 +1,5 @@
+const { numberToFrenchWords } = require('../../../utils/utils');
+
 const formatCurrency = (amount) => {
     return new Intl.NumberFormat('fr-CI', { minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(amount || 0);
 };
@@ -340,7 +342,7 @@ const maritimeInvoiceTemplate = (invoice) => {
         </div>
 
         <div class="footer-text">
-            Arrêté la présente facture ${isProforma ? 'proforma' : 'définitive'} maritime à la somme de : ${formatCurrency(invoice.totals?.net_a_payer)} XOF.
+            Arrêté la présente facture ${isProforma ? 'proforma' : 'définitive'} maritime à la somme de : <b>${formatCurrency(invoice.totals?.net_a_payer)} XOF</b> (${numberToFrenchWords(invoice.totals?.net_a_payer)} Francs CFA).
         </div>
 
         <div class="company-footer">

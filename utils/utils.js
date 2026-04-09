@@ -64,6 +64,58 @@ function generateIdentifiant(libelle) {
 }
 
 module.exports.generateIdentifiant = generateIdentifiant;
+/**
+ * Convertit un nombre en lettres (Français)
+ * Adapté pour les besoins de facturation (XOF)
+ */
+function numberToFrenchWords(nbr) {
+    let unit = ["", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf"];
+    let tens = ["", "dix", "vingt", "trente", "quarante", "cinquante", "soixante", "soixante-dix", "quatre-vingt", "quatre-vingt-dix"];
+    let special = ["onze", "douze", "treize", "quatorze", "quinze", "seize"];
 
+    function convert(n) {
+        if (n < 10) return unit[n];
+        if (n === 10) return "dix";
+        if (n > 10 && n < 17) return special[n - 11];
+        if (n < 20) return "dix-" + unit[n - 10];
+        if (n < 70) {
+            let t = Math.floor(n / 10);
+            let u = n % 10;
+            if (u === 1 && t < 7) return tens[t] + " et un";
+            return tens[t] + (u > 0 ? "-" + unit[u] : "");
+        }
+        if (n < 80) return "soixante-" + convert(n - 60 === 1 ? 11 : n - 60).replace("dix-un", "onze");
+        if (n < 100) {
+            let u = n % 10;
+            return "quatre-vingt" + (u > 0 ? "-" + unit[u] : (n === 80 ? "s" : ""));
+        }
+        if (n < 100) {
+            return "quatre-vingt-" + convert(n - 80);
+        }
+        if (n < 1000) {
+            let h = Math.floor(n / 100);
+            let rest = n % 100;
+            if (h === 1) return "cent" + (rest > 0 ? " " + convert(rest) : "");
+            return unit[h] + " cent" + (h > 1 && rest === 0 ? "s" : "") + (rest > 0 ? " " + convert(rest) : "");
+        }
+        if (n < 1000000) {
+            let th = Math.floor(n / 1000);
+            let rest = n % 1000;
+            if (th === 1) return "mille" + (rest > 0 ? " " + convert(rest) : "");
+            return convert(th) + " mille" + (rest > 0 ? " " + convert(rest) : "");
+        }
+        if (n < 1000000000) {
+            let m = Math.floor(n / 1000000);
+            let rest = n % 1000000;
+            return convert(m) + " million" + (m > 1 ? "s" : "") + (rest > 0 ? " " + convert(rest) : "");
+        }
+        return n.toString();
+    }
 
+    if (nbr === 0) return "zéro";
+    let words = convert(nbr);
+    // Capitalize first letter
+    return words.charAt(0).toUpperCase() + words.slice(1);
+}
 
+module.exports.numberToFrenchWords = numberToFrenchWords;

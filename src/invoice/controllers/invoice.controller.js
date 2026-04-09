@@ -66,20 +66,65 @@ exports.createFromDossier = async (req, res) => {
                 rpi: dossier.etat_codage?.rpi || 0,
                 tva_douane: dossier.articles?.reduce((acc, a) => acc + (a.tva || 0), 0) || 0 
             },
-            debours: { 
-                agio: 0, 
-                gestion_credit: 0, 
-                passage_douane: 0,
-                // Automatisme : Caution 0.25% du total des taxes pour les régimes spéciaux
-                caution: ['D56', 'D18', '3000', '5000', '7000', 'S106'].includes(dossier.regime_douanier) 
-                    ? Math.round((dossier.total_taxes_dossier || 0) * 0.0025) 
-                    : 0
-            },
-            prestations: { 
-                frais_fixes: 15000, 
-                commission_gestion: 0,
-                had: dossier.type_voie === 'aerienne' ? 10000 : 25000 // Automatisme voie
+        // Mapping intelligent des dépenses du dossier vers les débours de la facture
+        const dossierDepenses = dossier.depenses || [];
+        let totalAutresDepenses = 0;
+        let magasinageDossier = 0;
+
+        dossierDepenses.forEach(d => {
+            const lib = (d.libelle || "").toLowerCase();
+            const m = d.montant || 0;
+            if (lib.includes('magasinage')) {
+                magasinageDossier += m;
+            } else {
+                totalAutresDepenses += m;
             }
+        });
+
+        invoiceData.debours = { 
+            agio: 0, 
+            gestion_credit: 0, 
+            passage_douane: 0,
+            magasinage: magasinageDossier,
+            autres: totalAutresDepenses,
+            // Automatisme : Caution 0.25% du total des taxes pour les régimes spéciaux
+            caution: ['D56', 'D18', '3000', '5000', '7000', 'S106'].includes(dossier.regime_douanier) 
+                ? Math.round((dossier.total_taxes_dossier || 0) * 0.0025) 
+                : 0
+        };
+
+        invoiceData.prestations = { 
+            frais_fixes: 15000, 
+            commission_gestion: 0,
+            had: dossier.type_voie === 'aerienne' ? 10000 : 25000 // Automatisme voie
+        };
+
+        // --- CALCULS INITIAUX ---
+        // 1. Douane HT & Total
+        const dt = invoiceData.douaneTaxes || {};
+        const ht_douane = (dt.dd || 0) + (dt.rsta || 0) + (dt.pcs || 0) + (dt.pcc || 0) + (dt.pua || 0) + (dt.ts_douane || 0) + (dt.rpi || 0);
+        dt.subtotal_ht = ht_douane;
+        dt.total_douane = ht_douane + (dt.tva_douane || 0);
+
+        // 2. Debours
+        const db = invoiceData.debours || {};
+        db.total_debours = (db.agio || 0) + (db.gestion_credit || 0) + (db.passage_douane || 0) + (db.magasinage || 0) + (db.caution || 0) + (db.autres || 0);
+
+        // 3. Prestations
+        const pr = invoiceData.prestations || {};
+        pr.total_prestations = (pr.frais_fixes || 0) + (pr.had || 0) + (pr.commission_gestion || 0);
+
+        // 4. Grand Totals
+        const total_ht = (dt.total_douane || 0) + (db.total_debours || 0) + (pr.total_prestations || 0);
+        const tva_prestation = Math.round(pr.total_prestations * 0.18); // TVA 18% par défaut sur prestations
+        const total_ttc = total_ht + tva_prestation;
+        
+        invoiceData.totals = {
+            total_ht,
+            tva_prestation,
+            total_ttc,
+            avance: 0,
+            net_a_payer: total_ttc
         };
 
         const invoice = new Invoice(invoiceData);
@@ -289,7 +334,7 @@ exports.sendInvoiceEmail = async (req, res) => {
         try {
             // Tentative de génération de PDF si html-pdf-node est installé
             const htmlPdfNode = require('html-pdf-node');
-            let options = { format: 'A4', printBackground: true, pageRanges: '1' };
+            let options = { format: 'A4', printBackground: true };
             let file = { content: htmlContent };
             
             const pdfBuffer = await htmlPdfNode.generatePdf(file, options);

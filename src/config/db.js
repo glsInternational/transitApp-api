@@ -15,7 +15,9 @@ const connectDB = async () => {
     }
 
     try {
-        await mongoose.connect(dbUrl);
+        await mongoose.connect(dbUrl, {
+            family: 4 // Force l'IPv4 : Corrige le bug de timeout avec Node 22 sur Render et Atlas Free Tier
+        });
         console.log('MongoDB connecté avec succès.');
     } catch (error) {
         console.error('Erreur de connexion à MongoDB :', error);

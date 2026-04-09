@@ -30,7 +30,11 @@ app.use(cors({
 
 // Route par défaut
 app.get('/', (req, res) => {
-    res.send('AKWABA sur l\'API transit V1 !');
+    res.status(200).json({
+        message: 'AKWABA sur l\'API transit V1 !',
+        version: '1.0.0',
+        status: 'active'
+    });
 });
 
 // Middlewares

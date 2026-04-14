@@ -10,6 +10,18 @@ const generateInvoiceNumber = async (type = 'F') => {
     return `${type}-${year}-${(count + 1).toString().padStart(4, '0')}`;
 };
 
+// Helper to calculate RPI based on FOB
+const calculateRPI = (valeurFob) => {
+    if (!valeurFob || valeurFob < 500000) return 0;
+    if (valeurFob > 1000000) {
+        // 0.75% of FOB, minimum 100,000
+        return Math.max(100000, Math.round(valeurFob * 0.0075));
+    } else {
+        // Forfait 70,000 between 500,000 and 1,000,000
+        return 70000;
+    }
+};
+
 // CREATE INVOICE FROM DOSSIER (Initial Drafting)
 exports.createFromDossier = async (req, res) => {
     try {
@@ -79,7 +91,7 @@ exports.createFromDossier = async (req, res) => {
                 pcc: dossier.articles?.reduce((acc, a) => acc + (a.pcc || 0), 0) || 0,
                 pua: 0, 
                 ts_douane: dossier.articles?.reduce((acc, a) => acc + (a.ts_douane || 0), 0) || 0,
-                rpi: dossier.etat_codage?.rpi || 0,
+                rpi: calculateRPI(dossier.articles?.reduce((acc, a) => acc + (a.valeur_fob || 0), 0) || 0),
                 tva_douane: dossier.articles?.reduce((acc, a) => acc + (a.tva || 0), 0) || 0 
             },
             debours: { 
@@ -152,8 +164,12 @@ exports.updateInvoice = async (req, res) => {
         // Let's only update standard modifiable invoice fields in this controller.
         
         // --- CALCULS ---
-        // 1. Douane HT & Total
+        // 0. Automatisme RPI
+        const fob = data.dossierInfo?.valeur_fob_xof || 0;
         const dt = data.douaneTaxes || {};
+        dt.rpi = calculateRPI(fob);
+
+        // 1. Douane HT & Total
         const ht_douane = (dt.dd || 0) + (dt.rsta || 0) + (dt.pcs || 0) + (dt.pcc || 0) + (dt.pua || 0) + (dt.ts_douane || 0) + (dt.rpi || 0) + (dt.autres_taxes_tva || 0) + (dt.autres_taxes_non_tva || 0);
         dt.subtotal_ht = ht_douane;
         dt.total_douane = ht_douane + (dt.tva_douane || 0);

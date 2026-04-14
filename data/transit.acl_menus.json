@@ -1,272 +1,212 @@
-[{
-  "_id": {
-    "$oid": "69b6a36e5d27e25211c55837"
+[
+  {
+    "_id": { "$oid": "69b6a36e5d27e25211c55837" },
+    "designation": "administrateur",
+    "type": "enfant",
+    "route": "/admins",
+    "ordre": "1",
+    "parent": "",
+    "status": "1",
+    "corbeille": "0",
+    "code_menu": "1eSqY49eTGuIxgzL",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"></path><circle cx=\"9\" cy=\"7\" r=\"4\"></circle><polyline points=\"16 11 18 13 22 9\"></polyline></svg>",
+    "createdAt": { "$date": "2026-03-15T12:17:50.099Z" },
+    "updatedAt": { "$date": "2026-04-04T00:58:16.334Z" },
+    "__v": 1
   },
-  "designation": "administrateur",
-  "type": "enfant",
-  "route": "/admins",
-  "ordre": "1",
-  "parent": "",
-  "status": "1",
-  "corbeille": "0",
-  "code_menu": "1eSqY49eTGuIxgzL",
-  "createdAt": {
-    "$date": "2026-03-15T12:17:50.099Z"
+  {
+    "_id": { "$oid": "69b6a3a83baa5dcb1ba835f2" },
+    "designation": "menus",
+    "type": "enfant",
+    "route": "/menus",
+    "ordre": "2",
+    "parent": "",
+    "status": "1",
+    "corbeille": "0",
+    "code_menu": "YbBiOVL9I3gGCSwW",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"3\" y1=\"12\" x2=\"21\" y2=\"12\"></line><line x1=\"3\" y1=\"6\" x2=\"21\" y2=\"6\"></line><line x1=\"3\" y1=\"18\" x2=\"21\" y2=\"18\"></line></svg>",
+    "createdAt": { "$date": "2026-03-15T12:18:48.188Z" },
+    "updatedAt": { "$date": "2026-04-04T00:56:47.650Z" },
+    "__v": 2
   },
-  "updatedAt": {
-    "$date": "2026-04-04T00:58:16.334Z"
+  {
+    "_id": { "$oid": "69bedfa2ca89b173c3437938" },
+    "designation": "config",
+    "type": "parent",
+    "route": "#",
+    "ordre": "3",
+    "parent": "",
+    "status": "1",
+    "corbeille": "0",
+    "code_menu": "6LCpm413Ksrqg6GZ",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z\"></path></svg>",
+    "createdAt": { "$date": "2026-03-21T18:12:50.915Z" },
+    "updatedAt": { "$date": "2026-04-04T00:57:43.012Z" },
+    "__v": 3
   },
-  "__v": 1,
-  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">   <path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"></path>   <circle cx=\"9\" cy=\"7\" r=\"4\"></circle>   <polyline points=\"16 11 18 13 22 9\"></polyline> </svg>"
-},
-{
-  "_id": {
-    "$oid": "69b6a3a83baa5dcb1ba835f2"
+  {
+    "_id": { "$oid": "69bfffe0170299e09b0afebb" },
+    "designation": "inputs dynamique",
+    "type": "enfant",
+    "route": "/inputs-dynamique",
+    "ordre": "1",
+    "parent": "6LCpm413Ksrqg6GZ",
+    "status": "1",
+    "corbeille": "0",
+    "code_menu": "cjLdohCEjFRuuovC",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"4\" y1=\"21\" x2=\"4\" y2=\"14\"></line><line x1=\"4\" y1=\"10\" x2=\"4\" y2=\"3\"></line><line x1=\"12\" y1=\"21\" x2=\"12\" y2=\"12\"></line><line x1=\"12\" y1=\"8\" x2=\"12\" y2=\"3\"></line><line x1=\"20\" y1=\"21\" x2=\"20\" y2=\"16\"></line><line x1=\"20\" y1=\"12\" x2=\"20\" y2=\"3\"></line><line x1=\"1\" y1=\"14\" x2=\"7\" y2=\"14\"></line><line x1=\"9\" y1=\"8\" x2=\"15\" y2=\"8\"></line><line x1=\"17\" y1=\"16\" x2=\"23\" y2=\"16\"></line></svg>",
+    "createdAt": { "$date": "2026-03-22T14:42:40.527Z" },
+    "updatedAt": { "$date": "2026-04-06T18:01:12.952Z" },
+    "__v": 1
   },
-  "designation": "menus",
-  "type": "enfant",
-  "route": "/menus",
-  "ordre": "2",
-  "parent": "",
-  "status": "1",
-  "corbeille": "0",
-  "code_menu": "YbBiOVL9I3gGCSwW",
-  "createdAt": {
-    "$date": "2026-03-15T12:18:48.188Z"
+  {
+    "_id": { "$oid": "69d3f3164075b85f8d77e373" },
+    "designation": "devises",
+    "type": "enfant",
+    "route": "/devises",
+    "ordre": "2",
+    "parent": "6LCpm413Ksrqg6GZ",
+    "status": "1",
+    "corbeille": "0",
+    "code_menu": "PvXLrXO2vlcw4u4D",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"2\" y=\"6\" width=\"20\" height=\"12\" rx=\"2\"></rect><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><line x1=\"6\" y1=\"12\" x2=\"6.01\" y2=\"12\"></line><line x1=\"18\" y1=\"12\" x2=\"18.01\" y2=\"12\"></line><path d=\"M12 9c-1 0-2 .5-2 1.5S11 12 12 12s2 .5 2 1.5S13 15 12 15\"></path><line x1=\"12\" y1=\"8\" x2=\"12\" y2=\"16\"></line></svg>",
+    "createdAt": { "$date": "2026-04-06T17:53:26.674Z" },
+    "updatedAt": { "$date": "2026-04-06T18:01:12.965Z" },
+    "__v": 1
   },
-  "updatedAt": {
-    "$date": "2026-04-04T00:56:47.650Z"
+  {
+    "_id": { "$oid": "69d7c0006c42e9248bf1e7a5" },
+    "designation": "incoterms",
+    "type": "enfant",
+    "route": "/incoterms",
+    "ordre": "3",
+    "parent": "6LCpm413Ksrqg6GZ",
+    "status": "1",
+    "corbeille": "0",
+    "code_menu": "fsNiVt2U0ftHzFJE",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z\"></path><polyline points=\"3.27 6.96 12 12.01 20.73 6.96\"></polyline><line x1=\"12\" y1=\"22.08\" x2=\"12\" y2=\"12\"></line></svg>",
+    "createdAt": { "$date": "2026-04-09T15:04:32.428Z" },
+    "updatedAt": { "$date": "2026-04-09T15:04:32.428Z" },
+    "__v": 0
   },
-  "__v": 2,
-  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">   <line x1=\"3\" y1=\"12\" x2=\"21\" y2=\"12\"></line>   <line x1=\"3\" y1=\"6\" x2=\"21\" y2=\"6\"></line>   <line x1=\"3\" y1=\"18\" x2=\"21\" y2=\"18\"></line> </svg>"
-},
-{
-  "_id": {
-    "$oid": "69bedfa2ca89b173c3437938"
+  {
+    "_id": { "$oid": "69bfff7a170299e09b0afe89" },
+    "designation": "rôles",
+    "type": "enfant",
+    "route": "/profile-admins",
+    "ordre": "4",
+    "parent": "",
+    "status": "1",
+    "corbeille": "0",
+    "code_menu": "7TNmVRMCM2aKw2HU",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2\"></path><circle cx=\"9\" cy=\"7\" r=\"4\"></circle><path d=\"M23 21v-2a4 4 0 0 0-3-3.87\"></path><path d=\"M16 3.13a4 4 0 0 1 0 7.75\"></path></svg>",
+    "createdAt": { "$date": "2026-03-22T14:40:58.244Z" },
+    "updatedAt": { "$date": "2026-04-04T01:00:04.730Z" },
+    "__v": 3
   },
-  "designation": "config",
-  "type": "parent",
-  "route": "#",
-  "ordre": "3",
-  "parent": "",
-  "status": "1",
-  "corbeille": "0",
-  "code_menu": "6LCpm413Ksrqg6GZ",
-  "createdAt": {
-    "$date": "2026-03-21T18:12:50.915Z"
+  {
+    "_id": { "$oid": "69d05520b46f507c187d63a3" },
+    "designation": "pied de page facture",
+    "type": "enfant",
+    "route": "/invoice-config",
+    "ordre": "5",
+    "parent": "",
+    "status": "1",
+    "corbeille": "0",
+    "code_menu": "7utItxJIsvHEs4Ly",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"16\" rx=\"2\"></rect><line x1=\"7\" y1=\"8\" x2=\"17\" y2=\"8\"></line><line x1=\"7\" y1=\"12\" x2=\"17\" y2=\"12\"></line><line x1=\"7\" y1=\"16\" x2=\"12\" y2=\"16\"></line></svg>",
+    "createdAt": { "$date": "2026-04-04T00:02:40.668Z" },
+    "updatedAt": { "$date": "2026-04-04T01:00:34.628Z" },
+    "__v": 2
   },
-  "updatedAt": {
-    "$date": "2026-04-04T00:57:43.012Z"
+  {
+    "_id": { "$oid": "69d014236604648a7fc3a573" },
+    "designation": "factures",
+    "type": "enfant",
+    "route": "/invoices",
+    "ordre": "6",
+    "parent": "",
+    "status": "1",
+    "corbeille": "0",
+    "code_menu": "RGKdxVHZzlCDRdVk",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"></path><polyline points=\"14 2 14 8 20 8\"></polyline><line x1=\"16\" y1=\"13\" x2=\"8\" y2=\"13\"></line><line x1=\"16\" y1=\"17\" x2=\"8\" y2=\"17\"></line><polyline points=\"10 9 9 9 8 9\"></polyline></svg>",
+    "createdAt": { "$date": "2026-04-03T19:25:23.482Z" },
+    "updatedAt": { "$date": "2026-04-04T00:59:42.004Z" },
+    "__v": 3
   },
-  "__v": 3,
-  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">   <circle cx=\"12\" cy=\"12\" r=\"3\"></circle>   <path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z\"></path> </svg>"
-},
-{
-  "_id": {
-    "$oid": "69bfff7a170299e09b0afe89"
+  {
+    "_id": { "$oid": "69cfeffce17f4d5bc49a537f" },
+    "designation": "dossiers",
+    "type": "enfant",
+    "route": "/dossiers",
+    "ordre": "7",
+    "parent": "",
+    "status": "1",
+    "corbeille": "0",
+    "code_menu": "enOXvbmE13cUqo3J",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z\"></path></svg>",
+    "createdAt": { "$date": "2026-04-03T16:51:08.801Z" },
+    "updatedAt": { "$date": "2026-04-04T00:56:48.232Z" },
+    "__v": 13
   },
-  "designation": "rôles",
-  "type": "enfant",
-  "route": "/profile-admins",
-  "ordre": "4",
-  "parent": "",
-  "status": "1",
-  "corbeille": "0",
-  "code_menu": "7TNmVRMCM2aKw2HU",
-  "createdAt": {
-    "$date": "2026-03-22T14:40:58.244Z"
+  {
+    "_id": { "$oid": "69d403defb2b3f7288954bf1" },
+    "designation": "pays",
+    "type": "enfant",
+    "route": "/pays",
+    "ordre": "8",
+    "parent": "",
+    "status": "1",
+    "corbeille": "0",
+    "code_menu": "CukdZ8IFvoUgw1RJ",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M2 12h20\"></path><path d=\"M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20\"></path></svg>",
+    "createdAt": { "$date": "2026-04-06T19:05:02.283Z" },
+    "updatedAt": { "$date": "2026-04-08T23:37:50.093Z" },
+    "__v": 1
   },
-  "updatedAt": {
-    "$date": "2026-04-04T01:00:04.730Z"
+  {
+    "_id": { "$oid": "69d404c1fb2b3f7288954c66" },
+    "designation": "clients",
+    "type": "enfant",
+    "route": "/clients",
+    "ordre": "9",
+    "parent": "",
+    "status": "1",
+    "corbeille": "0",
+    "code_menu": "yidQXivhDl85f70m",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"10\" cy=\"8\" r=\"4\"></circle><path d=\"M3 21a7 7 0 0 1 14 0\"></path><circle cx=\"18\" cy=\"8\" r=\"3\"></circle></svg>",
+    "createdAt": { "$date": "2026-04-06T19:08:49.195Z" },
+    "updatedAt": { "$date": "2026-04-08T23:37:50.100Z" },
+    "__v": 0
   },
-  "__v": 3,
-  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">   <path d=\"M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2\"></path>   <circle cx=\"9\" cy=\"7\" r=\"4\"></circle>   <path d=\"M23 21v-2a4 4 0 0 0-3-3.87\"></path>   <path d=\"M16 3.13a4 4 0 0 1 0 7.75\"></path> </svg>"
-},
-{
-  "_id": {
-    "$oid": "69bfffe0170299e09b0afebb"
+  {
+    "_id": { "$oid": "69d69e42b9bbd2d8ef2e0fbf" },
+    "designation": "expéditeurs",
+    "type": "enfant",
+    "route": "/expediteurs",
+    "ordre": "10",
+    "parent": "",
+    "status": "1",
+    "corbeille": "0",
+    "code_menu": "6ZNtB6nu4oqUOiw1",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"7\" width=\"13\" height=\"10\" rx=\"2\"></rect><path d=\"M16 10h5\"></path><path d=\"M18 8l3 2-3 2\"></path><path d=\"M3 11l6 3 7-3\"></path></svg>",
+    "createdAt": { "$date": "2026-04-08T18:28:18.362Z" },
+    "updatedAt": { "$date": "2026-04-08T23:37:50.101Z" },
+    "__v": 0
   },
-  "designation": "inputs dynamique",
-  "type": "enfant",
-  "route": "/inputs-dynamique",
-  "ordre": "1",
-  "parent": "6LCpm413Ksrqg6GZ",
-  "status": "1",
-  "corbeille": "0",
-  "code_menu": "cjLdohCEjFRuuovC",
-  "createdAt": {
-    "$date": "2026-03-22T14:42:40.527Z"
-  },
-  "updatedAt": {
-    "$date": "2026-04-06T18:01:12.952Z"
-  },
-  "__v": 1
-},
-{
-  "_id": {
-    "$oid": "69cfeffce17f4d5bc49a537f"
-  },
-  "designation": "dossiers",
-  "type": "enfant",
-  "route": "/dossiers",
-  "ordre": "7",
-  "parent": "",
-  "status": "1",
-  "corbeille": "0",
-  "code_menu": "enOXvbmE13cUqo3J",
-  "createdAt": {
-    "$date": "2026-04-03T16:51:08.801Z"
-  },
-  "updatedAt": {
-    "$date": "2026-04-04T00:56:48.232Z"
-  },
-  "__v": 13,
-  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z\"></path></svg>"
-},
-{
-  "_id": {
-    "$oid": "69d014236604648a7fc3a573"
-  },
-  "designation": "factures",
-  "type": "enfant",
-  "route": "/invoices",
-  "ordre": "6",
-  "parent": "",
-  "status": "1",
-  "corbeille": "0",
-  "code_menu": "RGKdxVHZzlCDRdVk",
-  "createdAt": {
-    "$date": "2026-04-03T19:25:23.482Z"
-  },
-  "updatedAt": {
-    "$date": "2026-04-04T00:59:42.004Z"
-  },
-  "__v": 3,
-  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">   <path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"></path>   <polyline points=\"14 2 14 8 20 8\"></polyline>   <line x1=\"16\" y1=\"13\" x2=\"8\" y2=\"13\"></line>   <line x1=\"16\" y1=\"17\" x2=\"8\" y2=\"17\"></line>   <polyline points=\"10 9 9 9 8 9\"></polyline> </svg>"
-},
-{
-  "_id": {
-    "$oid": "69d05520b46f507c187d63a3"
-  },
-  "designation": "pied de page facture",
-  "type": "enfant",
-  "route": "/invoice-config",
-  "ordre": "5",
-  "parent": "",
-  "status": "1",
-  "corbeille": "0",
-  "code_menu": "7utItxJIsvHEs4Ly",
-  "createdAt": {
-    "$date": "2026-04-04T00:02:40.668Z"
-  },
-  "updatedAt": {
-    "$date": "2026-04-04T01:00:34.628Z"
-  },
-  "__v": 2,
-  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">   <rect x=\"3\" y=\"4\" width=\"18\" height=\"16\" rx=\"2\"></rect>   <line x1=\"7\" y1=\"8\" x2=\"17\" y2=\"8\"></line>   <line x1=\"7\" y1=\"12\" x2=\"17\" y2=\"12\"></line>   <line x1=\"7\" y1=\"16\" x2=\"12\" y2=\"16\"></line> </svg>"
-},
-{
-  "_id": {
-    "$oid": "69d3f3164075b85f8d77e373"
-  },
-  "designation": "devises",
-  "type": "enfant",
-  "route": "/devises",
-  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"2\" y=\"6\" width=\"20\" height=\"12\" rx=\"2\"></rect><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><line x1=\"6\" y1=\"12\" x2=\"6.01\" y2=\"12\"></line><line x1=\"18\" y1=\"12\" x2=\"18.01\" y2=\"12\"></line><path d=\"M12 9c-1 0-2 .5-2 1.5S11 12 12 12s2 .5 2 1.5S13 15 12 15\"></path><line x1=\"12\" y1=\"8\" x2=\"12\" y2=\"16\"></line></svg>",
-  "ordre": "2",
-  "parent": "6LCpm413Ksrqg6GZ",
-  "status": "1",
-  "corbeille": "0",
-  "code_menu": "PvXLrXO2vlcw4u4D",
-  "createdAt": {
-    "$date": "2026-04-06T17:53:26.674Z"
-  },
-  "updatedAt": {
-    "$date": "2026-04-06T18:01:12.965Z"
-  },
-  "__v": 1
-},
-{
-  "_id": {
-    "$oid": "69d403defb2b3f7288954bf1"
-  },
-  "designation": "pays",
-  "type": "enfant",
-  "route": "/pays",
-  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><path d=\"M2 12h20\"></path><path d=\"M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20\"></path></svg>",
-  "ordre": "8",
-  "parent": "",
-  "status": "1",
-  "corbeille": "0",
-  "code_menu": "CukdZ8IFvoUgw1RJ",
-  "createdAt": {
-    "$date": "2026-04-06T19:05:02.283Z"
-  },
-  "updatedAt": {
-    "$date": "2026-04-08T23:37:50.093Z"
-  },
-  "__v": 1
-},
-{
-  "_id": {
-    "$oid": "69d404c1fb2b3f7288954c66"
-  },
-  "designation": "clients",
-  "type": "enfant",
-  "route": "/clients",
-  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"10\" cy=\"8\" r=\"4\"></circle><path d=\"M3 21a7 7 0 0 1 14 0\"></path><circle cx=\"18\" cy=\"8\" r=\"3\"></circle></svg>",
-  "ordre": "9",
-  "parent": "",
-  "status": "1",
-  "corbeille": "0",
-  "code_menu": "yidQXivhDl85f70m",
-  "createdAt": {
-    "$date": "2026-04-06T19:08:49.195Z"
-  },
-  "updatedAt": {
-    "$date": "2026-04-08T23:37:50.100Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "69d69e42b9bbd2d8ef2e0fbf"
-  },
-  "designation": "expéditeurs",
-  "type": "enfant",
-  "route": "/expediteurs",
-  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"7\" width=\"13\" height=\"10\" rx=\"2\"></rect><path d=\"M16 10h5\"></path><path d=\"M18 8l3 2-3 2\"></path><path d=\"M3 11l6 3 7-3\"></path></svg>",
-  "ordre": "10",
-  "parent": "",
-  "status": "1",
-  "corbeille": "0",
-  "code_menu": "6ZNtB6nu4oqUOiw1",
-  "createdAt": {
-    "$date": "2026-04-08T18:28:18.362Z"
-  },
-  "updatedAt": {
-    "$date": "2026-04-08T23:37:50.101Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "69d6e6a82ef7b6fba598b805"
-  },
-  "designation": "dépenses",
-  "type": "enfant",
-  "route": "/types-depenses",
-  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M23 7l-7 7-4-4-8 8\"></path><path d=\"M17 7h6v6\"></path></svg>",
-  "ordre": "11",
-  "parent": "",
-  "status": "1",
-  "corbeille": "0",
-  "code_menu": "Kcjh5FQLeWXrHF8i",
-  "createdAt": {
-    "$date": "2026-04-08T23:37:12.650Z"
-  },
-  "updatedAt": {
-    "$date": "2026-04-08T23:37:50.102Z"
-  },
-  "__v": 0
-}]
+  {
+    "_id": { "$oid": "69d6e6a82ef7b6fba598b805" },
+    "designation": "dépenses",
+    "type": "enfant",
+    "route": "/types-depenses",
+    "ordre": "11",
+    "parent": "",
+    "status": "1",
+    "corbeille": "0",
+    "code_menu": "Kcjh5FQLeWXrHF8i",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M23 7l-7 7-4-4-8 8\"></path><path d=\"M17 7h6v6\"></path></svg>",
+    "createdAt": { "$date": "2026-04-08T23:37:12.650Z" },
+    "updatedAt": { "$date": "2026-04-08T23:37:50.102Z" },
+    "__v": 0
+  }
+]

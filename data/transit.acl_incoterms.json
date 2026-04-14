@@ -1,0 +1,196 @@
+[{
+  "_id": {
+    "$oid": "69d7c24124f1d22c66ec71b1"
+  },
+  "code": "CFR",
+  "libelle": "COUT ET FRET",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-09T15:14:09.953Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-09T15:14:09.953Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d7c24124f1d22c66ec71b2"
+  },
+  "code": "CIF",
+  "libelle": "COUT, ASSURANCE ET FRET",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-09T15:14:09.955Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-09T15:14:09.955Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d7c24124f1d22c66ec71b3"
+  },
+  "code": "CIP",
+  "libelle": "PORT ET ASSURANCE PAYES",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-09T15:14:09.955Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-09T15:14:09.955Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d7c24124f1d22c66ec71b4"
+  },
+  "code": "CPT",
+  "libelle": "PORT PAYE JUSQU’À",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-09T15:14:09.955Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-09T15:14:09.955Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d7c24124f1d22c66ec71b5"
+  },
+  "code": "DAF",
+  "libelle": "RENDU A LA FRONTIERE",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-09T15:14:09.955Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-09T15:14:09.955Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d7c24124f1d22c66ec71b6"
+  },
+  "code": "DAP",
+  "libelle": "RENDU AU LIEU DE DESTINATION",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-09T15:14:09.956Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-09T15:14:09.956Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d7c24124f1d22c66ec71b7"
+  },
+  "code": "DDP",
+  "libelle": "RENDU DROITS ACQUITTES",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-09T15:14:09.956Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-09T15:14:09.956Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d7c24124f1d22c66ec71b8"
+  },
+  "code": "DDU",
+  "libelle": "RENDU DROITS DUS",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-09T15:14:09.956Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-09T15:14:09.956Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d7c24124f1d22c66ec71b9"
+  },
+  "code": "DEQ",
+  "libelle": "RENDU A QUAI",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-09T15:14:09.956Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-09T15:14:09.956Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d7c24124f1d22c66ec71ba"
+  },
+  "code": "DES",
+  "libelle": "RENDU NON DECHARGE",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-09T15:14:09.956Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-09T15:14:09.956Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d7c24124f1d22c66ec71bb"
+  },
+  "code": "EXW",
+  "libelle": "EN USINE, A L'USINE",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-09T15:14:09.956Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-09T15:14:09.956Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d7c24124f1d22c66ec71bc"
+  },
+  "code": "FAS",
+  "libelle": "FRANCO LE LONG DU NAVIRE",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-09T15:14:09.956Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-09T15:14:09.956Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d7c24124f1d22c66ec71bd"
+  },
+  "code": "FCA",
+  "libelle": "FRANCO TRANSPORTEUR",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-09T15:14:09.956Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-09T15:14:09.956Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d7c24124f1d22c66ec71be"
+  },
+  "code": "FOB",
+  "libelle": "FRANCO A BORD",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-09T15:14:09.956Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-09T15:14:09.956Z"
+  }
+}]

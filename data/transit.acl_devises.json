@@ -1,0 +1,272 @@
+[{
+  "_id": {
+    "$oid": "69d3f1d5c27e52e2ae5fa52f"
+  },
+  "code": "XOF",
+  "libelle": "CFA (Franc BCEAO)",
+  "symbole": "CFA",
+  "taux_par_defaut": 1,
+  "status": "1",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-06T17:48:05.191Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-06T17:48:05.191Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d3f1d5c27e52e2ae5fa530"
+  },
+  "code": "USD",
+  "libelle": "Dollar Américain",
+  "symbole": "$",
+  "taux_par_defaut": 1,
+  "status": "1",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-06T17:48:05.193Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-06T17:48:05.193Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d3f1d5c27e52e2ae5fa531"
+  },
+  "code": "EUR",
+  "libelle": "Euro",
+  "symbole": "€",
+  "taux_par_defaut": 1,
+  "status": "1",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-06T17:48:05.194Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-06T17:48:05.194Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d3f1d5c27e52e2ae5fa532"
+  },
+  "code": "GBP",
+  "libelle": "Livre Sterling",
+  "symbole": "£",
+  "taux_par_defaut": 1,
+  "status": "1",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-06T17:48:05.194Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-06T17:48:05.194Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d3f1d5c27e52e2ae5fa533"
+  },
+  "code": "CHF",
+  "libelle": "Franc Suisse",
+  "symbole": "Fr",
+  "taux_par_defaut": 1,
+  "status": "1",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-06T17:48:05.194Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-06T17:48:05.194Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d3f1d5c27e52e2ae5fa534"
+  },
+  "code": "CAD",
+  "libelle": "Dollar Canadien",
+  "symbole": "C$",
+  "taux_par_defaut": 1,
+  "status": "1",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-06T17:48:05.194Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-06T17:48:05.194Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d3f1d5c27e52e2ae5fa535"
+  },
+  "code": "JPY",
+  "libelle": "Yen Japonais",
+  "symbole": "¥",
+  "taux_par_defaut": 1,
+  "status": "1",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-06T17:48:05.194Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-06T17:48:05.194Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d3f1d5c27e52e2ae5fa536"
+  },
+  "code": "CNY",
+  "libelle": "Yuan Chinois",
+  "symbole": "元",
+  "taux_par_defaut": 1,
+  "status": "1",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-06T17:48:05.194Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-06T17:48:05.194Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d3f1d5c27e52e2ae5fa537"
+  },
+  "code": "AED",
+  "libelle": "Dirham des Émirats",
+  "symbole": "DH",
+  "taux_par_defaut": 1,
+  "status": "1",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-06T17:48:05.194Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-06T17:48:05.194Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d3f1d5c27e52e2ae5fa538"
+  },
+  "code": "ZAR",
+  "libelle": "Rand Sud-Africain",
+  "symbole": "R",
+  "taux_par_defaut": 1,
+  "status": "1",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-06T17:48:05.195Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-06T17:48:05.195Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d3f1d5c27e52e2ae5fa539"
+  },
+  "code": "NGN",
+  "libelle": "Naira Nigérian",
+  "symbole": "₦",
+  "taux_par_defaut": 1,
+  "status": "1",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-06T17:48:05.195Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-06T17:48:05.195Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d3f1d5c27e52e2ae5fa53a"
+  },
+  "code": "GHS",
+  "libelle": "Cedi Ghanéen",
+  "symbole": "₵",
+  "taux_par_defaut": 1,
+  "status": "1",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-06T17:48:05.195Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-06T17:48:05.195Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d3f1d5c27e52e2ae5fa53b"
+  },
+  "code": "MAD",
+  "libelle": "Dirham Marocain",
+  "symbole": "DH",
+  "taux_par_defaut": 1,
+  "status": "1",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-06T17:48:05.195Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-06T17:48:05.195Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d3f1d5c27e52e2ae5fa53c"
+  },
+  "code": "XAF",
+  "libelle": "FCFA (BEAC)",
+  "symbole": "FCFA",
+  "taux_par_defaut": 1,
+  "status": "1",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-06T17:48:05.196Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-06T17:48:05.196Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d3f1d5c27e52e2ae5fa53d"
+  },
+  "code": "INR",
+  "libelle": "Roupie Indienne",
+  "symbole": "₹",
+  "taux_par_defaut": 1,
+  "status": "1",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-06T17:48:05.196Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-06T17:48:05.196Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d3f1d5c27e52e2ae5fa53e"
+  },
+  "code": "TRY",
+  "libelle": "Livre Turque",
+  "symbole": "₺",
+  "taux_par_defaut": 1,
+  "status": "1",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-06T17:48:05.196Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-06T17:48:05.196Z"
+  }
+}]

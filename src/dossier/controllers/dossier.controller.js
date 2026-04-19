@@ -26,6 +26,16 @@ exports.registerDossier = async (req, res) => {
             });
         }
 
+        // --- GESTION DU WORKFLOW ---
+        // Attribuer automatiquement la première étape du workflow si non spécifié
+        if (!dossierData.etat_dossier) {
+            const premierEtat = await EtatDossier.findOne({ status: '1' }).sort({ ordre: 1 });
+            if (premierEtat) {
+                dossierData.etat_dossier = premierEtat.code;
+            }
+        }
+        // ---------------------------
+
         const dossier = new Dossier(dossierData);
         await dossier.save();
         await dossier.populate(['client', 'expediteur']);

@@ -190,6 +190,11 @@ const dossierSchema = new mongoose.Schema({
         utilisateur: { type: mongoose.Schema.Types.ObjectId, ref: 'acl_administrateurs' },
         date_assignation: { type: Date, default: Date.now }
     }],
+    statut_history: [{
+        statut: { type: String },
+        date: { type: Date, default: Date.now },
+        utilisateur: { type: mongoose.Schema.Types.ObjectId, ref: 'acl_administrateurs' }
+    }],
     code_dossier: {
         type: String,
         unique: true,

@@ -78,7 +78,6 @@ const administrateurSchema = new mongoose.Schema({
 administrateurSchema.methods.formatResponse = async function () {
     const adminData = this.toObject();
     delete adminData.password;
-    delete adminData._id;
     delete adminData.__v;
 
     // Assurez-vous que le champ `profile` contient uniquement le chemin du fichier

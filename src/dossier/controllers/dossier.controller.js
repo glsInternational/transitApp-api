@@ -34,11 +34,31 @@ exports.registerDossier = async (req, res) => {
                 dossierData.etat_dossier = premierEtat.code;
             }
         }
+
+        // Ajouter l'ouvreur comme premier intervenant
+        if (req.user && req.user.token) {
+            const createur = await Administrateur.findOne({ token: req.user.token });
+            if (createur) {
+                dossierData.intervenants = [{
+                    role: 'OUVREUR',
+                    utilisateur: createur._id,
+                    date_assignation: new Date()
+                }];
+                // Initialiser l'historique
+                if (dossierData.etat_dossier) {
+                    dossierData.statut_history = [{
+                        statut: dossierData.etat_dossier,
+                        date: new Date(),
+                        utilisateur: createur._id
+                    }];
+                }
+            }
+        }
         // ---------------------------
 
         const dossier = new Dossier(dossierData);
         await dossier.save();
-        await dossier.populate(['client', 'expediteur']);
+        await dossier.populate(['client', 'expediteur', 'intervenants.utilisateur', 'statut_history.utilisateur']);
 
         // --- AUDIT ---
         await logAction(req, 'CREATE', 'DOSSIER', { 
@@ -82,7 +102,7 @@ exports.getDossierInfo = async (req, res) => {
     try {
         const code_dossier = req.params.code_dossier;
 
-        const dossier = await Dossier.findOne({ code_dossier: code_dossier }).populate(['client', 'expediteur']);
+        const dossier = await Dossier.findOne({ code_dossier: code_dossier }).populate(['client', 'expediteur', 'intervenants.utilisateur', 'statut_history.utilisateur']);
         if (!dossier) {
             return res.status(404).json({ 
                 status: false,
@@ -108,8 +128,24 @@ exports.getDossierInfo = async (req, res) => {
 // GET ALL DOSSIERS
 exports.getDossierListe = async (req, res) => {
     try {
-        // Optionnel : ajouter des filtres (corbeille, status, etc.)
-        const dossiers = await Dossier.find({ corbeille: '0' }).populate(['client', 'expediteur']).sort({ createdAt: -1 });
+        let filter = { corbeille: '0' };
+
+        // Si l'utilisateur est connecté, on filtre les dossiers
+        if (req.user && req.user.token) {
+            const admin = await Administrateur.findOne({ token: req.user.token });
+            if (admin) {
+                // Les Super Admins et Chefs Transit voient tout
+                const role = admin.profile; // ex: CHEF_TRANSIT, SUPER_ADMIN
+                const profileName = req.user.profileName; // ex: super-admin
+
+                if (profileName !== 'super-admin' && role !== 'SUPER_ADMIN' && role !== 'CHEF_TRANSIT') {
+                    // Les autres rôles (y compris l'ouvreur) ne voient que les dossiers où ils sont intervenants
+                    filter['intervenants.utilisateur'] = admin._id;
+                }
+            }
+        }
+
+        const dossiers = await Dossier.find(filter).populate(['client', 'expediteur', 'intervenants.utilisateur', 'statut_history.utilisateur']).sort({ createdAt: -1 });
 
         const formattedDossiers = dossiers.map((d, index) => ({
             ...d.formatResponse(),
@@ -230,6 +266,64 @@ exports.deleteDossier = async (req, res) => {
         res.status(200).json({
             status: true,
             message: 'Dossier mis dans la corbeille avec succès.',
+            data: {}
+        });
+    } catch (error) {
+        res.status(500).json({
+            status: false,
+            message: "Une erreur interne est survenue.",
+            data: {}
+        });
+    }
+};
+
+// GET DOSSIERS IN CORBEILLE
+exports.getDossiersCorbeille = async (req, res) => {
+    try {
+        const dossiers = await Dossier.find({ corbeille: '1' }).populate(['client', 'expediteur']).sort({ updatedAt: -1 });
+
+        const formattedDossiers = dossiers.map((d, index) => ({
+            ...d.formatResponse(),
+            position: index + 1
+        }));
+
+        res.status(200).json({
+            status: true,
+            message: 'Succès.',
+            data: formattedDossiers
+        });
+    } catch (error) {
+        res.status(500).json({ 
+            status: false,
+            message: error.message || 'Une erreur interne est survenue.',
+            data: []
+        });
+    }
+};
+
+// RESTORE DOSSIER FROM CORBEILLE
+exports.restoreDossier = async (req, res) => {
+    try {
+        const code_dossier = req.params.code_dossier;
+
+        const dossier = await Dossier.findOne({ code_dossier: code_dossier });
+        if (!dossier) {
+            return res.status(404).json({
+                status: false,
+                message: 'Dossier non trouvé.',
+                data: {}
+            });
+        }
+
+        dossier.corbeille = '0';
+        await dossier.save();
+
+        // --- AUDIT ---
+        await logAction(req, 'RESTORE', 'DOSSIER', { num_dossier: dossier.num_dossier });
+
+        res.status(200).json({
+            status: true,
+            message: 'Dossier restauré avec succès.',
             data: {}
         });
     } catch (error) {
@@ -400,6 +494,56 @@ exports.getEtatDossiers = async (req, res) => {
     }
 };
 
+// CREATE ETAT DOSSIER
+exports.createEtatDossier = async (req, res) => {
+    try {
+        const etatData = req.body;
+        const nouvelEtat = new EtatDossier(etatData);
+        await nouvelEtat.save();
+        
+        res.status(201).json({
+            status: true,
+            message: 'Étape créée avec succès.',
+            data: nouvelEtat
+        });
+    } catch (error) {
+        res.status(500).json({ 
+            status: false,
+            message: error.message || 'Une erreur interne est survenue.',
+            data: null
+        });
+    }
+};
+
+// UPDATE ETAT DOSSIER
+exports.updateEtatDossier = async (req, res) => {
+    try {
+        const etatId = req.params.id;
+        const updates = req.body;
+        
+        const etat = await EtatDossier.findByIdAndUpdate(etatId, updates, { new: true });
+        if (!etat) {
+            return res.status(404).json({
+                status: false,
+                message: 'Étape non trouvée.',
+                data: null
+            });
+        }
+        
+        res.status(200).json({
+            status: true,
+            message: 'Étape mise à jour avec succès.',
+            data: etat
+        });
+    } catch (error) {
+        res.status(500).json({ 
+            status: false,
+            message: error.message || 'Une erreur interne est survenue.',
+            data: null
+        });
+    }
+};
+
 // CHANGE DOSSIER STATUS & ADD INTERVENANT
 exports.changeDossierStatus = async (req, res) => {
     try {
@@ -414,19 +558,30 @@ exports.changeDossierStatus = async (req, res) => {
             });
         }
 
-        const etat = await EtatDossier.findOne({ code: nouveau_statut });
-        if (!etat) {
-            return res.status(400).json({
-                status: false,
-                message: "L'état spécifié n'existe pas.",
-                data: {}
+        if (nouveau_statut) {
+            const etat = await EtatDossier.findOne({ code: nouveau_statut });
+            if (!etat) {
+                return res.status(400).json({
+                    status: false,
+                    message: "L'état spécifié n'existe pas.",
+                    data: {}
+                });
+            }
+
+            dossier.etat_dossier = nouveau_statut;
+            
+            // Enregistrer dans l'historique
+            if (!dossier.statut_history) dossier.statut_history = [];
+            dossier.statut_history.push({
+                statut: nouveau_statut,
+                date: new Date(),
+                utilisateur: req.user?._id || req.user?.id
             });
         }
 
-        dossier.etat_dossier = nouveau_statut;
-
         if (intervenant_id && role) {
             // Ajouter le nouvel intervenant (vérifier s'il n'existe pas déjà pour ce rôle)
+            if (!dossier.intervenants) dossier.intervenants = [];
             const exists = dossier.intervenants.find(i => i.role === role && i.utilisateur.toString() === intervenant_id);
             if (!exists) {
                 dossier.intervenants.push({
@@ -438,7 +593,7 @@ exports.changeDossierStatus = async (req, res) => {
         }
 
         await dossier.save();
-        await dossier.populate(['client', 'expediteur', 'intervenants.utilisateur']);
+        await dossier.populate(['client', 'expediteur', 'intervenants.utilisateur', 'statut_history.utilisateur']);
 
         // --- AUDIT ---
         await logAction(req, 'UPDATE', 'DOSSIER_STATUS', { 
@@ -460,5 +615,40 @@ exports.changeDossierStatus = async (req, res) => {
             message: error.message || 'Une erreur interne est survenue.',
             data: {}
         });
+    }
+};
+
+// REMOVE INTERVENANT
+exports.removeIntervenant = async (req, res) => {
+    try {
+        const { code_dossier, utilisateur_id, role } = req.body;
+
+        const dossier = await Dossier.findOne({ code_dossier: code_dossier });
+        if (!dossier) {
+            return res.status(404).json({ status: false, message: 'Dossier non trouvé.' });
+        }
+
+        // Filtrer pour retirer l'intervenant spécifique
+        dossier.intervenants = dossier.intervenants.filter(
+            i => !(i.utilisateur.toString() === utilisateur_id && i.role === role)
+        );
+
+        await dossier.save();
+        await dossier.populate(['client', 'expediteur', 'intervenants.utilisateur']);
+
+        // --- AUDIT ---
+        await logAction(req, 'DELETE', 'INTERVENANT_REMOVED', { 
+            num_dossier: dossier.num_dossier, 
+            utilisateur_id,
+            role
+        });
+
+        res.status(200).json({
+            status: true,
+            message: 'Intervenant retiré avec succès.',
+            data: dossier.formatResponse(),
+        });
+    } catch (error) {
+        res.status(500).json({ status: false, message: error.message });
     }
 };

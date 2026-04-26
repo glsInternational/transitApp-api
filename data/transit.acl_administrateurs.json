@@ -165,4 +165,172 @@
     "$date": "2026-04-04T09:37:22.719Z"
   },
   "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69e53d9981c533b81ef9e9a0"
+  },
+  "nom": "Smith",
+  "genre": "Masculin",
+  "telephone": "+225 0102030405",
+  "email": "chef@transit.com",
+  "password": "$2b$10$t26z7mVqRGgH1V/.B8rrQ.6MvX15Oc7ipfb/M7Lvjp6.Dc4K.IZG2",
+  "profile": "CHEF_TRANSIT",
+  "type_compte": "",
+  "status": "1",
+  "corbeille": "0",
+  "status_first_connexion": "1",
+  "photo_profile": {
+    "filename": null,
+    "filetype": null,
+    "filepath": null
+  },
+  "token": "PzfOedQDaX19RpWX",
+  "createdAt": {
+    "$date": "2026-04-19T20:39:53.652Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-19T20:52:59.341Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69e53db75d62990ba9f76f7e"
+  },
+  "nom": "Doe",
+  "genre": "Masculin",
+  "telephone": "+225 0100000001",
+  "email": "ouvreur@transit.com",
+  "password": "$2b$10$Sm.8iBlsZxf78HtBTeAzuuGSgMcHunOHxEYVqnXrLhy5wGi/DoOn.",
+  "profile": "OUVREUR",
+  "type_compte": "",
+  "status": "1",
+  "corbeille": "0",
+  "status_first_connexion": "1",
+  "photo_profile": {
+    "filename": null,
+    "filetype": null,
+    "filepath": null
+  },
+  "token": "rOfosG18w63wY7cm",
+  "createdAt": {
+    "$date": "2026-04-19T20:40:23.571Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-19T20:49:25.704Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69e53db75d62990ba9f76f85"
+  },
+  "nom": "Martin",
+  "genre": "Masculin",
+  "telephone": "+225 0100000003",
+  "email": "declarant@transit.com",
+  "password": "$2b$10$Sm.8iBlsZxf78HtBTeAzuuGSgMcHunOHxEYVqnXrLhy5wGi/DoOn.",
+  "profile": "DECLARANT",
+  "type_compte": "",
+  "status": "1",
+  "corbeille": "0",
+  "status_first_connexion": "1",
+  "photo_profile": {
+    "filename": null,
+    "filetype": null,
+    "filepath": null
+  },
+  "token": "gjgZbTME2KH0oqSV",
+  "createdAt": {
+    "$date": "2026-04-19T20:40:23.583Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-19T21:02:21.187Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69e53db75d62990ba9f76f8a"
+  },
+  "nom": "Dupont",
+  "genre": "Masculin",
+  "telephone": "+225 0100000004",
+  "email": "operatrice@transit.com",
+  "password": "$2b$10$Sm.8iBlsZxf78HtBTeAzuuGSgMcHunOHxEYVqnXrLhy5wGi/DoOn.",
+  "profile": "OPERATEUR_SAISIE",
+  "type_compte": "",
+  "status": "1",
+  "corbeille": "0",
+  "status_first_connexion": "1",
+  "photo_profile": {
+    "filename": null,
+    "filetype": null,
+    "filepath": null
+  },
+  "token": "f6yphrdANa22JztX",
+  "createdAt": {
+    "$date": "2026-04-19T20:40:23.590Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-19T22:03:46.863Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69e53db75d62990ba9f76f8f"
+  },
+  "nom": "Kone",
+  "genre": "Masculin",
+  "telephone": "+225 0100000005",
+  "email": "passeur@transit.com",
+  "password": "$2b$10$Sm.8iBlsZxf78HtBTeAzuuGSgMcHunOHxEYVqnXrLhy5wGi/DoOn.",
+  "profile": "PASSEUR_DOUANE",
+  "type_compte": "",
+  "status": "1",
+  "corbeille": "0",
+  "status_first_connexion": "1",
+  "photo_profile": {
+    "filename": null,
+    "filetype": null,
+    "filepath": null
+  },
+  "token": "RNX1fNlQV97kDVMi",
+  "createdAt": {
+    "$date": "2026-04-19T20:40:23.596Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-19T22:07:16.279Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69e53db75d62990ba9f76f94"
+  },
+  "nom": "Leroy",
+  "genre": "Masculin",
+  "telephone": "+225 0100000006",
+  "email": "facturation@transit.com",
+  "password": "$2b$10$Sm.8iBlsZxf78HtBTeAzuuGSgMcHunOHxEYVqnXrLhy5wGi/DoOn.",
+  "profile": "FACTURATION",
+  "type_compte": "",
+  "status": "1",
+  "corbeille": "0",
+  "status_first_connexion": "0",
+  "photo_profile": {
+    "filename": null,
+    "filetype": null,
+    "filepath": null
+  },
+  "token": "KlVtOKf2y19nQElr",
+  "createdAt": {
+    "$date": "2026-04-19T20:40:23.600Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-19T20:40:23.600Z"
+  },
+  "__v": 0
 }]

@@ -1,0 +1,1360 @@
+[{
+  "_id": {
+    "$oid": "69d045c71f8ee8f87e229034"
+  },
+  "code": "1000",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T22:57:11.314Z"
+  },
+  "libelle": "Exportation definitive",
+  "status": "1",
+  "type": "definitif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.486Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d045c71f8ee8f87e229035"
+  },
+  "code": "2200",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T22:57:11.380Z"
+  },
+  "libelle": "Perfectionnement passif pour transformation",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.597Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d045c71f8ee8f87e229036"
+  },
+  "code": "3000",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T22:57:11.384Z"
+  },
+  "libelle": "Re-exportation directe",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.608Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d045c71f8ee8f87e229037"
+  },
+  "code": "4000",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T22:57:11.386Z"
+  },
+  "libelle": "Mise a la consommation directe",
+  "status": "1",
+  "type": "definitif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.636Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d045c71f8ee8f87e229038"
+  },
+  "code": "5000",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T22:57:11.387Z"
+  },
+  "libelle": "Admission temporaire ordinaire",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.657Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d045c71f8ee8f87e229039"
+  },
+  "code": "7000",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T22:57:11.390Z"
+  },
+  "libelle": "Entree en entrepot de stockage",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.761Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d045c71f8ee8f87e22903a"
+  },
+  "code": "8000",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T22:57:11.392Z"
+  },
+  "libelle": "Transit national",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.786Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d045c71f8ee8f87e22903b"
+  },
+  "code": "D3",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T22:57:11.395Z"
+  },
+  "libelle": "Mise à la consommation (Import TTC)",
+  "status": "1",
+  "type": "definitif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.839Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d045c71f8ee8f87e22903c"
+  },
+  "code": "D18",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T22:57:11.397Z"
+  },
+  "libelle": "Entrepôt de stockage / Admission Temporaire",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.842Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d045c71f8ee8f87e22903d"
+  },
+  "code": "D56",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T22:57:11.401Z"
+  },
+  "libelle": "Admission temporaire / Matériel pro",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.844Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69d045c71f8ee8f87e22903e"
+  },
+  "code": "S106",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T22:57:11.404Z"
+  },
+  "libelle": "Exportation temporaire",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.846Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d0c"
+  },
+  "code": "1022",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.569Z"
+  },
+  "libelle": "Exportation definitive en suite de perfectionnement passif pr transfo",
+  "status": "1",
+  "type": "definitif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.569Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d0d"
+  },
+  "code": "1023",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.584Z"
+  },
+  "libelle": "Exportation definitive en suite de perfectionnement passif pour repara",
+  "status": "1",
+  "type": "definitif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.584Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d0e"
+  },
+  "code": "1024",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.588Z"
+  },
+  "libelle": "Exportation definitive en suite de perfectionnement passif autre",
+  "status": "1",
+  "type": "definitif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.588Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d0f"
+  },
+  "code": "1052",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.591Z"
+  },
+  "libelle": "Exportation definitive en suite de perfectionnement actif",
+  "status": "1",
+  "type": "definitif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.591Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d10"
+  },
+  "code": "1094",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.594Z"
+  },
+  "libelle": "Exportation en régularisation de Bon Provisoire",
+  "status": "1",
+  "type": "definitif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.594Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d11"
+  },
+  "code": "2300",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.600Z"
+  },
+  "libelle": "Perfectionnement passif en suite de reparation",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.600Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d12"
+  },
+  "code": "2400",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.604Z"
+  },
+  "libelle": "Perfectionnement passif autre",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.604Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d13"
+  },
+  "code": "3050",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.612Z"
+  },
+  "libelle": "Re-exportation en suite d'admission temporaire ordinaire",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.612Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d14"
+  },
+  "code": "3051",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.616Z"
+  },
+  "libelle": "Re-exportation en suite d'admission temporaire speciale",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.616Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d15"
+  },
+  "code": "3052",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.618Z"
+  },
+  "libelle": "Re-exportation en suite d'AT pour perfectionnement actif",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.618Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d16"
+  },
+  "code": "3070",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.621Z"
+  },
+  "libelle": "Re-exportation en suite d'entrepot de stockage",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.621Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d17"
+  },
+  "code": "3079",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.624Z"
+  },
+  "libelle": "Re-exportation en suite de depot",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.624Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d18"
+  },
+  "code": "3080",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.628Z"
+  },
+  "libelle": "Re-exportation en suite de transit national",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.628Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d19"
+  },
+  "code": "3092",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.630Z"
+  },
+  "libelle": "Re-exportation en sortie de zone franche",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.630Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d1a"
+  },
+  "code": "3094",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.633Z"
+  },
+  "libelle": "Re-exportation en régularisation de Bon Provisoire",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.633Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d1b"
+  },
+  "code": "4050",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.639Z"
+  },
+  "libelle": "Mise a la consommation en suite d'admission temporaire ordinaire",
+  "status": "1",
+  "type": "definitif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.639Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d1c"
+  },
+  "code": "4051",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.642Z"
+  },
+  "libelle": "Mise a la consommation en suite d'admission temporaire speciale",
+  "status": "1",
+  "type": "definitif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.642Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d1d"
+  },
+  "code": "4052",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.645Z"
+  },
+  "libelle": "Mise a la consommation en suite d'AT pour perfectionnement actif",
+  "status": "1",
+  "type": "definitif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.645Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d1e"
+  },
+  "code": "4070",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.647Z"
+  },
+  "libelle": "Mise a la consommation en suite d'entrepot de stockage",
+  "status": "1",
+  "type": "definitif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.647Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d1f"
+  },
+  "code": "4079",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.650Z"
+  },
+  "libelle": "Mise a la consomation en suite de depot",
+  "status": "1",
+  "type": "definitif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.650Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d20"
+  },
+  "code": "4080",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.653Z"
+  },
+  "libelle": "Mise a la consommation en suite de transit national",
+  "status": "1",
+  "type": "definitif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.653Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d21"
+  },
+  "code": "4094",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.655Z"
+  },
+  "libelle": "Mise à la consommation en régularisation de Bon Provisoire",
+  "status": "1",
+  "type": "definitif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.655Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d22"
+  },
+  "code": "5050",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.659Z"
+  },
+  "libelle": "Mutation d'admission temporaire ordinaire",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.659Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d23"
+  },
+  "code": "5052",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.661Z"
+  },
+  "libelle": "Admission Temporaire Ordinaire ensuite de perfectionnement actif",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.661Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d24"
+  },
+  "code": "5070",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.663Z"
+  },
+  "libelle": "Admission temporaire en suite d'entrepot de stockage",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.663Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d25"
+  },
+  "code": "5079",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.666Z"
+  },
+  "libelle": "Admission temporaire ordinaire en suite de depot",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.666Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d26"
+  },
+  "code": "5080",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.668Z"
+  },
+  "libelle": "Admission temporaire ordinaire en suite de transit national",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.668Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d27"
+  },
+  "code": "5092",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.671Z"
+  },
+  "libelle": "Admission temporaire en suite dezone franche",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.671Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d28"
+  },
+  "code": "5094",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.677Z"
+  },
+  "libelle": "Admission temporaire en régularisation de Bon Provisoire",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.677Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d29"
+  },
+  "code": "5100",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.689Z"
+  },
+  "libelle": "Admission temporaire speciale (materiels d'entreprises)",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.689Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d2a"
+  },
+  "code": "5150",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.699Z"
+  },
+  "libelle": "Admission temporaire speciale en suite d'ATO",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.699Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d2b"
+  },
+  "code": "5170",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.710Z"
+  },
+  "libelle": "Admission temporaire speciale en suite d'entrepot de stockage",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.710Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d2c"
+  },
+  "code": "5179",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.719Z"
+  },
+  "libelle": "Admission temporaire speciale en suite de depot",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.719Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d2d"
+  },
+  "code": "5180",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.725Z"
+  },
+  "libelle": "Admission temporaire speciale en suite de transit national",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.725Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d2e"
+  },
+  "code": "5200",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.733Z"
+  },
+  "libelle": "AT pour perfectionnement actif (ouvraison,reparation,transformation)",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.733Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d2f"
+  },
+  "code": "5250",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.739Z"
+  },
+  "libelle": "Mutation d'ATO en ATT",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.739Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d30"
+  },
+  "code": "5252",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.743Z"
+  },
+  "libelle": "Mutation de perfectionnement actif (ouvraison, reparation...)",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.743Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d31"
+  },
+  "code": "5270",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.747Z"
+  },
+  "libelle": "AT pour perfectionnement actif en suite d'entrepot de stockage",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.747Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d32"
+  },
+  "code": "5279",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.749Z"
+  },
+  "libelle": "Perfectionnement actif en suite de depot",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.749Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d33"
+  },
+  "code": "5280",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.751Z"
+  },
+  "libelle": "Perfectionnement actif en suite de transit national",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.751Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d34"
+  },
+  "code": "5294",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.753Z"
+  },
+  "libelle": "AT pour perfectionnement actif en régularisation de Bon Provisoire",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.753Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d35"
+  },
+  "code": "6022",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.755Z"
+  },
+  "libelle": "Re-importation en suite de perfectionnement passif pour transformation",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.755Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d36"
+  },
+  "code": "6023",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.757Z"
+  },
+  "libelle": "Re-importation en suite de perfectionnement passif pour reparation",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.757Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d37"
+  },
+  "code": "6024",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.760Z"
+  },
+  "libelle": "Re-importation en suite de perfectionnement passif autre",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.760Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d38"
+  },
+  "code": "7050",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.763Z"
+  },
+  "libelle": "Entree en entrepot de stockage en suite d'AT ordinaire",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.763Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d39"
+  },
+  "code": "7051",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.766Z"
+  },
+  "libelle": "Entree en entrepot de stockage en suite d'AT speciale",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.766Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d3a"
+  },
+  "code": "7052",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.768Z"
+  },
+  "libelle": "Entree en entrepot de stockage en suite d'AT perfectionnement actif",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.768Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d3b"
+  },
+  "code": "7070",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.773Z"
+  },
+  "libelle": "Mutation d'entrepot de stockage",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.773Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d3c"
+  },
+  "code": "7079",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.777Z"
+  },
+  "libelle": "Entrepot de stockage en suite de depot",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.777Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d3d"
+  },
+  "code": "7080",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.780Z"
+  },
+  "libelle": "Mise en entrepot en suite de transit national",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.780Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d3e"
+  },
+  "code": "7094",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.783Z"
+  },
+  "libelle": "Entrepot de stockage En Régularisation de Bon Provisoire",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.783Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d3f"
+  },
+  "code": "8052",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.788Z"
+  },
+  "libelle": "Transit national en suite de perfectionnement actif",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.788Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d40"
+  },
+  "code": "8070",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.791Z"
+  },
+  "libelle": "Transit national en suite d'entrepot de stockage",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.791Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d41"
+  },
+  "code": "8079",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.794Z"
+  },
+  "libelle": "Transit national en suite de depot",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.794Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d42"
+  },
+  "code": "8080",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.796Z"
+  },
+  "libelle": "Transit national par mer vers port/aeroport CI en suite de transit",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.796Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d43"
+  },
+  "code": "8100",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.799Z"
+  },
+  "libelle": "Transbordement",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.799Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d44"
+  },
+  "code": "9100",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.801Z"
+  },
+  "libelle": "Cabotage",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.801Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d45"
+  },
+  "code": "9200",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.804Z"
+  },
+  "libelle": "Entree en zone franche",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.804Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d46"
+  },
+  "code": "9280",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.806Z"
+  },
+  "libelle": "Entrée en zone franche industriel en suite de transit national",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.806Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d47"
+  },
+  "code": "9292",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.808Z"
+  },
+  "libelle": "Mutation de zone franche",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.808Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d48"
+  },
+  "code": "9294",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.810Z"
+  },
+  "libelle": "Entrée en zone franche en régularisation de Bon Provisoire",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.810Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d49"
+  },
+  "code": "9351",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.812Z"
+  },
+  "libelle": "Declaration anniversaire d'AT speciale (mat. d'entreprises)",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.812Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d4a"
+  },
+  "code": "9900",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.814Z"
+  },
+  "libelle": "Déclaration Manuelle",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.814Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d4b"
+  },
+  "code": "9910",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.816Z"
+  },
+  "libelle": "Liquidation manuelle en suite d exportation",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.816Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d4c"
+  },
+  "code": "9922",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.818Z"
+  },
+  "libelle": "Liquidation manuelle en suite de perfectionnement passif pour transfor",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.818Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d4d"
+  },
+  "code": "9923",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.820Z"
+  },
+  "libelle": "Liquidation manuelle en suite de perfectionnement passif pour reparati",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.820Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d4e"
+  },
+  "code": "9924",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.821Z"
+  },
+  "libelle": "Liquidation manuelle en suite de perfectionnement passif autre",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.821Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d4f"
+  },
+  "code": "9930",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.823Z"
+  },
+  "libelle": "Liquidation manuelle en suite de reexportation",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.823Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d50"
+  },
+  "code": "9950",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.826Z"
+  },
+  "libelle": "Liquidation manuelle en suite d'admission temporaire ordinaire",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.826Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d51"
+  },
+  "code": "9951",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.828Z"
+  },
+  "libelle": "Liquidation Manuelle en suite d'ATME",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.828Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d52"
+  },
+  "code": "9952",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.830Z"
+  },
+  "libelle": "Liquidation manuelle en suite de perfectionnement actif",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.830Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d53"
+  },
+  "code": "9970",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.832Z"
+  },
+  "libelle": "Liquidation manuelle en suite d'entrepot de stockage",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.832Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d54"
+  },
+  "code": "9980",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.834Z"
+  },
+  "libelle": "Liquidation manuelle en suite de transit national",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.834Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69de5822204afdecd4949d55"
+  },
+  "code": "9992",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-14T15:07:14.836Z"
+  },
+  "libelle": "Liquidation manuelle en suite de zone franche",
+  "status": "1",
+  "type": "suspensif",
+  "updatedAt": {
+    "$date": "2026-04-14T15:07:14.836Z"
+  }
+}]
